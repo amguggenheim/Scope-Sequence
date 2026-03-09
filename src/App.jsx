@@ -313,11 +313,15 @@ function StandardsTooltip({ standards, color }) {
       <button
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="transition-colors duration-150 p-0.5 rounded"
-        style={{ color: visible ? color : '#cbd5e1' }}
+        className="transition-colors duration-150 px-1.5 py-0.5 rounded text-xs font-mono font-semibold border"
+        style={{
+          color: visible ? 'white' : color,
+          backgroundColor: visible ? color : color + '15',
+          borderColor: color + '40',
+        }}
         aria-label="View aligned standards"
       >
-        <Link2 size={12} />
+        STD
       </button>
 
       {visible && (
