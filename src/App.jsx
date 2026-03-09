@@ -82,17 +82,40 @@ const unitsData = [
       { text: "Evaluate a speaker's point of view, reasoning, and use of evidence.", standards: ['SL.9-10.3'] },
       { text: "Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others' ideas.", standards: ['SL.9-10.1'] },
     ],
-    rigor: {
-      title: 'Collaborative Discussions (SL.9-10.1)',
-      grade9: [
-        { text: 'Come prepared for discussions, ask questions and respond to peers.', outcomes: ['I can come prepared for a discussion', 'I can ask questions or make on-topic comments in response to peers'] },
-        { text: 'Work with peers to establish discussion norms and set goals.', outcomes: ['I can collaborate with peers to establish discussion norms', 'I can help set goals and roles for group work'] },
-      ],
-      grade10: [
-        { text: 'Use language to propel a conversation forward, engage independently in task, challenge peers with the goal of consensus.', outcomes: ['I can use clarifying and probing questions to move the discussion forward', 'I can participate in a group discussion independently'] },
-        { text: 'Synthesize diverse perspectives, summarize agreement/disagreement, and justify views with evidence.', outcomes: ['I can acknowledge and respond to different viewpoints', 'I can synthesize discussion points and adjust my thinking based on evidence'] },
-      ],
-    },
+    rigor: [
+      {
+        standard: 'SL.9-10.1',
+        title: 'Collaborative Discussions',
+        grade9: [
+          { text: 'Come prepared for discussions, ask questions and respond to peers.', outcomes: ['I can come prepared for a discussion', 'I can ask questions or make on-topic comments in response to peers'] },
+          { text: 'Work with peers to establish discussion norms and set goals.', outcomes: ['I can collaborate with peers to establish discussion norms', 'I can help set goals and roles for group work'] },
+        ],
+        grade10: [
+          { text: 'Use language to propel a conversation forward, engage independently in task, challenge peers with the goal of consensus.', outcomes: ['I can use clarifying and probing questions to move the discussion forward', 'I can participate in a group discussion independently'] },
+          { text: 'Synthesize diverse perspectives, summarize agreement/disagreement, and justify views with evidence.', outcomes: ['I can acknowledge and respond to different viewpoints', 'I can synthesize discussion points and adjust my thinking based on evidence'] },
+        ],
+      },
+      {
+        standard: 'RI.9-10.4',
+        title: 'Word Choice & Meaning (Informational Texts)',
+        grade9: [
+          { text: 'Determine the meaning of words and phrases, including figurative and connotative language.', outcomes: ['I can determine the meaning of words and phrases, including figurative and connotative language.'] },
+        ],
+        grade10: [
+          { text: 'Analyze the cumulative impact of specific word choice on meaning and tone.', outcomes: ['I can analyze the cumulative impact of specific word choice on meaning and tone.'] },
+        ],
+      },
+      {
+        standard: 'RL.9-10.4',
+        title: 'Word Choice & Meaning (Literature)',
+        grade9: [
+          { text: 'Determine the meaning of words and phrases, including figurative and connotative language.', outcomes: ['I can use a variety of resources & strategies to determine the meaning of words and phrases', 'I can determine the literal meaning of figurative language', 'I can differentiate the meaning of connotative language.'] },
+        ],
+        grade10: [
+          { text: 'Analyze the cumulative impact of specific word choice on meaning and tone.', outcomes: ['I can analyze how and when specific language is used to impact meaning', 'I can analyze how and when specific language is used to impact tone'] },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -446,56 +469,288 @@ function UnitAccordion({ unit }) {
 
           {/* Rigor Expectations */}
           <SectionDropdown title="Rigor Expectations by Grade" icon={<Target size={15} />} color={color.main}>
-            <div className="mt-2">
-              <p className="text-xs font-medium text-slate-500 mb-4">{unit.rigor.title}</p>
-              <div className="grid grid-cols-2 gap-5">
-                {/* Grade 9 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main + 'aa' }}>9</span>
-                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Grade 9</span>
-                  </div>
-                  <div className="space-y-3">
-                    {unit.rigor.grade9.map((item, i) => (
-                      <div key={i} className="bg-white rounded-lg border border-slate-200 p-3">
-                        <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
-                        <ul className="space-y-1">
-                          {item.outcomes.map((o, j) => (
-                            <li key={j} className="text-xs text-slate-500 flex items-start gap-1.5">
-                              <span className="text-slate-300 mt-0.5 flex-shrink-0">—</span>{o}
-                            </li>
-                          ))}
-                        </ul>
+            <div className="mt-2 space-y-5">
+              {(Array.isArray(unit.rigor) ? unit.rigor : [unit.rigor]).map((rigorItem, rigorIdx) => (
+                <div key={rigorIdx}>
+                  {Array.isArray(unit.rigor) && unit.rigor.length > 1 ? (
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded" style={{ backgroundColor: color.light, color: color.main }}>
+                        {rigorItem.standard}
+                      </span>
+                      <span className="text-xs text-slate-500">{rigorItem.title}</span>
+                    </div>
+                  ) : (
+                    <p className="text-xs font-medium text-slate-500 mb-3">{rigorItem.title}</p>
+                  )}
+                  <div className="grid grid-cols-2 gap-5">
+                    {/* Grade 9 */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main + 'aa' }}>9</span>
+                        <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Grade 9</span>
                       </div>
-                    ))}
+                      <div className="space-y-3">
+                        {rigorItem.grade9.map((item, i) => (
+                          <div key={i} className="bg-white rounded-lg border border-slate-200 p-3">
+                            <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
+                            <ul className="space-y-1">
+                              {item.outcomes.map((o, j) => (
+                                <li key={j} className="text-xs text-slate-500 flex items-start gap-1.5">
+                                  <span className="text-slate-300 mt-0.5 flex-shrink-0">—</span>{o}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Grade 10 */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main }}>10</span>
+                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: color.main }}>Grade 10</span>
+                      </div>
+                      <div className="space-y-3">
+                        {rigorItem.grade10.map((item, i) => (
+                          <div key={i} className="rounded-lg border p-3" style={{ backgroundColor: color.light, borderColor: color.border }}>
+                            <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
+                            <ul className="space-y-1">
+                              {item.outcomes.map((o, j) => (
+                                <li key={j} className="text-xs flex items-start gap-1.5" style={{ color: color.main }}>
+                                  <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>—</span>{o}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                {/* Grade 10 */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main }}>10</span>
-                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: color.main }}>Grade 10</span>
-                  </div>
-                  <div className="space-y-3">
-                    {unit.rigor.grade10.map((item, i) => (
-                      <div key={i} className="rounded-lg border p-3" style={{ backgroundColor: color.light, borderColor: color.border }}>
-                        <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
-                        <ul className="space-y-1">
-                          {item.outcomes.map((o, j) => (
-                            <li key={j} className="text-xs flex items-start gap-1.5" style={{ color: color.main }}>
-                              <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>—</span>{o}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </SectionDropdown>
         </div>
       )}
+    </div>
+  );
+}
+
+// ─── Vertical Progression ────────────────────────────────────────────────────
+
+const progressionThemes = [
+  {
+    title: 'Complexity of Thinking',
+    quarters: [
+      'Understand single texts (theme/main idea)',
+      'Analyze craft within texts (how meaning is made)',
+      'Synthesize across texts (create new understanding)',
+      'Independent inquiry (apply all skills to self-directed research)',
+    ],
+  },
+  {
+    title: 'Writing Sophistication',
+    quarters: [
+      'Arguments with evidence about texts',
+      'Arguments with academic tone',
+      'Arguments with sophisticated vocabulary',
+      'Full arguments with counterclaims, rhetorical appeals, and research integration',
+    ],
+  },
+  {
+    title: 'Source Work',
+    quarters: [
+      'Use assigned texts',
+      'Analyze single texts deeply',
+      'Work with multiple texts',
+      'Find, evaluate, and integrate own sources',
+    ],
+  },
+  {
+    title: 'Audience Awareness',
+    quarters: [
+      'Class discussions (peer audience)',
+      'Academic tone (academic audience)',
+      'Sophisticated vocabulary (discipline-specific audience)',
+      'Formal presentation with digital media (public/authentic audience)',
+    ],
+  },
+];
+
+const quarterLabels = [
+  { q: 'Q1', label: 'Foundation' },
+  { q: 'Q2', label: 'Craft & Tone' },
+  { q: 'Q3', label: 'Synthesis & Precision' },
+  { q: 'Q4', label: 'Research & Presentation' },
+];
+
+const skillDomains = [
+  {
+    domain: 'Reading: Theme / Main Idea',
+    quarters: [
+      { type: 'assess', text: 'Identify theme (literary) and main idea (informational)' },
+      { type: 'continue', text: 'Use theme/main idea as foundation for craft analysis' },
+      { type: 'continue', text: 'Identify themes/ideas across multiple texts' },
+      { type: 'continue', text: 'Research requires identifying main ideas in sources' },
+    ],
+  },
+  {
+    domain: "Reading: Author's Craft",
+    quarters: [
+      { type: 'introduce', text: 'Basic word choice analysis' },
+      { type: 'assess', text: 'Analyze how figurative language and literary elements power meaning' },
+      { type: 'continue', text: 'Apply craft analysis across texts' },
+      { type: 'continue', text: 'Evaluate how sources use rhetoric' },
+    ],
+  },
+  {
+    domain: 'Evidence & Analysis',
+    quarters: [
+      { type: 'assess', text: 'Cite evidence to explain how authors develop themes' },
+      { type: 'continue', text: 'Cite evidence to support craft analysis' },
+      { type: 'continue', text: 'Cite evidence from multiple sources' },
+      { type: 'continue', text: 'Integrate evidence from research sources' },
+    ],
+  },
+  {
+    domain: 'Writing: Argument Construction',
+    quarters: [
+      { type: 'assess', text: "Write arguments about author's theme development" },
+      { type: 'continue', text: 'Write with evidence + ADD academic tone' },
+      { type: 'assess', text: 'Synthesize across texts with sophisticated vocabulary' },
+      { type: 'assess', text: 'Write full argument with claims, counterclaims, and rhetorical appeals' },
+    ],
+  },
+  {
+    domain: 'Academic Language',
+    quarters: [
+      { type: 'introduce', text: 'Basic academic vocabulary' },
+      { type: 'assess', text: 'Write in academic tone' },
+      { type: 'assess', text: 'Use sophisticated, discipline-specific vocabulary for precision' },
+      { type: 'continue', text: 'Maintain formal style appropriate to audience' },
+    ],
+  },
+  {
+    domain: 'Research Skills',
+    quarters: [
+      { type: 'introduce', text: 'Using evidence from texts' },
+      { type: 'continue', text: 'Analyze single sources' },
+      { type: 'continue', text: 'Work with multiple sources' },
+      { type: 'assess', text: 'Gather, evaluate, and integrate sources; avoid plagiarism' },
+    ],
+  },
+  {
+    domain: 'Speaking & Listening',
+    quarters: [
+      { type: 'assess', text: 'Participate in class discussions with evidence' },
+      { type: 'continue', text: 'Discuss with peers' },
+      { type: 'continue', text: 'Present synthesis findings' },
+      { type: 'assess', text: 'Present research clearly with digital media' },
+    ],
+  },
+];
+
+function VerticalProgression() {
+  const cellStyle = (type) => {
+    if (type === 'assess') return { bg: HEADER_RED + '0d', border: HEADER_RED + '40', labelColor: HEADER_RED, label: '🎯 ASSESS' };
+    if (type === 'continue') return { bg: '#f8fafc', border: '#e2e8f0', labelColor: '#64748b', label: '✓ Continue' };
+    return { bg: '#EEF2F7', border: '#C5D4E4', labelColor: '#5B7B9B', label: 'Introduce' };
+  };
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_RED }}>
+          10th Grade ELA Skill Progression: Full Year
+        </h2>
+        <p className="text-sm text-slate-500 mt-1">Q1 → Q2 → Q3 → Q4</p>
+      </div>
+
+      {/* Progression Themes */}
+      <div className="grid grid-cols-2 gap-4">
+        {progressionThemes.map((theme, idx) => (
+          <div key={idx} className="bg-white border border-slate-200 rounded-lg p-4">
+            <h3 className="text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+              {theme.title}
+            </h3>
+            <div>
+              {theme.quarters.map((q, qIdx) => (
+                <div key={qIdx} className="flex items-start gap-2.5">
+                  <div className="flex flex-col items-center flex-shrink-0 mt-0.5">
+                    <span
+                      className="text-xs font-bold px-1.5 py-0.5 rounded text-white leading-tight"
+                      style={{ backgroundColor: HEADER_RED, opacity: 1 - qIdx * 0.18 }}
+                    >
+                      Q{qIdx + 1}
+                    </span>
+                    {qIdx < 3 && <div className="w-px h-3 my-0.5" style={{ backgroundColor: HEADER_RED + '30' }} />}
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed pb-1">{q}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Skill Domain Matrix */}
+      <div>
+        <h3 className="text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+          Skill Domain Matrix
+        </h3>
+        <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
+          <table className="w-full text-xs border-collapse">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider w-40 border-r border-slate-200">
+                  Skill Domain
+                </th>
+                {quarterLabels.map((ql) => (
+                  <th key={ql.q} className="px-3 py-3 text-center border-r border-slate-200 last:border-r-0">
+                    <div className="font-bold text-slate-700" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>{ql.q}</div>
+                    <div className="text-xs font-normal text-slate-400">{ql.label}</div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {skillDomains.map((row, rIdx) => (
+                <tr key={rIdx} className="border-b border-slate-100 last:border-0">
+                  <td className="px-4 py-3 align-top font-medium text-slate-700 border-r border-slate-200 bg-slate-50/50 text-xs">
+                    {row.domain}
+                  </td>
+                  {row.quarters.map((cell, cIdx) => {
+                    const s = cellStyle(cell.type);
+                    return (
+                      <td key={cIdx} className="px-3 py-3 align-top border-r border-slate-200 last:border-r-0" style={{ backgroundColor: s.bg }}>
+                        <span className="text-xs font-semibold block mb-1" style={{ color: s.labelColor }}>{s.label}</span>
+                        <span className="text-xs text-slate-600 leading-relaxed">{cell.text}</span>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Legend */}
+      <div className="flex items-center gap-6 text-xs text-slate-500">
+        <span className="font-medium text-slate-600">Legend:</span>
+        <span className="flex items-center gap-1.5">
+          <span className="font-semibold" style={{ color: HEADER_RED }}>🎯 ASSESS</span>
+          <span>— primary assessment point</span>
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="font-semibold text-slate-500">✓ Continue</span>
+          <span>— skill continues from prior quarter</span>
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="font-semibold" style={{ color: '#5B7B9B' }}>Introduce</span>
+          <span>— new skill introduced</span>
+        </span>
+      </div>
     </div>
   );
 }
@@ -552,21 +807,32 @@ export default function App() {
             >
               Create a Rubric
             </button>
+            <button
+              onClick={() => setActiveView('progression')}
+              className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
+              style={
+                activeView === 'progression'
+                  ? { backgroundColor: HEADER_RED, color: 'white' }
+                  : { color: '#475569' }
+              }
+            >
+              Vertical Progression
+            </button>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="max-w-5xl mx-auto px-8 py-8">
-        {activeView === 'overview' ? (
+        {activeView === 'overview' && (
           <div className="space-y-3">
             {unitsData.map((unit) => (
               <UnitAccordion key={unit.id} unit={unit} />
             ))}
           </div>
-        ) : (
-          <RubricBuilder />
         )}
+        {activeView === 'rubric' && <RubricBuilder />}
+        {activeView === 'progression' && <VerticalProgression />}
       </main>
     </div>
   );
