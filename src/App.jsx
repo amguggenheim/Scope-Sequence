@@ -59,6 +59,8 @@ const standardsReference = {
   'L.9-10.4': 'Determine or clarify the meaning of unknown and multiple-meaning words and phrases based on grades 9–10 reading and content.',
   'L.9-10.5': 'Demonstrate understanding of figurative language, word relationships, and nuances in word meanings.',
   'L.9-10.6': 'Acquire and use accurately general academic and domain-specific words and phrases.',
+  'RL.9-10.10': 'By the end of grade 10, read and comprehend literature, including stories, dramas, and poems, in the grades 9–10 text complexity band proficiently, with scaffolding as needed at the high end of the range.',
+  'RI.9-10.10': 'By the end of grade 10, read and comprehend literary nonfiction in the grades 9–10 text complexity band proficiently, with scaffolding as needed at the high end of the range.',
 };
 
 // ─── Units Data ───────────────────────────────────────────────────────────────
@@ -119,6 +121,26 @@ const unitsData = [
         ],
         grade10: [
           { text: 'Analyze the cumulative impact of specific word choice on meaning and tone.', outcomes: ['I can analyze how and when specific language is used to impact meaning', 'I can analyze how and when specific language is used to impact tone'] },
+        ],
+      },
+      {
+        standard: 'RL.9-10.10',
+        title: 'Range of Reading (Literary Texts)',
+        grade9: [
+          { text: 'Know what tools will help support reading comprehension. Use teacher-supported reading tools.', outcomes: ['I can understand what tools will help support reading comprehension.', 'I can use teacher-supported reading tools.'] },
+        ],
+        grade10: [
+          { text: 'Apply reading strategies independently.', outcomes: ['I can apply reading strategies independently based on genre of text.'] },
+        ],
+      },
+      {
+        standard: 'RI.9-10.10',
+        title: 'Range of Reading (Informational Texts)',
+        grade9: [
+          { text: 'Know what tools will help support reading comprehension. Use teacher-supported reading tools.', outcomes: ['I can know what tools will help support my reading comprehension.', 'I can use tools from my teacher to support my reading.'] },
+        ],
+        grade10: [
+          { text: 'Apply reading strategies independently.', outcomes: ['I can independently apply reading strategies.'] },
         ],
       },
     ],
@@ -219,13 +241,13 @@ const unitsData = [
         ],
       },
       {
-        standard: 'W.9-10.8',
-        title: 'Gathering & Integrating Sources',
+        standard: 'RI.9-10.10',
+        title: 'Range of Reading (Informational Texts)',
         grade9: [
-          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+          { text: 'Know what tools will help support reading comprehension. Use teacher-supported reading tools.', outcomes: ['I can know what tools will help support my reading comprehension.', 'I can use tools from my teacher to support my reading.'] },
         ],
         grade10: [
-          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of in-text citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of in-text citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+          { text: 'Apply reading strategies independently.', outcomes: ['I can independently apply reading strategies.'] },
         ],
       },
     ],
@@ -258,13 +280,13 @@ const unitsData = [
     ],
     rigor: [
       {
-        standard: 'W.9-10.8',
-        title: 'Gathering & Integrating Sources',
+        standard: 'W.9-10.5',
+        title: 'Developing & Strengthening Writing',
         grade9: [
-          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+          { text: 'Establish reliable writing routines, making revision decisions with scaffolds, and understanding purpose and audience in basic terms.', outcomes: ['I can revise for clarity & organization (using checklists, key areas of improvement)', 'I can plan using structured supports (graphic organizers, writing frames, guided questions)'] },
         ],
         grade10: [
-          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of in-text citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of in-text citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+          { text: 'Independent decision-making, refining writing for precision and effectiveness, and consistently matching writing choices to nuanced audience and purpose needs.', outcomes: ['I can revise for craft elements (logic of ideas, strength of evidence, cohesion, rhetorical effect) that are most effective for my chosen audience', 'I can select tools and structures that best fit the writing task.'] },
         ],
       },
       {
