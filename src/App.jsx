@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RubricBuilder from './RubricBuilder.jsx';
 import {
   ChevronDown,
   Lightbulb,
@@ -738,7 +739,7 @@ export default function App() {
             ))}
           </div>
         ) : (
-          <RubricView />
+          <RubricBuilder />
         )}
       </main>
     </div>
