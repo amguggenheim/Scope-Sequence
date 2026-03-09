@@ -866,6 +866,7 @@ function VerticalProgression() {
 
 export default function App() {
   const [activeView, setActiveView] = useState('overview');
+  const [selectedGrade, setSelectedGrade] = useState('10');
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FAFAF8' }}>
@@ -879,15 +880,7 @@ export default function App() {
             >
               ELA Curriculum Framework
             </h1>
-            <div className="flex items-center gap-2 mt-1">
-              <p className="text-sm text-slate-500">Cherry Creek School District</p>
-              <span
-                className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                style={{ backgroundColor: HEADER_RED + '15', color: HEADER_RED }}
-              >
-                Grade 10
-              </span>
-            </div>
+            <p className="text-sm text-slate-500 mt-1">Cherry Creek School District</p>
           </div>
 
           {/* View Toggle */}
@@ -895,51 +888,79 @@ export default function App() {
             <button
               onClick={() => setActiveView('overview')}
               className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-              style={
-                activeView === 'overview'
-                  ? { backgroundColor: HEADER_RED, color: 'white' }
-                  : { color: '#475569' }
-              }
+              style={activeView === 'overview' ? { backgroundColor: HEADER_RED, color: 'white' } : { color: '#475569' }}
             >
               Curriculum Overview
             </button>
             <button
               onClick={() => setActiveView('rubric')}
               className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-              style={
-                activeView === 'rubric'
-                  ? { backgroundColor: HEADER_RED, color: 'white' }
-                  : { color: '#475569' }
-              }
+              style={activeView === 'rubric' ? { backgroundColor: HEADER_RED, color: 'white' } : { color: '#475569' }}
             >
               Create a Rubric
             </button>
             <button
               onClick={() => setActiveView('progression')}
               className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-              style={
-                activeView === 'progression'
-                  ? { backgroundColor: HEADER_RED, color: 'white' }
-                  : { color: '#475569' }
-              }
+              style={activeView === 'progression' ? { backgroundColor: HEADER_RED, color: 'white' } : { color: '#475569' }}
             >
               Vertical Progression
             </button>
+          </div>
+        </div>
+
+        {/* Grade Selector */}
+        <div className="border-t border-slate-100">
+          <div className="max-w-5xl mx-auto px-8 py-3 flex items-center gap-3">
+            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Grade</span>
+            <div className="flex gap-2">
+              {['9', '10', '11', '12'].map((grade) => (
+                <button
+                  key={grade}
+                  onClick={() => setSelectedGrade(grade)}
+                  className="w-9 h-9 rounded-lg text-sm font-semibold border transition-all duration-150"
+                  style={
+                    selectedGrade === grade
+                      ? { backgroundColor: HEADER_RED, color: 'white', borderColor: HEADER_RED }
+                      : { backgroundColor: '#f8fafc', color: '#64748b', borderColor: '#e2e8f0' }
+                  }
+                >
+                  {grade}
+                </button>
+              ))}
+            </div>
+            {selectedGrade !== '10' && (
+              <span className="text-xs text-slate-400 italic ml-1">Grade {selectedGrade} curriculum coming soon</span>
+            )}
           </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="max-w-5xl mx-auto px-8 py-8">
-        {activeView === 'overview' && (
-          <div className="space-y-3">
-            {unitsData.map((unit) => (
-              <UnitAccordion key={unit.id} unit={unit} />
-            ))}
+        {selectedGrade === '10' ? (
+          <>
+            {activeView === 'overview' && (
+              <div className="space-y-3">
+                {unitsData.map((unit) => (
+                  <UnitAccordion key={unit.id} unit={unit} />
+                ))}
+              </div>
+            )}
+            {activeView === 'rubric' && <RubricBuilder />}
+            {activeView === 'progression' && <VerticalProgression />}
+          </>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_RED + '15' }}>
+              <BookOpen size={20} style={{ color: HEADER_RED }} />
+            </div>
+            <h2 className="text-lg font-semibold text-slate-700 mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+              Grade {selectedGrade} Coming Soon
+            </h2>
+            <p className="text-sm text-slate-400">Curriculum data for Grade {selectedGrade} hasn't been added yet.</p>
           </div>
         )}
-        {activeView === 'rubric' && <RubricBuilder />}
-        {activeView === 'progression' && <VerticalProgression />}
       </main>
     </div>
   );
