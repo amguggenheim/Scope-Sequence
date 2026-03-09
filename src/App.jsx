@@ -8,6 +8,7 @@ import {
   Link2,
   Check,
   BookOpen,
+  HelpCircle,
 } from 'lucide-react';
 
 // ─── Color System ─────────────────────────────────────────────────────────────
@@ -65,34 +66,39 @@ const standardsReference = {
 const unitsData = [
   {
     id: 1,
-    title: 'Unit 1: Foundations of Literary Analysis',
+    title: 'Unit 1: Foundational Analysis (Evidence, Structure, & Meaning)',
     skillDescription:
       'Students analyze literary and informational texts to determine themes and central ideas, examine how authors develop arguments and ideas through structure and word choice, and use textual evidence to support analysis in academic discussions.',
+    essentialQuestions: [
+      'How do we use evidence to support text analysis?',
+      'How do text elements affect readers\' experiences?',
+      'How do readers determine the central ideas or themes of a text?',
+      'How do authors\' word choices influence meaning and tone?',
+      'How does discussion with others deepen our understanding of texts?',
+    ],
     enduringUnderstandings: [
       { text: 'Themes and central ideas develop across a text through specific details and evidence.', standards: ['RL.9-10.2', 'RI.9-10.2'] },
       { text: 'Strong analysis requires using textual evidence to explain and support interpretations.', standards: ['RL.9-10.1', 'RI.9-10.1'] },
-      { text: "Word choice shapes meaning, tone, and the reader's understanding of a text.", standards: ['RL.9-10.4', 'RI.9-10.4'] },
-      { text: "Academic discussions deepen understanding when participants support ideas with evidence and build on the perspectives of others.", standards: ['SL.9-10.1', 'SL.9-10.1a-d'] },
+      { text: 'Word choice shapes meaning, tone, and the reader\'s understanding of a text.', standards: ['RL.9-10.4', 'RI.9-10.4'] },
+      { text: 'Academic discussions deepen understanding when participants support ideas with evidence and build on the perspectives of others.', standards: ['SL.9-10.1'] },
     ],
     essentialSkills: [
       { text: 'Determine a theme or central idea of a text and analyze how it develops across the text.', standards: ['RL.9-10.2'] },
       { text: 'Cite strong textual evidence to support analysis and interpretation of texts.', standards: ['RL.9-10.1', 'RI.9-10.1'] },
-      { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4', 'L.9-10.5'] },
-      { text: 'Analyze how an author develops and organizes ideas or arguments across a text.', standards: ['RI.9-10.5', 'RI.9-10.6'] },
-      { text: "Evaluate a speaker's point of view, reasoning, and use of evidence.", standards: ['SL.9-10.3'] },
-      { text: "Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others' ideas.", standards: ['SL.9-10.1'] },
+      { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4', 'RI.9-10.4'] },
+      { text: 'Analyze how an author develops and organizes ideas or arguments across a text.', standards: ['RI.9-10.5'] },
+      { text: 'Evaluate a speaker\'s point of view, reasoning, and use of evidence.', standards: ['SL.9-10.3'] },
+      { text: 'Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others\' ideas.', standards: ['SL.9-10.1'] },
     ],
     rigor: [
       {
         standard: 'SL.9-10.1',
         title: 'Collaborative Discussions',
         grade9: [
-          { text: 'Come prepared for discussions, ask questions and respond to peers.', outcomes: ['I can come prepared for a discussion', 'I can ask questions or make on-topic comments in response to peers'] },
-          { text: 'Work with peers to establish discussion norms and set goals.', outcomes: ['I can collaborate with peers to establish discussion norms', 'I can help set goals and roles for group work'] },
+          { text: 'Come prepared for discussions, ask questions and respond to peers.', outcomes: ['I can come prepared for a discussion', 'I can ask questions or make on-topic questions in response to peers'] },
         ],
         grade10: [
-          { text: 'Use language to propel a conversation forward, engage independently in task, challenge peers with the goal of consensus.', outcomes: ['I can use clarifying and probing questions to move the discussion forward', 'I can participate in a group discussion independently'] },
-          { text: 'Synthesize diverse perspectives, summarize agreement/disagreement, and justify views with evidence.', outcomes: ['I can acknowledge and respond to different viewpoints', 'I can synthesize discussion points and adjust my thinking based on evidence'] },
+          { text: 'Use language to propel a conversation forward, independent engagement in task, challenge peers with the goal of consensus.', outcomes: ['I can use clarifying and probing questions to move the discussion forward', 'I can participate in a group discussion independently'] },
         ],
       },
       {
@@ -107,7 +113,7 @@ const unitsData = [
       },
       {
         standard: 'RL.9-10.4',
-        title: 'Word Choice & Meaning (Literature)',
+        title: 'Word Choice & Meaning (Literary Texts)',
         grade9: [
           { text: 'Determine the meaning of words and phrases, including figurative and connotative language.', outcomes: ['I can use a variety of resources & strategies to determine the meaning of words and phrases', 'I can determine the literal meaning of figurative language', 'I can differentiate the meaning of connotative language.'] },
         ],
@@ -119,96 +125,159 @@ const unitsData = [
   },
   {
     id: 2,
-    title: 'Unit 2: Argument & Rhetoric',
+    title: 'Unit 2: Analyzing Rhetorical Craft (Language, Structure, and Argument)',
     skillDescription:
-      'Students examine how authors construct arguments through the strategic use of claims, evidence, and rhetorical appeals. Students develop their own argumentative writing by crafting precise claims, addressing counterclaims, and selecting compelling evidence to support their reasoning.',
+      'Students analyze how authors use rhetorical craft, figurative language, and structural choices to shape meaning and influence readers. They evaluate the reasoning and evidence within arguments and apply these techniques in their own writing using evidence and an appropriate academic tone.',
+    essentialQuestions: [
+      'How do we analyze text to deepen understanding?',
+      'How does text structure influence its effectiveness?',
+      'How do rhetorical devices and logic impact the reader?',
+      'What is the role of logic in informational texts?',
+      'How does an author\'s language influence meaning and tone?',
+    ],
     enduringUnderstandings: [
-      { text: 'Effective arguments are built on precise claims supported by relevant, sufficient evidence.', standards: ['W.9-10.1', 'W.9-10.1a'] },
-      { text: 'Authors use rhetoric—including ethos, pathos, and logos—to advance a point of view and persuade audiences.', standards: ['RI.9-10.6'] },
-      { text: "Acknowledging and refuting counterclaims strengthens an argument's credibility.", standards: ['W.9-10.1b'] },
-      { text: 'Evaluating the quality of evidence requires assessing its relevance, accuracy, and sufficiency.', standards: ['RI.9-10.8'] },
+      { text: 'Authors make rhetorical and stylistic choices that shape meaning and influence readers.', standards: ['RL.9-10.5', 'RI.9-10.6'] },
+      { text: 'Figurative language and nuanced word choices contribute to tone and deeper meaning in a text.', standards: ['L.9-10.5', 'RL.9-10.4'] },
+      { text: 'Strong arguments rely on valid reasoning and relevant evidence.', standards: ['RI.9-10.8', 'W.9-10.1'] },
+      { text: 'Academic writing uses discipline-specific language, evidence, and formal tone to communicate ideas clearly.', standards: ['W.9-10.1', 'L.9-10.6'] },
     ],
     essentialSkills: [
-      { text: 'Analyze how an author uses rhetoric to advance a point of view or purpose.', standards: ['RI.9-10.6'] },
-      { text: "Delineate and evaluate an argument's claims, reasoning, and evidence.", standards: ['RI.9-10.8'] },
-      { text: 'Write an argument with a precise claim that addresses counterclaims.', standards: ['W.9-10.1', 'W.9-10.1a', 'W.9-10.1b'] },
-      { text: 'Select and integrate evidence that is relevant and sufficient to support a claim.', standards: ['W.9-10.1b'] },
-      { text: 'Organize an argument so that the relationships between claims, reasons, and evidence are clear.', standards: ['W.9-10.1a'] },
-      { text: 'Use precise language and domain-specific vocabulary to establish authority and clarity.', standards: ['L.9-10.6'] },
+      { text: 'Analyze how figurative language and stylistic choices shape meaning and tone.', standards: ['L.9-10.5', 'RL.9-10.5'] },
+      { text: 'Cite strong textual evidence to support analysis and interpretation.', standards: ['RL.9-10.1'] },
+      { text: 'Delineate and evaluate arguments, assessing whether reasoning and evidence are valid and sufficient.', standards: ['RI.9-10.8'] },
+      { text: 'Select relevant evidence to support claims in writing.', standards: ['W.9-10.1'] },
+      { text: 'Write clear arguments using discipline-specific language and formal academic tone.', standards: ['W.9-10.1', 'L.9-10.6'] },
     ],
-    rigor: {
-      title: 'Argument Writing (W.9-10.1)',
-      grade9: [
-        { text: 'Introduce a claim and provide relevant evidence from at least two sources.', outcomes: ['I can write a clear thesis that states my position', 'I can select evidence that directly supports my claim'] },
-        { text: 'Acknowledge an opposing viewpoint and explain why your claim is stronger.', outcomes: ['I can identify a counterclaim', 'I can write a rebuttal using evidence'] },
-      ],
-      grade10: [
-        { text: 'Develop claim and counterclaims fairly, pointing out strengths and limitations of each.', outcomes: ['I can present counterclaims with nuance and fairness', 'I can use hedging language to qualify my claims appropriately'] },
-        { text: 'Use varied syntax and precise language to strengthen argument and establish an authoritative voice.', outcomes: ['I can vary sentence structure for rhetorical effect', 'I can choose language that conveys confidence and precision'] },
-      ],
-    },
+    rigor: [
+      {
+        standard: 'RL.9-10.1',
+        title: 'Citing Textual Evidence (Literary Texts)',
+        grade9: [
+          { text: 'Select relevant evidence to support explanations of explicit ideas and straightforward inferences; explanations focus on accuracy and relevance.', outcomes: ['I can select relevant evidence to explain explicit information in a text.', 'I can use evidence to support a basic inference about a character or idea.'] },
+        ],
+        grade10: [
+          { text: 'Evaluate the strength of evidence, distinguish between strong and weak support, and use evidence to defend interpretive claims that require synthesis across sections of a text.', outcomes: ['I can evaluate the strength of evidence to justify why it supports my claim.', 'I can synthesize evidence from multiple sections of the text to defend an interpretation.'] },
+        ],
+      },
+      {
+        standard: 'L.9-10.5',
+        title: 'Figurative Language',
+        grade9: [
+          { text: 'Determine the meaning of words and phrases, including figurative and connotative language.', outcomes: ['I can determine the figurative and connotative meaning of words and phrases.'] },
+        ],
+        grade10: [
+          { text: 'Analyze the cumulative impact of specific word choice on meaning and tone.', outcomes: ['I can analyze how word choice impacts meaning and tone of a text.'] },
+        ],
+      },
+      {
+        standard: 'L.9-10.6',
+        title: 'Academic & Domain-Specific Vocabulary',
+        grade9: [
+          { text: 'With guidance and support can apply generic academic or domain-specific language. When prompted, will revise language to improve accuracy and clarity.', outcomes: ['I can reference tools or teacher-provided strategies to determine meaning.', 'I experiment with academic vocabulary in writing, though sometimes inconsistently.', 'I can identify when a word is important to understanding; teacher still helps them decide how to investigate it.'] },
+        ],
+        grade10: [
+          { text: 'Independently uses academic and domain-specific language — noticing and revising language to improve accuracy and clarity.', outcomes: ['I can independently select the most efficient tool or strategy when encountering an unfamiliar word.', 'I can use sophisticated vocabulary accurately and purposefully.', 'I can routinely transfer vocabulary knowledge across texts, tasks, and units.'] },
+        ],
+      },
+    ],
   },
   {
     id: 3,
-    title: 'Unit 3: Narrative Craft',
+    title: 'Unit 3: Evaluating Arguments & Synthesizing Voices',
     skillDescription:
-      'Students explore how authors craft narratives through intentional structural choices, complex characterization, and precise language. Students develop original narratives that use literary techniques—including dialogue, pacing, and point of view—to create meaningful experiences for readers.',
+      'Students read multiple texts within a text set, evaluate the strength of the arguments presented, and synthesize ideas across texts to develop new or original claims.',
+    essentialQuestions: [
+      'What is the role of logic in informational texts?',
+      'How do rhetorical devices and logic impact the reader?',
+      'How do we analyze text to deepen understanding?',
+      'How does reading multiple perspectives deepen understanding of an issue?',
+      'How can synthesizing ideas across texts lead to new insights or claims?',
+    ],
     enduringUnderstandings: [
-      { text: "Authors make deliberate structural choices—such as pacing, perspective, and plot sequence—to shape a reader's experience.", standards: ['RL.9-10.5'] },
-      { text: 'Complex characters are revealed through their choices, conflicts, and relationships with others.', standards: ['RL.9-10.3'] },
-      { text: 'Effective narrative writing uses precise details and literary techniques to create vivid, purposeful experiences.', standards: ['W.9-10.3', 'W.9-10.3b'] },
-      { text: 'Point of view shapes what a reader knows and how they interpret characters and events.', standards: ['RL.9-10.6', 'W.9-10.3a'] },
+      { text: 'Arguments vary in strength depending on the quality of reasoning and evidence used to support claims.', standards: ['RI.9-10.1'] },
+      { text: 'Different texts may present different perspectives or interpretations about the same issue.', standards: ['RI.9-10.6', 'RL.9-10.6'] },
+      { text: 'Synthesizing ideas across multiple texts can lead to deeper understanding and new insights.', standards: ['W.9-10.2', 'W.9-10.8'] },
+      { text: 'Evaluating arguments requires examining claims, reasoning, and evidence carefully.', standards: ['RI.9-10.1'] },
+      { text: 'New claims can emerge when readers connect and synthesize ideas from multiple sources.', standards: ['W.9-10.1', 'W.9-10.8'] },
     ],
     essentialSkills: [
-      { text: "Analyze how an author's structural choices—including pacing and plot manipulation—create specific effects.", standards: ['RL.9-10.5'] },
-      { text: 'Analyze how complex characters develop and interact to advance plot or theme.', standards: ['RL.9-10.3'] },
-      { text: 'Write a narrative that engages the reader through a clear point of view and well-developed conflict.', standards: ['W.9-10.3', 'W.9-10.3a'] },
-      { text: 'Use narrative techniques such as dialogue, pacing, description, and reflection.', standards: ['W.9-10.3b'] },
-      { text: 'Use precise language and sensory details to develop setting, character, and mood.', standards: ['W.9-10.3b', 'L.9-10.3'] },
-      { text: 'Revise drafts to strengthen development, organization, and style.', standards: ['W.9-10.5'] },
+      { text: 'Evaluate the reasoning and evidence used to support arguments in informational texts.', standards: ['RI.9-10.1'] },
+      { text: 'Compare perspectives and arguments across multiple texts in a text set.', standards: ['RI.9-10.6', 'RL.9-10.6'] },
+      { text: 'Distinguish among claims, reasoning, and evidence when analyzing arguments.', standards: ['W.9-10.2'] },
+      { text: 'Synthesize ideas from multiple texts to develop new or original claims.', standards: ['W.9-10.2', 'W.9-10.8'] },
+      { text: 'Support claims with relevant evidence drawn from multiple sources.', standards: ['W.9-10.1', 'W.9-10.8'] },
     ],
-    rigor: {
-      title: 'Narrative Writing (W.9-10.3)',
-      grade9: [
-        { text: 'Establish a narrator, characters, and conflict to orient the reader.', outcomes: ['I can introduce a narrator with a clear point of view', 'I can establish a conflict that drives the narrative'] },
-        { text: 'Use dialogue and description to develop characters and advance the plot.', outcomes: ['I can write dialogue that reveals character', 'I can use description to create setting and mood'] },
-      ],
-      grade10: [
-        { text: 'Manipulate pacing and structure—including flashback or foreshadowing—to create specific effects.', outcomes: ['I can use pacing techniques to build tension or slow the narrative', 'I can employ flashback or foreshadowing purposefully'] },
-        { text: 'Use reflection and multiple plot lines to develop theme and deepen character complexity.', outcomes: ['I can incorporate reflection to develop meaning', 'I can manage multiple narrative threads with intentionality'] },
-      ],
-    },
+    rigor: [
+      {
+        standard: 'RI.9-10.1',
+        title: 'Citing Textual Evidence (Informational Texts)',
+        grade9: [
+          { text: 'Cite textual evidence to support analysis of what the text says explicitly.', outcomes: ['I can cite textual evidence to support analysis of what the text explicitly says.'] },
+        ],
+        grade10: [
+          { text: 'Cite textual evidence to support analysis of what the text says both implicitly and explicitly through inference.', outcomes: ['I can cite text evidence to support analysis of what the text says and what is implied in the text.'] },
+        ],
+      },
+      {
+        standard: 'W.9-10.8',
+        title: 'Gathering & Integrating Sources',
+        grade9: [
+          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+        ],
+        grade10: [
+          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of in-text citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of in-text citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+        ],
+      },
+    ],
   },
   {
     id: 4,
-    title: 'Unit 4: Research & Synthesis',
+    title: 'Unit 4: Inquiry, Transfer, & Metacognitive Defense',
     skillDescription:
-      'Students engage in sustained inquiry by developing research questions, locating and evaluating sources, and synthesizing information across multiple texts. Students produce research-based writing that integrates evidence from diverse sources to support original analysis and argumentation.',
+      'Students conduct research to investigate questions and topics of interest. They gather and evaluate information from multiple sources, synthesize ideas across texts, and communicate evidence-based conclusions in writing.',
+    essentialQuestions: [
+      'How do readers analyze texts to deepen understanding?',
+      'How do authors support claims with evidence?',
+      'How do readers evaluate the credibility of information and sources?',
+      'How can research help us develop deeper understanding of complex topics?',
+      'How does synthesizing information from multiple sources lead to stronger conclusions?',
+    ],
     enduringUnderstandings: [
-      { text: 'Effective research begins with a focused, meaningful question that guides inquiry.', standards: ['W.9-10.7'] },
-      { text: 'Not all sources are equally credible—evaluating authority, accuracy, and purpose is essential to responsible research.', standards: ['W.9-10.8'] },
-      { text: 'Synthesizing information across sources requires identifying patterns, contradictions, and gaps.', standards: ['W.9-10.9', 'RI.9-10.1'] },
-      { text: 'Research writing integrates evidence ethically and transparently to support original thinking.', standards: ['W.9-10.8', 'W.9-10.9'] },
+      { text: 'Research is a process of investigating questions, gathering information, and refining ideas in order to develop deeper understanding of complex topics.', standards: ['W.9-10.7'] },
+      { text: 'Credible and relevant sources strengthen conclusions because they provide trustworthy evidence and perspectives.', standards: ['W.9-10.8'] },
+      { text: 'Synthesizing information from multiple sources helps researchers develop new insights and stronger conclusions.', standards: ['W.9-10.9'] },
+      { text: 'Effective research writing organizes evidence and ideas to communicate clear claims and explanations to an audience.', standards: ['W.9-10.2', 'W.9-10.1'] },
+      { text: 'Responsible researchers evaluate the credibility, relevance, and limitations of information before using it as evidence.', standards: ['W.9-10.8'] },
     ],
     essentialSkills: [
-      { text: 'Develop and refine a research question that is focused and investigable.', standards: ['W.9-10.7'] },
-      { text: 'Locate and evaluate sources for credibility, relevance, and perspective.', standards: ['W.9-10.8'] },
-      { text: 'Synthesize information from multiple sources to build an evidence-based argument.', standards: ['W.9-10.9', 'RI.9-10.1'] },
-      { text: 'Integrate quotations and paraphrases accurately and ethically using a citation format.', standards: ['W.9-10.8'] },
-      { text: 'Write an informative or argumentative research paper with a clear thesis and organized structure.', standards: ['W.9-10.2', 'W.9-10.4'] },
-      { text: 'Present research findings clearly and logically in an oral or multimedia format.', standards: ['SL.9-10.4'] },
+      { text: 'Develop and refine research questions to guide inquiry on a topic.', standards: ['W.9-10.7'] },
+      { text: 'Gather relevant information from multiple credible sources.', standards: ['W.9-10.8'] },
+      { text: 'Evaluate the credibility, relevance, and limitations of sources.', standards: ['W.9-10.8'] },
+      { text: 'Integrate and synthesize ideas and evidence from multiple sources to develop conclusions.', standards: ['W.9-10.9'] },
+      { text: 'Communicate research findings clearly using evidence and appropriate organization in writing.', standards: ['SL.9-10.4', 'W.9-10.1'] },
     ],
-    rigor: {
-      title: 'Research Writing (W.9-10.7–9)',
-      grade9: [
-        { text: 'Identify a focused research question and gather information from at least three sources.', outcomes: ['I can write a research question that is specific and investigable', 'I can gather information from print and digital sources'] },
-        { text: 'Evaluate sources for credibility and take organized notes.', outcomes: ['I can identify bias or limited perspective in a source', 'I can take notes that distinguish between my ideas and source material'] },
-      ],
-      grade10: [
-        { text: 'Synthesize information across sources to identify patterns, contradictions, and gaps.', outcomes: ['I can compare and contrast information across multiple sources', 'I can identify where sources disagree and explain the significance'] },
-        { text: 'Produce research writing that integrates evidence with original analysis and proper attribution.', outcomes: ['I can blend quotations and paraphrase into my own argument', 'I can cite sources accurately using an established format'] },
-      ],
-    },
+    rigor: [
+      {
+        standard: 'W.9-10.8',
+        title: 'Gathering & Integrating Sources',
+        grade9: [
+          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+        ],
+        grade10: [
+          { text: 'Assess the usefulness/authority of each source; understand how to use the advanced search of databases; use a standard style of in-text citations for evidence; evidence is sufficiently introduced.', outcomes: ['I can assess the usefulness of sources.', 'I can use advanced search tools in search engines.', 'I can use a standard style of in-text citations.', 'I can introduce evidence to maintain the flow of my writing.'] },
+        ],
+      },
+      {
+        standard: 'W.9-10.9',
+        title: 'Drawing Evidence from Texts',
+        grade9: [
+          { text: 'Select useful evidence to support analysis, reflection and research.', outcomes: ['I can select useful evidence to support analysis, reflection, and research.'] },
+        ],
+        grade10: [
+          { text: 'Select and evaluate the strength of evidence to promote analysis, reflection, and research.', outcomes: ['I can select and evaluate the strength of evidence to promote analysis, reflection, and research.'] },
+        ],
+      },
+    ],
   },
 ];
 
@@ -362,6 +431,18 @@ function UnitAccordion({ unit }) {
               <p className="text-sm text-slate-600 leading-relaxed">{unit.skillDescription}</p>
             </div>
           </div>
+
+          {/* Essential Questions */}
+          <SectionDropdown title="Essential Questions" icon={<HelpCircle size={15} />} color={color.main}>
+            <ul className="space-y-2 mt-2">
+              {unit.essentialQuestions.map((q, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="text-xs font-semibold flex-shrink-0 mt-0.5" style={{ color: color.main }}>Q.</span>
+                  <span className="text-sm text-slate-600 italic leading-relaxed">{q}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionDropdown>
 
           {/* Students Will Understand */}
           <SectionDropdown title="Students Will Understand" icon={<Target size={15} />} color={color.main}>
