@@ -2,19 +2,24 @@ import React, { useState } from 'react';
 import RubricBuilder from './RubricBuilder.jsx';
 import {
   ChevronDown,
-  Lightbulb,
   Target,
   CheckCircle,
   FileText,
   Link2,
   Check,
   BookOpen,
-  ExternalLink,
 } from 'lucide-react';
 
-// ─── Constants ────────────────────────────────────────────────────────────────
+// ─── Color System ─────────────────────────────────────────────────────────────
 
-const ACCENT = '#8B7355';
+const HEADER_RED = '#9E4848';
+
+const UNIT_COLORS = {
+  1: { main: '#5B7B9B', light: '#EEF2F7', border: '#C5D4E4' },  // dusty blue
+  2: { main: '#6B8B6B', light: '#EEF5EE', border: '#BECEBD' },  // sage
+  3: { main: '#A0715F', light: '#F7F0EE', border: '#DFC5BC' },  // terracotta
+  4: { main: '#7B6B9B', light: '#F2EEF7', border: '#C8BFD9' },  // dusty violet
+};
 
 // ─── Standards Reference ─────────────────────────────────────────────────────
 
@@ -43,7 +48,7 @@ const standardsReference = {
   'W.9-10.7': 'Conduct short as well as more sustained research projects to answer a question or solve a problem; narrow or broaden the inquiry when appropriate.',
   'W.9-10.8': 'Gather relevant information from multiple authoritative print and digital sources, using advanced searches effectively; assess the usefulness of each source in answering the research question.',
   'W.9-10.9': 'Draw evidence from literary or informational texts to support analysis, reflection, and research.',
-  'SL.9-10.1': 'Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9–10 topics, texts, and issues, building on others\' ideas and expressing their own clearly and persuasively.',
+  'SL.9-10.1': "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9–10 topics, texts, and issues, building on others' ideas and expressing their own clearly and persuasively.",
   'SL.9-10.1a-d': 'Come to discussions prepared; follow agreed-upon rules; propel conversations; respond thoughtfully to diverse perspectives.',
   'SL.9-10.3': "Evaluate a speaker's point of view, reasoning, and use of evidence and rhetoric, identifying any fallacious reasoning or exaggerated or distorted evidence.",
   'SL.9-10.4': 'Present information, findings, and supporting evidence clearly, concisely, and logically such that listeners can follow the line of reasoning.',
@@ -75,7 +80,7 @@ const unitsData = [
       { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4', 'L.9-10.5'] },
       { text: 'Analyze how an author develops and organizes ideas or arguments across a text.', standards: ['RI.9-10.5', 'RI.9-10.6'] },
       { text: "Evaluate a speaker's point of view, reasoning, and use of evidence.", standards: ['SL.9-10.3'] },
-      { text: 'Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others\' ideas.', standards: ['SL.9-10.1'] },
+      { text: "Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others' ideas.", standards: ['SL.9-10.1'] },
     ],
     rigor: {
       title: 'Collaborative Discussions (SL.9-10.1)',
@@ -126,7 +131,7 @@ const unitsData = [
     skillDescription:
       'Students explore how authors craft narratives through intentional structural choices, complex characterization, and precise language. Students develop original narratives that use literary techniques—including dialogue, pacing, and point of view—to create meaningful experiences for readers.',
     enduringUnderstandings: [
-      { text: 'Authors make deliberate structural choices—such as pacing, perspective, and plot sequence—to shape a reader\'s experience.', standards: ['RL.9-10.5'] },
+      { text: "Authors make deliberate structural choices—such as pacing, perspective, and plot sequence—to shape a reader's experience.", standards: ['RL.9-10.5'] },
       { text: 'Complex characters are revealed through their choices, conflicts, and relationships with others.', standards: ['RL.9-10.3'] },
       { text: 'Effective narrative writing uses precise details and literary techniques to create vivid, purposeful experiences.', standards: ['W.9-10.3', 'W.9-10.3b'] },
       { text: 'Point of view shapes what a reader knows and how they interpret characters and events.', standards: ['RL.9-10.6', 'W.9-10.3a'] },
@@ -186,7 +191,7 @@ const unitsData = [
 
 // ─── Standards Tooltip ────────────────────────────────────────────────────────
 
-function StandardsTooltip({ standards }) {
+function StandardsTooltip({ standards, color }) {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -194,7 +199,8 @@ function StandardsTooltip({ standards }) {
       <button
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="text-slate-300 hover:text-slate-500 transition-colors duration-150 p-0.5 rounded"
+        className="transition-colors duration-150 p-0.5 rounded"
+        style={{ color: visible ? color : '#cbd5e1' }}
         aria-label="View aligned standards"
       >
         <Link2 size={12} />
@@ -205,13 +211,16 @@ function StandardsTooltip({ standards }) {
           className="absolute right-7 z-50 w-80 bg-white rounded-lg border border-slate-200 shadow-lg animate-tooltip"
           style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
-          <div className="px-3 py-2 border-b border-slate-100">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Aligned Standards</span>
+          <div className="px-3 py-2 border-b border-slate-100" style={{ backgroundColor: color + '15' }}>
+            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color }}>Aligned Standards</span>
           </div>
           <div className="p-3 space-y-3">
             {standards.map((code) => (
               <div key={code}>
-                <span className="inline-block bg-slate-100 text-slate-700 text-xs font-mono font-semibold px-2 py-0.5 rounded mb-1">
+                <span
+                  className="inline-block text-xs font-mono font-semibold px-2 py-0.5 rounded mb-1"
+                  style={{ backgroundColor: color + '15', color }}
+                >
                   {code}
                 </span>
                 <p className="text-xs text-slate-500 leading-relaxed">
@@ -228,28 +237,32 @@ function StandardsTooltip({ standards }) {
 
 // ─── Section Dropdown ─────────────────────────────────────────────────────────
 
-function SectionDropdown({ title, icon, children }) {
+function SectionDropdown({ title, icon, children, color }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="border border-slate-200 rounded-lg overflow-visible">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 text-left bg-white hover:bg-slate-50 transition-colors duration-150 rounded-lg"
+        className="w-full flex items-center justify-between px-4 py-3 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
         style={{ borderRadius: open ? '8px 8px 0 0' : '8px' }}
       >
         <div className="flex items-center gap-2.5">
-          <span className="text-slate-400">{icon}</span>
+          <span style={{ color: open ? color : '#94a3b8' }}>{icon}</span>
           <span className="text-sm font-medium text-slate-700">{title}</span>
         </div>
         <ChevronDown
           size={14}
-          className={`text-slate-400 transition-transform duration-200 flex-shrink-0 ${open ? 'rotate-180' : ''}`}
+          className={`transition-transform duration-200 flex-shrink-0 ${open ? 'rotate-180' : ''}`}
+          style={{ color: open ? color : '#94a3b8' }}
         />
       </button>
 
       {open && (
-        <div className="px-4 pb-4 pt-1 bg-slate-50 border-t border-slate-200 rounded-b-lg animate-fadeIn">
+        <div
+          className="px-4 pb-4 pt-1 border-t border-slate-200 rounded-b-lg animate-fadeIn"
+          style={{ backgroundColor: color + '08' }}
+        >
           {children}
         </div>
       )}
@@ -265,6 +278,7 @@ function UnitAccordion({ unit }) {
   const [cfas, setCfas] = useState([]);
   const [summativeForm, setSummativeForm] = useState({ title: '', description: '', link: '' });
   const [summatives, setSummatives] = useState([]);
+  const color = UNIT_COLORS[unit.id];
 
   const handleCfaSubmit = () => {
     if (cfaInput.trim()) {
@@ -281,15 +295,21 @@ function UnitAccordion({ unit }) {
   };
 
   return (
-    <div className={`bg-white border rounded-lg transition-colors duration-150 ${open ? 'border-slate-300' : 'border-slate-200 hover:border-slate-300'}`}>
+    <div
+      className="bg-white rounded-lg transition-all duration-150"
+      style={{
+        border: open ? `1.5px solid ${color.border}` : '1.5px solid #e2e8f0',
+      }}
+    >
       {/* Unit Header */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-4 px-6 py-4 text-left"
+        className="w-full flex items-center gap-4 px-6 py-4 text-left rounded-lg transition-colors duration-150"
+        style={{ backgroundColor: open ? color.light : 'white' }}
       >
         <div
           className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
-          style={{ backgroundColor: ACCENT }}
+          style={{ backgroundColor: color.main }}
         >
           {unit.id}
         </div>
@@ -298,37 +318,43 @@ function UnitAccordion({ unit }) {
         </span>
         <ChevronDown
           size={16}
-          className={`text-slate-400 transition-transform duration-200 flex-shrink-0 ${open ? 'rotate-180' : ''}`}
+          className={`transition-transform duration-200 flex-shrink-0`}
+          style={{ color: open ? color.main : '#94a3b8' }}
         />
       </button>
 
       {/* Expanded Content */}
       {open && (
-        <div className="px-6 pb-6 space-y-3 animate-fadeIn border-t border-slate-100">
+        <div className="px-6 pb-6 space-y-3 animate-fadeIn" style={{ borderTop: `1px solid ${color.border}` }}>
           {/* Skill Description */}
-          <div className="mt-4 bg-slate-50 rounded-lg p-4 flex gap-3" style={{ borderLeft: `2px solid ${ACCENT}` }}>
-            <BookOpen size={15} className="text-slate-400 flex-shrink-0 mt-0.5" />
+          <div
+            className="mt-4 rounded-lg p-4 flex gap-3"
+            style={{ backgroundColor: color.light, borderLeft: `3px solid ${color.main}` }}
+          >
+            <BookOpen size={15} className="flex-shrink-0 mt-0.5" style={{ color: color.main }} />
             <div>
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Skill Focus</p>
+              <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: color.main }}>
+                Skill Focus
+              </p>
               <p className="text-sm text-slate-600 leading-relaxed">{unit.skillDescription}</p>
             </div>
           </div>
 
           {/* Students Will Understand */}
-          <SectionDropdown title="Students Will Understand" icon={<Target size={15} />}>
+          <SectionDropdown title="Students Will Understand" icon={<Target size={15} />} color={color.main}>
             <ul className="space-y-2 mt-2">
               {unit.enduringUnderstandings.map((item, i) => (
                 <li key={i} className="flex items-start gap-2.5">
-                  <Check size={13} className="text-slate-400 mt-1 flex-shrink-0" />
+                  <Check size={13} className="mt-1 flex-shrink-0" style={{ color: color.main }} />
                   <span className="text-sm text-slate-600 flex-1 leading-relaxed">{item.text}</span>
-                  <StandardsTooltip standards={item.standards} />
+                  <StandardsTooltip standards={item.standards} color={color.main} />
                 </li>
               ))}
             </ul>
           </SectionDropdown>
 
           {/* Students Will Be Able To */}
-          <SectionDropdown title="Students Will Be Able To" icon={<CheckCircle size={15} />}>
+          <SectionDropdown title="Students Will Be Able To" icon={<CheckCircle size={15} />} color={color.main}>
             <div className="grid grid-cols-2 gap-6 mt-2">
               {/* Left: Skills */}
               <div>
@@ -338,12 +364,12 @@ function UnitAccordion({ unit }) {
                     <li key={i} className="flex items-start gap-2.5">
                       <span
                         className="w-5 h-5 rounded-full text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ backgroundColor: ACCENT }}
+                        style={{ backgroundColor: color.main }}
                       >
                         {i + 1}
                       </span>
                       <span className="text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
-                      <StandardsTooltip standards={skill.standards} />
+                      <StandardsTooltip standards={skill.standards} color={color.main} />
                     </li>
                   ))}
                 </ol>
@@ -353,14 +379,14 @@ function UnitAccordion({ unit }) {
               <div>
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Suggested CFAs</p>
                 {cfas.length === 0 ? (
-                  <div className="border border-dashed border-slate-300 rounded-lg p-4 mb-3">
+                  <div className="border border-dashed rounded-lg p-4 mb-3" style={{ borderColor: color.border }}>
                     <p className="text-xs text-slate-400 text-center">No CFAs submitted yet.</p>
                   </div>
                 ) : (
                   <ul className="space-y-1.5 mb-3">
                     {cfas.map((cfa, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-slate-600 bg-white rounded px-3 py-2 border border-slate-200">
-                        <Check size={11} className="text-slate-400 flex-shrink-0" />
+                        <Check size={11} className="flex-shrink-0" style={{ color: color.main }} />
                         <span className="truncate">{cfa}</span>
                       </li>
                     ))}
@@ -372,12 +398,12 @@ function UnitAccordion({ unit }) {
                   onChange={(e) => setCfaInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleCfaSubmit()}
                   placeholder="Enter CFA title or link..."
-                  className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1 bg-white mb-2"
+                  className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white mb-2"
                 />
                 <button
                   onClick={handleCfaSubmit}
                   className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#334155' }}
+                  style={{ backgroundColor: color.main }}
                 >
                   Submit CFA
                 </button>
@@ -386,10 +412,10 @@ function UnitAccordion({ unit }) {
           </SectionDropdown>
 
           {/* Suggested Summatives */}
-          <SectionDropdown title="Suggested Summatives" icon={<FileText size={15} />}>
+          <SectionDropdown title="Suggested Summatives" icon={<FileText size={15} />} color={color.main}>
             <div className="mt-2">
               {summatives.length === 0 ? (
-                <div className="border border-dashed border-slate-300 rounded-lg p-4 mb-4">
+                <div className="border border-dashed rounded-lg p-4 mb-4" style={{ borderColor: color.border }}>
                   <p className="text-xs text-slate-400 text-center">No summatives submitted yet.</p>
                 </div>
               ) : (
@@ -399,7 +425,7 @@ function UnitAccordion({ unit }) {
                       <p className="text-sm font-medium text-slate-700">{s.title}</p>
                       {s.description && <p className="text-xs text-slate-500 mt-1">{s.description}</p>}
                       {s.link && (
-                        <a href={s.link} target="_blank" rel="noreferrer" className="text-xs underline mt-1 block" style={{ color: ACCENT }}>
+                        <a href={s.link} target="_blank" rel="noreferrer" className="text-xs underline mt-1 block" style={{ color: color.main }}>
                           {s.link}
                         </a>
                       )}
@@ -408,32 +434,10 @@ function UnitAccordion({ unit }) {
                 </ul>
               )}
               <div className="space-y-2">
-                <input
-                  type="text"
-                  value={summativeForm.title}
-                  onChange={(e) => setSummativeForm({ ...summativeForm, title: e.target.value })}
-                  placeholder="Assessment title (required)"
-                  className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1 bg-white"
-                />
-                <input
-                  type="text"
-                  value={summativeForm.description}
-                  onChange={(e) => setSummativeForm({ ...summativeForm, description: e.target.value })}
-                  placeholder="Brief description (optional)"
-                  className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1 bg-white"
-                />
-                <input
-                  type="text"
-                  value={summativeForm.link}
-                  onChange={(e) => setSummativeForm({ ...summativeForm, link: e.target.value })}
-                  placeholder="Link to resource (optional)"
-                  className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1 bg-white"
-                />
-                <button
-                  onClick={handleSummativeSubmit}
-                  className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#334155' }}
-                >
+                <input type="text" value={summativeForm.title} onChange={(e) => setSummativeForm({ ...summativeForm, title: e.target.value })} placeholder="Assessment title (required)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
+                <input type="text" value={summativeForm.description} onChange={(e) => setSummativeForm({ ...summativeForm, description: e.target.value })} placeholder="Brief description (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
+                <input type="text" value={summativeForm.link} onChange={(e) => setSummativeForm({ ...summativeForm, link: e.target.value })} placeholder="Link to resource (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
+                <button onClick={handleSummativeSubmit} className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90" style={{ backgroundColor: color.main }}>
                   Submit Summative
                 </button>
               </div>
@@ -441,19 +445,14 @@ function UnitAccordion({ unit }) {
           </SectionDropdown>
 
           {/* Rigor Expectations */}
-          <SectionDropdown title="Rigor Expectations by Grade" icon={<Target size={15} />}>
+          <SectionDropdown title="Rigor Expectations by Grade" icon={<Target size={15} />} color={color.main}>
             <div className="mt-2">
               <p className="text-xs font-medium text-slate-500 mb-4">{unit.rigor.title}</p>
               <div className="grid grid-cols-2 gap-5">
                 {/* Grade 9 */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span
-                      className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center"
-                      style={{ backgroundColor: '#5B7B94' }}
-                    >
-                      9
-                    </span>
+                    <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main + 'aa' }}>9</span>
                     <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Grade 9</span>
                   </div>
                   <div className="space-y-3">
@@ -463,8 +462,7 @@ function UnitAccordion({ unit }) {
                         <ul className="space-y-1">
                           {item.outcomes.map((o, j) => (
                             <li key={j} className="text-xs text-slate-500 flex items-start gap-1.5">
-                              <span className="text-slate-300 mt-0.5 flex-shrink-0">—</span>
-                              {o}
+                              <span className="text-slate-300 mt-0.5 flex-shrink-0">—</span>{o}
                             </li>
                           ))}
                         </ul>
@@ -472,27 +470,20 @@ function UnitAccordion({ unit }) {
                     ))}
                   </div>
                 </div>
-
                 {/* Grade 10 */}
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span
-                      className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center"
-                      style={{ backgroundColor: '#334155' }}
-                    >
-                      10
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Grade 10</span>
+                    <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main }}>10</span>
+                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: color.main }}>Grade 10</span>
                   </div>
                   <div className="space-y-3">
                     {unit.rigor.grade10.map((item, i) => (
-                      <div key={i} className="bg-white rounded-lg border border-slate-200 p-3">
+                      <div key={i} className="rounded-lg border p-3" style={{ backgroundColor: color.light, borderColor: color.border }}>
                         <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
                         <ul className="space-y-1">
                           {item.outcomes.map((o, j) => (
-                            <li key={j} className="text-xs text-slate-500 flex items-start gap-1.5">
-                              <span className="text-slate-300 mt-0.5 flex-shrink-0">—</span>
-                              {o}
+                            <li key={j} className="text-xs flex items-start gap-1.5" style={{ color: color.main }}>
+                              <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>—</span>{o}
                             </li>
                           ))}
                         </ul>
@@ -509,176 +500,32 @@ function UnitAccordion({ unit }) {
   );
 }
 
-// ─── Rubric View ──────────────────────────────────────────────────────────────
-
-const proficiencyLevels = [
-  { level: 1, label: 'Beginning', textColor: 'text-slate-400' },
-  { level: 2, label: 'Developing', textColor: 'text-slate-400' },
-  { level: 3, label: 'Approaching', textColor: 'text-slate-500' },
-  { level: 4, label: 'Proficient', textColor: 'text-slate-600' },
-  { level: 5, label: 'Advanced', textColor: 'text-slate-700' },
-];
-
-function RubricView() {
-  const [selectedGrade, setSelectedGrade] = useState('9th');
-  const [selectedUnitId, setSelectedUnitId] = useState(1);
-  const selectedUnit = unitsData.find((u) => u.id === selectedUnitId);
-  const gradeNumber = selectedGrade.replace(/\D/g, '');
-
-  return (
-    <div className="flex gap-0 bg-white border border-slate-200 rounded-lg overflow-hidden min-h-screen">
-      {/* Sidebar */}
-      <div className="w-72 flex-shrink-0 border-r border-slate-200 bg-slate-50">
-        <div className="sticky top-0 p-6 space-y-6">
-          <div className="flex items-center gap-2 pb-4 border-b border-slate-200">
-            <FileText size={15} className="text-slate-500" />
-            <h3 className="font-semibold text-slate-800 text-sm" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-              Rubric Settings
-            </h3>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Grade Level</label>
-            <select
-              value={selectedGrade}
-              onChange={(e) => setSelectedGrade(e.target.value)}
-              className="w-full text-sm border border-slate-300 rounded-md px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1 bg-white"
-            >
-              {['9th', '10th', '11th', '12th'].map((g) => (
-                <option key={g} value={g}>{g} Grade</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Unit</label>
-            <select
-              value={selectedUnitId}
-              onChange={(e) => setSelectedUnitId(Number(e.target.value))}
-              className="w-full text-sm border border-slate-300 rounded-md px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1 bg-white"
-            >
-              {unitsData.map((u) => (
-                <option key={u.id} value={u.id}>{u.title}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Outcomes</p>
-            <ol className="space-y-3 max-h-96 overflow-y-auto">
-              {selectedUnit?.essentialSkills.map((skill, i) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <span
-                    className="w-5 h-5 rounded-full text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5"
-                    style={{ backgroundColor: ACCENT }}
-                  >
-                    {i + 1}
-                  </span>
-                  <span className="text-xs text-slate-600 leading-relaxed">{skill.text}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      {/* Rubric Panel */}
-      <div className="flex-1 min-w-0 p-8">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Proficiency Rubric</p>
-            <h3 className="font-semibold text-slate-800 text-xl" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-              Grade {gradeNumber} — {selectedUnit?.title}
-            </h3>
-          </div>
-          <button
-            className="flex items-center gap-2 text-sm font-medium text-white px-4 py-2 rounded-md transition-opacity hover:opacity-90"
-            style={{ backgroundColor: '#334155' }}
-          >
-            <ExternalLink size={14} />
-            Open in Google Docs
-          </button>
-        </div>
-
-        {/* Table */}
-        <div className="overflow-x-auto rounded-lg border border-slate-200">
-          <table className="w-full text-xs border-collapse">
-            <thead>
-              <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider border-r border-slate-200 w-52">
-                  Outcome
-                </th>
-                {proficiencyLevels.map((pl) => (
-                  <th key={pl.level} className="px-4 py-3 text-center border-r border-slate-200 last:border-r-0">
-                    <div className={`text-lg font-semibold ${pl.textColor}`} style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-                      {pl.level}
-                    </div>
-                    <div className="text-xs text-slate-400 font-normal">{pl.label}</div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {selectedUnit?.essentialSkills.map((skill, i) => (
-                <tr key={i} className={`border-b border-slate-200 last:border-b-0 ${i % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'}`}>
-                  <td className="px-4 py-4 border-r border-slate-200 align-top">
-                    <div className="flex items-start gap-2.5">
-                      <span
-                        className="w-5 h-5 rounded-full text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ backgroundColor: ACCENT }}
-                      >
-                        {i + 1}
-                      </span>
-                      <span className="text-slate-600 leading-relaxed text-xs">{skill.text}</span>
-                    </div>
-                  </td>
-                  {proficiencyLevels.map((pl) => (
-                    <td key={pl.level} className="px-3 py-4 border-r border-slate-200 last:border-r-0 align-top">
-                      <div className="text-slate-300 italic text-xs text-center border border-dashed border-slate-200 rounded p-2 min-h-14 flex items-center justify-center">
-                        Criteria...
-                      </div>
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Info box */}
-        <div className="mt-4 flex items-center gap-2.5 bg-slate-50 rounded-lg p-3 border border-slate-200">
-          <div className="w-4 h-4 flex-shrink-0 text-slate-400">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="16" x2="12.01" y2="16" />
-            </svg>
-          </div>
-          <p className="text-xs text-slate-500">
-            Click "Open in Google Docs" to edit criteria and customize this rubric for your classroom.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ─── Main App ─────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [activeView, setActiveView] = useState('overview');
-  const [selectedGrade, setSelectedGrade] = useState(9);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#FAFAF8' }}>
       {/* Header */}
       <header className="bg-white border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-8 py-5 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-semibold text-slate-800" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+            <h1
+              className="text-2xl font-semibold"
+              style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_RED }}
+            >
               ELA Curriculum Framework
             </h1>
-            <p className="text-sm text-slate-500 mt-0.5">Cherry Creek School District</p>
+            <div className="flex items-center gap-2 mt-1">
+              <p className="text-sm text-slate-500">Cherry Creek School District</p>
+              <span
+                className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                style={{ backgroundColor: HEADER_RED + '15', color: HEADER_RED }}
+              >
+                Grade 10
+              </span>
+            </div>
           </div>
 
           {/* View Toggle */}
@@ -688,7 +535,7 @@ export default function App() {
               className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
               style={
                 activeView === 'overview'
-                  ? { backgroundColor: '#334155', color: 'white' }
+                  ? { backgroundColor: HEADER_RED, color: 'white' }
                   : { color: '#475569' }
               }
             >
@@ -699,7 +546,7 @@ export default function App() {
               className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
               style={
                 activeView === 'rubric'
-                  ? { backgroundColor: '#334155', color: 'white' }
+                  ? { backgroundColor: HEADER_RED, color: 'white' }
                   : { color: '#475569' }
               }
             >
@@ -708,27 +555,6 @@ export default function App() {
           </div>
         </div>
       </header>
-
-      {/* Grade Selector */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-8 py-3 flex items-center gap-3">
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Grade</span>
-          {[9, 10, 11, 12].map((g) => (
-            <button
-              key={g}
-              onClick={() => setSelectedGrade(g)}
-              className="px-4 py-1.5 rounded-md text-sm font-medium border transition-all duration-150"
-              style={
-                selectedGrade === g
-                  ? { backgroundColor: '#334155', color: 'white', borderColor: '#334155' }
-                  : { backgroundColor: 'white', color: '#475569', borderColor: '#e2e8f0' }
-              }
-            >
-              {g}
-            </button>
-          ))}
-        </div>
-      </div>
 
       {/* Main Content */}
       <main className="max-w-5xl mx-auto px-8 py-8">
