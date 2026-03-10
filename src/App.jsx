@@ -392,18 +392,9 @@ function SectionDropdown({ title, icon, children, color }) {
 
 function UnitAccordion({ unit }) {
   const [open, setOpen] = useState(false);
-  const [cfaInput, setCfaInput] = useState('');
-  const [cfas, setCfas] = useState([]);
   const [summativeForm, setSummativeForm] = useState({ title: '', description: '', link: '' });
   const [summatives, setSummatives] = useState([]);
   const color = UNIT_COLORS[unit.id];
-
-  const handleCfaSubmit = () => {
-    if (cfaInput.trim()) {
-      setCfas([...cfas, cfaInput.trim()]);
-      setCfaInput('');
-    }
-  };
 
   const handleSummativeSubmit = () => {
     if (summativeForm.title.trim()) {
@@ -485,60 +476,26 @@ function UnitAccordion({ unit }) {
 
           {/* Students Will Be Able To */}
           <SectionDropdown title="Students Will Be Able To" icon={<CheckCircle size={15} />} color={color.main}>
-            <div className="grid grid-cols-2 gap-6 mt-2">
-              {/* Left: Skills */}
-              <div>
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Skills & Outcomes</p>
-                <ol className="space-y-3">
-                  {unit.essentialSkills.map((skill, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <span
-                        className="w-5 h-5 rounded-full text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ backgroundColor: color.main }}
-                      >
-                        {i + 1}
-                      </span>
-                      <span className="text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
-                      <StandardsTooltip standards={skill.standards} color={color.main} />
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              {/* Right: CFAs */}
-              <div>
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Suggested CFAs</p>
-                {cfas.length === 0 ? (
-                  <div className="border border-dashed rounded-lg p-4 mb-3" style={{ borderColor: color.border }}>
-                    <p className="text-xs text-slate-400 text-center">No CFAs submitted yet.</p>
+            <ol className="space-y-4 mt-2">
+              {unit.essentialSkills.map((skill, i) => (
+                <li key={i}>
+                  <div className="flex items-start gap-2.5 mb-2">
+                    <span
+                      className="w-5 h-5 rounded-full text-white text-xs font-semibold flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ backgroundColor: color.main }}
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
+                    <StandardsTooltip standards={skill.standards} color={color.main} />
                   </div>
-                ) : (
-                  <ul className="space-y-1.5 mb-3">
-                    {cfas.map((cfa, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-slate-600 bg-white rounded px-3 py-2 border border-slate-200">
-                        <Check size={11} className="flex-shrink-0" style={{ color: color.main }} />
-                        <span className="truncate">{cfa}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <input
-                  type="text"
-                  value={cfaInput}
-                  onChange={(e) => setCfaInput(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleCfaSubmit()}
-                  placeholder="Enter CFA title or link..."
-                  className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white mb-2"
-                />
-                <button
-                  onClick={handleCfaSubmit}
-                  className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: color.main }}
-                >
-                  Submit CFA
-                </button>
-              </div>
-            </div>
+                  <div className="ml-7 rounded-md border border-dashed px-3 py-2" style={{ borderColor: color.border }}>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: color.main }}>CFAs</p>
+                    <p className="text-xs text-slate-400">Not yet populated</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </SectionDropdown>
 
           {/* Summatives */}
