@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RubricBuilder from './RubricBuilder.jsx';
+import ccsdLogo from '../public/ccsd-logo.png';
 import {
   ChevronDown,
   Target,
@@ -462,7 +463,6 @@ function UnitAccordion({ unit }) {
                 <li key={i} className="flex items-start gap-2.5">
                   <Check size={13} className="mt-1 flex-shrink-0" style={{ color: color.main }} />
                   <span className="text-sm text-slate-600 flex-1 leading-relaxed">{item.text}</span>
-                  <StandardsTooltip standards={item.standards} color={color.main} />
                 </li>
               ))}
             </ul>
@@ -481,6 +481,7 @@ function UnitAccordion({ unit }) {
                       {i + 1}
                     </span>
                     <span className="text-xs sm:text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
+                    <StandardsTooltip standards={skill.standards} color={color.main} />
                   </div>
                   <div className="ml-7 rounded-md border border-dashed px-3 py-2" style={{ borderColor: color.border }}>
                     <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: color.main }}>CFAs</p>
@@ -801,7 +802,7 @@ export default function App() {
 
             {/* Logo */}
             <img
-              src="/ccsd-logo.png"
+              src={ccsdLogo}
               alt="Cherry Creek Schools"
               className="h-14 sm:h-16 w-auto hidden sm:block"
               style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
