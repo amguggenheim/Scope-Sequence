@@ -769,23 +769,23 @@ export default function App() {
       {/* Header */}
       <header style={{ background: HEADER_GRADIENT }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
-          {/* Logo + Title Section */}
-          <div className="flex items-center gap-4 sm:gap-6 flex-1">
-            {/* Logo */}
-            <img
-              src={logo}
-              alt="High School ELA Scope and Sequence"
-              className="h-8 sm:h-10 w-auto hidden sm:block flex-shrink-0"
-              style={{ filter: 'saturate(200%) brightness(1.15)', mixBlendMode: 'multiply', opacity: 1, transition: 'filter 0.2s ease' }}
-            />
-            <div>
-              <h1
-                className="text-xl sm:text-2xl font-semibold"
-                style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
-              >
-                High School ELA Scope and Sequence
-              </h1>
-              <p className="text-xs sm:text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
+          {/* Title + Logo Section */}
+          <div className="flex-1">
+            <h1
+              className="text-xl sm:text-2xl font-semibold"
+              style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
+            >
+              High School ELA Scope and Sequence
+            </h1>
+            <div className="flex items-center gap-2 mt-1">
+              {/* Logo */}
+              <img
+                src={logo}
+                alt="Cherry Creek Schools"
+                className="h-5 sm:h-6 w-auto hidden sm:block flex-shrink-0"
+                style={{ filter: 'saturate(200%) brightness(1.15)', mixBlendMode: 'multiply', opacity: 1, transition: 'filter 0.2s ease' }}
+              />
+              <p className="text-xs sm:text-sm" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
             </div>
           </div>
 
