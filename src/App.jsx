@@ -527,8 +527,8 @@ function UnitAccordion({ unit }) {
                             <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
-                                <li key={j} className="text-xs text-slate-500 flex items-start gap-1.5">
-                                  <span className="text-slate-300 mt-0.5 flex-shrink-0">•</span>{o}
+                                <li key={j} className="text-xs text-slate-600 flex items-start gap-2">
+                                  <span className="text-sm text-slate-500 font-medium mt-0 flex-shrink-0">•</span>{o}
                                 </li>
                               ))}
                             </ul>
