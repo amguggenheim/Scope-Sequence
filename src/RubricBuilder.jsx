@@ -54,11 +54,11 @@ const RubricBuilder = () => {
   ];
 
   const proficiencyLevels = [
-    { level: 5, label: 'Advanced',    headerBg: '#E8E7E5', headerColor: '#2C2416' },
-    { level: 4, label: 'Proficient',  headerBg: '#E8E7E5', headerColor: '#2C2416' },
-    { level: 3, label: 'Approaching', headerBg: '#E8E7E5', headerColor: '#2C2416' },
-    { level: 2, label: 'Developing',  headerBg: '#E8E7E5', headerColor: '#2C2416' },
-    { level: 1, label: 'Beginning',   headerBg: '#E8E7E5', headerColor: '#2C2416' },
+    { level: 5, label: 'Advanced',    headerBg: '#FFFFFF', headerColor: '#2C2416' },
+    { level: 4, label: 'Proficient',  headerBg: '#FFFFFF', headerColor: '#2C2416' },
+    { level: 3, label: 'Approaching', headerBg: '#FFFFFF', headerColor: '#2C2416' },
+    { level: 2, label: 'Developing',  headerBg: '#FFFFFF', headerColor: '#2C2416' },
+    { level: 1, label: 'Beginning',   headerBg: '#FFFFFF', headerColor: '#2C2416' },
   ];
 
   const currentUnit = units[parseInt(rubricUnit) - 1];
