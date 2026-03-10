@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { FileText, Copy, Check, ChevronDown } from 'lucide-react';
 
-const RubricBuilder = () => {
+const RubricBuilder = ({ standardsReference }) => {
   const [rubricGrade, setRubricGrade] = useState('10');
   const [rubricUnit, setRubricUnit] = useState('1');
   const [copied, setCopied] = useState(false);
@@ -189,17 +189,13 @@ const RubricBuilder = () => {
 
           <div className="border-t border-slate-200 pt-5">
             <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Outcomes ({currentUnit.essentialSkills.length})
+              Standards
             </h3>
             <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
-              {currentUnit.essentialSkills.map((skill, idx) => (
-                <div key={idx} className="p-3 bg-white border border-slate-200 rounded-lg">
-                  <div className="flex items-start gap-2">
-                    <span className="w-5 h-5 rounded bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                      {idx + 1}
-                    </span>
-                    <span className="text-xs text-slate-600 leading-relaxed">{skill.text}</span>
-                  </div>
+              {[...new Set(currentUnit.essentialSkills.flatMap(skill => skill.standards))].map((standardCode, idx) => (
+                <div key={idx} className="p-2 bg-white border border-slate-200 rounded-lg">
+                  <p className="text-xs font-mono font-semibold text-slate-700 mb-1">{standardCode}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed">{standardsReference?.[standardCode] || 'Standard not found'}</p>
                 </div>
               ))}
             </div>

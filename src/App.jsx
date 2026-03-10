@@ -844,7 +844,7 @@ export default function App() {
                 ))}
               </div>
             )}
-            {activeView === 'rubric' && <RubricBuilder />}
+            {activeView === 'rubric' && <RubricBuilder standardsReference={standardsReference} />}
             {activeView === 'progression' && <VerticalProgression />}
           </>
         ) : (
