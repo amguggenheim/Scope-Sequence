@@ -776,7 +776,7 @@ export default function App() {
               src={logo}
               alt="ELA Scope and Sequence"
               className="h-8 sm:h-10 w-auto hidden sm:block flex-shrink-0"
-              style={{ filter: 'grayscale(30%) opacity(0.65)', transition: 'filter 0.2s ease' }}
+              style={{ filter: 'grayscale(30%)', mixBlendMode: 'multiply', opacity: 0.8, transition: 'filter 0.2s ease' }}
             />
             <div>
               <h1
