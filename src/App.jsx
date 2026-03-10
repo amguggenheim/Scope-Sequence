@@ -600,7 +600,7 @@ function UnitAccordion({ unit }) {
   );
 }
 
-// ─── Vertical Progression ────────────────────────────────────────────────────
+// ─── Skills Progression ───────────────────────────────────────────────────────
 
 const progressionThemes = [
   {
@@ -813,7 +813,7 @@ export default function App() {
 
           {/* View Toggle */}
           <div className="flex rounded-lg p-1 gap-1" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}>
-            {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Vertical Progression']].map(([view, label]) => (
+            {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Skills Progression']].map(([view, label]) => (
               <button
                 key={view}
                 onClick={() => setActiveView(view)}
