@@ -422,9 +422,12 @@ function UnitAccordion({ unit }) {
         >
           {unit.id}
         </div>
-        <span className="flex-1 font-medium text-slate-800 text-base" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-          {unit.title}
-        </span>
+        <div className="flex-1">
+          <div className="font-medium text-slate-800 text-sm">Unit {unit.id}</div>
+          <div className="text-sm text-slate-600 mt-0.5" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+            Skill Focus: {unit.title.replace(/^Unit \d+:\s*/, '')}
+          </div>
+        </div>
         <ChevronDown
           size={16}
           className={`transition-transform duration-200 flex-shrink-0`}
