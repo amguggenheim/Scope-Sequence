@@ -153,7 +153,7 @@ const RubricBuilder = () => {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <aside className="w-72 flex-shrink-0 border-r border-slate-200 min-h-[calc(100vh-113px)] bg-slate-50/50">
+      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#F5EDD8' }}>
         <div className="p-6 sticky top-0">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
             Rubric Settings
