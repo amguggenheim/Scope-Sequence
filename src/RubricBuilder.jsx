@@ -153,7 +153,7 @@ const RubricBuilder = () => {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#F8F7F5' }}>
+      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#F5F3F0' }}>
         <div className="p-6 sticky top-0">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
             Rubric Settings
@@ -261,15 +261,12 @@ const RubricBuilder = () => {
                     </div>
                   </td>
                   {proficiencyLevels.map(p => (
-                    <td key={p.level} className="px-2 py-2 align-top" style={{ backgroundColor: p.headerBg + '60' }}>
+                    <td key={p.level} className="px-2 py-2 align-top">
                       <textarea
                         value={getCellValue(idx, p.level)}
                         onChange={(e) => handleCellChange(idx, p.level, e.target.value)}
                         placeholder="Enter criteria..."
-                        className="w-full h-24 px-3 py-2 text-sm text-slate-700 bg-white rounded-lg resize-none placeholder:text-slate-300 focus:outline-none focus:ring-0 transition-colors"
-                        style={{ border: `1px solid ${p.headerBg}`, outline: 'none' }}
-                        onFocus={e => e.target.style.borderColor = p.headerColor + '80'}
-                        onBlur={e => e.target.style.borderColor = p.headerBg}
+                        className="w-full h-24 px-3 py-2 text-sm text-slate-700 bg-white border border-slate-200 rounded-lg resize-none placeholder:text-slate-300 hover:border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 transition-colors"
                       />
                     </td>
                   ))}
