@@ -14,6 +14,7 @@ import {
 // ─── Color System ─────────────────────────────────────────────────────────────
 
 const HEADER_COLOR = '#3D5A73';
+const HEADER_GRADIENT = 'linear-gradient(135deg, #2C4658 0%, #4A6B7F 50%, #5C7A8E 100%)';
 
 const UNIT_COLORS = {
   1: { main: '#5B7B9B', light: '#EEF2F7', border: '#C5D4E4' },  // dusty blue
@@ -781,7 +782,7 @@ export default function App() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       {/* Header */}
-      <header style={{ backgroundColor: HEADER_COLOR }}>
+      <header style={{ background: HEADER_GRADIENT }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
           <div>
             <h1
@@ -794,7 +795,7 @@ export default function App() {
           </div>
 
           {/* View Toggle */}
-          <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}>
+          <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
             {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Skills Progression']].map(([view, label]) => (
               <button
                 key={view}
@@ -810,7 +811,7 @@ export default function App() {
         </div>
 
         {/* Grade Selector */}
-        <div style={{ backgroundColor: 'rgba(0,0,0,0.15)' }}>
+        <div style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.08) 100%)' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-8 py-2 sm:py-2.5 flex items-center gap-2 sm:gap-3 overflow-x-auto">
             <span className="text-xs font-semibold uppercase tracking-wider whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.6)' }}>Grade</span>
             <div className="flex gap-2">
