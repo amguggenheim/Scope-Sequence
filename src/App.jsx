@@ -778,6 +778,7 @@ export default function App() {
               High School ELA Scope and Sequence
             </h1>
             <div className="flex items-center gap-2 mt-1">
+              <p className="text-xs sm:text-sm" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
               {/* Logo */}
               <img
                 src={logo}
@@ -785,7 +786,6 @@ export default function App() {
                 className="h-5 sm:h-6 w-auto hidden sm:block flex-shrink-0"
                 style={{ filter: 'saturate(200%) brightness(1.15)', mixBlendMode: 'multiply', opacity: 1, transition: 'filter 0.2s ease' }}
               />
-              <p className="text-xs sm:text-sm" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
             </div>
           </div>
 
