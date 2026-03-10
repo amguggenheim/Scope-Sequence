@@ -13,7 +13,7 @@ import {
 
 // ─── Color System ─────────────────────────────────────────────────────────────
 
-const HEADER_COLOR = '#2D2416';
+const HEADER_COLOR = '#3D5A73';
 
 const UNIT_COLORS = {
   1: { main: '#5B7B9B', light: '#EEF2F7', border: '#C5D4E4' },  // dusty blue
