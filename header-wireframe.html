@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Wireframe - ELA Curriculum Framework</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #F5F3F0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #2C4658 0%, #4A6B7F 50%, #5C7A8E 100%);
+      padding: 20px 32px;
+    }
+
+    .header-top {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-left {
+      flex: 1;
+    }
+
+    .header-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #F5EDD8;
+      margin-bottom: 8px;
+    }
+
+    .header-subtitle {
+      font-size: 14px;
+      color: #C8B89A;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* View Toggle */
+    .view-toggle {
+      display: flex;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .view-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 150ms ease;
+      color: #C8B89A;
+      background: transparent;
+    }
+
+    .view-button.active {
+      background-color: #F5EDD8;
+      color: #3D5A73;
+    }
+
+    /* Logo */
+    .logo {
+      height: 64px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F5EDD8;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* Grade Selector */
+    .grade-selector {
+      background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.08) 100%);
+      padding: 12px 32px;
+    }
+
+    .grade-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .grade-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.6);
+      white-space: nowrap;
+    }
+
+    .grade-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .grade-button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms ease;
+      color: #C8B89A;
+      background-color: rgba(255, 255, 255, 0.12);
+      flex-shrink: 0;
+    }
+
+    .grade-button.active {
+      background-color: #F5EDD8;
+      color: #3D5A73;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .header-right {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .view-toggle {
+        width: 100%;
+      }
+
+      .view-button {
+        flex: 1;
+        padding: 8px 8px;
+        font-size: 12px;
+      }
+
+      .logo {
+        display: none;
+      }
+
+      .header-title {
+        font-size: 20px;
+      }
+
+      .header-subtitle {
+        font-size: 12px;
+      }
+    }
+
+    /* Label for wireframe */
+    .wireframe-label {
+      background: #f0f0f0;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wireframe-label">Header Wireframe</div>
+
+    <header>
+      <div class="header-top">
+        <div class="header-left">
+          <div class="header-title">ELA Curriculum Framework</div>
+          <div class="header-subtitle">Cherry Creek School District</div>
+        </div>
+
+        <div class="header-right">
+          <div class="view-toggle">
+            <button class="view-button active">Overview</button>
+            <button class="view-button">Rubric</button>
+            <button class="view-button">Skills</button>
+          </div>
+
+          <div class="logo">
+            Logo
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="grade-selector">
+      <div class="grade-content">
+        <div class="grade-label">Grade</div>
+        <div class="grade-buttons">
+          <button class="grade-button">9</button>
+          <button class="grade-button active">10</button>
+          <button class="grade-button">11</button>
+          <button class="grade-button">12</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #3D5A73;">
+    <h2 style="margin-bottom: 12px; color: #333;">Header Components</h2>
+    <ul style="color: #666; line-height: 1.8;">
+      <li><strong>Background:</strong> Warm blue gradient (135deg: #2C4658 → #4A6B7F → #5C7A8E)</li>
+      <li><strong>Left Section:</strong> Title (Fraunces serif, #F5EDD8) + Subtitle (#C8B89A)</li>
+      <li><strong>Center/Right:</strong> View toggle buttons (frosted glass effect) + Cherry Creek Schools logo</li>
+      <li><strong>Grade Bar:</strong> Subtle gradient overlay with grade selector buttons (9, 10, 11, 12)</li>
+      <li><strong>Mobile:</strong> Responsive layout; logo hidden on small screens</li>
+      <li><strong>Button States:</strong> Active state uses cream background (#F5EDD8) with dark text</li>
+    </ul>
+  </div>
+</body>
+</html>
