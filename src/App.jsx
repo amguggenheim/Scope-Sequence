@@ -83,13 +83,13 @@ const unitsData = [
     enduringUnderstandings: [
       { text: 'Themes and central ideas develop across a text through specific details and evidence.', standards: ['RL.9-10.2', 'RI.9-10.2'] },
       { text: 'Strong analysis requires using textual evidence to explain and support interpretations.', standards: ['RL.9-10.1', 'RI.9-10.1'] },
-      { text: 'Word choice shapes meaning, tone, and the reader\'s understanding of a text.', standards: ['RL.9-10.4', 'RI.9-10.4'] },
+      { text: 'Word choice shapes meaning, tone, and the reader\'s understanding of a text.', standards: ['RL.9-10.4 & RI.9-10.4'] },
       { text: 'Academic discussions deepen understanding when participants support ideas with evidence and build on the perspectives of others.', standards: ['SL.9-10.1'] },
     ],
     essentialSkills: [
       { text: 'Determine a theme or central idea of a text and analyze how it develops across the text.', standards: ['RL.9-10.2'] },
       { text: 'Cite strong textual evidence to support analysis and interpretation of texts.', standards: ['RL.9-10.1', 'RI.9-10.1'] },
-      { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4', 'RI.9-10.4'] },
+      { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4 & RI.9-10.4'] },
       { text: 'Analyze how an author develops and organizes ideas or arguments across a text.', standards: ['RI.9-10.5'] },
       { text: 'Evaluate a speaker\'s point of view, reasoning, and use of evidence.', standards: ['SL.9-10.3'] },
       { text: 'Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others\' ideas.', standards: ['SL.9-10.1'] },
@@ -484,13 +484,8 @@ function UnitAccordion({ unit }) {
 
           {/* Summatives */}
           <SectionDropdown title="Summatives" icon={<FileText size={15} />} color={color.main}>
-            <div className="mt-2 space-y-2">
-              <input type="text" value={summativeForm.title} onChange={(e) => setSummativeForm({ ...summativeForm, title: e.target.value })} placeholder="Assessment title (required)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
-              <input type="text" value={summativeForm.description} onChange={(e) => setSummativeForm({ ...summativeForm, description: e.target.value })} placeholder="Brief description (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
-              <input type="text" value={summativeForm.link} onChange={(e) => setSummativeForm({ ...summativeForm, link: e.target.value })} placeholder="Link to resource (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
-              <button onClick={handleSummativeSubmit} className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90" style={{ backgroundColor: color.main }}>
-                Submit Summative
-              </button>
+            <div className="mt-2 p-4 rounded-md border border-dashed" style={{ borderColor: color.border, backgroundColor: color.light + '40' }}>
+              <p className="text-xs text-slate-400">To be populated</p>
             </div>
           </SectionDropdown>
 
@@ -523,7 +518,7 @@ function UnitAccordion({ unit }) {
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
                                 <li key={j} className="text-xs text-slate-500 flex items-start gap-1.5">
-                                  <span className="text-slate-300 mt-0.5 flex-shrink-0">—</span>{o}
+                                  <span className="text-slate-300 mt-0.5 flex-shrink-0">•</span>{o}
                                 </li>
                               ))}
                             </ul>
@@ -544,7 +539,7 @@ function UnitAccordion({ unit }) {
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
                                 <li key={j} className="text-xs flex items-start gap-1.5" style={{ color: color.main }}>
-                                  <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>—</span>{o}
+                                  <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>•</span>{o}
                                 </li>
                               ))}
                             </ul>
