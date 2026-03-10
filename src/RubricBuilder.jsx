@@ -195,7 +195,7 @@ const RubricBuilder = ({ standardsReference }) => {
               {[...new Set(currentUnit.essentialSkills.flatMap(skill => skill.standards))].map((standardCode, idx) => (
                 <div key={idx} className="p-2 bg-white border border-slate-200 rounded-lg">
                   <p className="text-xs font-mono font-semibold text-slate-700 mb-1">{standardCode}</p>
-                  <p className="text-xs text-slate-600 leading-relaxed">{standardsReference?.[standardCode] || 'Standard not found'}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed">{standardsReference && standardsReference[standardCode] ? standardsReference[standardCode] : 'Standard not found'}</p>
                 </div>
               ))}
             </div>
