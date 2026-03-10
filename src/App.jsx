@@ -125,23 +125,13 @@ const unitsData = [
         ],
       },
       {
-        standard: 'RL.9-10.10',
-        title: 'Range of Reading (Literary Texts)',
+        standard: 'RL.9-10.10 & RI.9-10.10',
+        title: 'Range of Reading (Literary & Informational Texts)',
         grade9: [
-          { text: 'Know what tools will help support reading comprehension. Use teacher-supported reading tools.', outcomes: ['I can understand what tools will help support reading comprehension.', 'I can use teacher-supported reading tools.'] },
+          { text: 'Know what tools will help support reading comprehension in both literary and informational texts. Use teacher-supported reading tools.', outcomes: ['I can understand what tools will help support reading comprehension.', 'I can use teacher-supported reading tools across text types.'] },
         ],
         grade10: [
-          { text: 'Apply reading strategies independently.', outcomes: ['I can apply reading strategies independently based on genre of text.'] },
-        ],
-      },
-      {
-        standard: 'RI.9-10.10',
-        title: 'Range of Reading (Informational Texts)',
-        grade9: [
-          { text: 'Know what tools will help support reading comprehension. Use teacher-supported reading tools.', outcomes: ['I can know what tools will help support my reading comprehension.', 'I can use tools from my teacher to support my reading.'] },
-        ],
-        grade10: [
-          { text: 'Apply reading strategies independently.', outcomes: ['I can independently apply reading strategies.'] },
+          { text: 'Apply reading strategies independently across literary and informational texts.', outcomes: ['I can apply reading strategies independently based on genre and text type.', 'I can adapt strategies for different text complexities.'] },
         ],
       },
     ],
