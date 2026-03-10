@@ -783,8 +783,8 @@ export default function App() {
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       {/* Header */}
       <header style={{ background: HEADER_GRADIENT }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
-          <div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
+          <div className="flex-1">
             <h1
               className="text-xl sm:text-2xl font-semibold"
               style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
@@ -794,19 +794,29 @@ export default function App() {
             <p className="text-xs sm:text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
           </div>
 
-          {/* View Toggle */}
-          <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
-            {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Skills Progression']].map(([view, label]) => (
-              <button
-                key={view}
-                onClick={() => setActiveView(view)}
-                className="px-2 sm:px-4 py-1.5 rounded-md font-medium transition-all duration-150 whitespace-nowrap"
-                style={activeView === view ? { backgroundColor: '#F5EDD8', color: HEADER_COLOR } : { color: '#C8B89A' }}
-              >
-                <span className="hidden sm:inline">{label}</span>
-                <span className="sm:hidden">{label.split(' ')[0]}</span>
-              </button>
-            ))}
+          <div className="flex items-center gap-4 sm:gap-6">
+            {/* View Toggle */}
+            <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
+              {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Skills Progression']].map(([view, label]) => (
+                <button
+                  key={view}
+                  onClick={() => setActiveView(view)}
+                  className="px-2 sm:px-4 py-1.5 rounded-md font-medium transition-all duration-150 whitespace-nowrap"
+                  style={activeView === view ? { backgroundColor: '#F5EDD8', color: HEADER_COLOR } : { color: '#C8B89A' }}
+                >
+                  <span className="hidden sm:inline">{label}</span>
+                  <span className="sm:hidden">{label.split(' ')[0]}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Logo */}
+            <img
+              src="/ccsd-logo.png"
+              alt="Cherry Creek Schools"
+              className="h-14 sm:h-16 w-auto hidden sm:block"
+              style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
+            />
           </div>
         </div>
 
