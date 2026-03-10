@@ -232,6 +232,16 @@ const unitsData = [
           { text: 'Apply reading strategies independently.', outcomes: ['I can independently apply reading strategies.'] },
         ],
       },
+      {
+        standard: 'W.9-10.5',
+        title: 'Develop and Strengthen Writing',
+        grade9: [
+          { text: 'Establish reliable writing routines, making revision decisions with scaffolds, and understanding purpose and audience in basic terms.', outcomes: ['I can revise for clarity & organization (using checklists, key areas of improvement)', 'I can plan using structured supports (graphic organizers, writing frames, guided questions)'] },
+        ],
+        grade10: [
+          { text: 'Independent decision-making, refining writing for precision and effectiveness, and consistently matching writing choices to nuanced audience and purpose needs.', outcomes: ['I can revise for craft elements (logic of ideas, strength of evidence, cohesion, rhetorical effect) that are most effective for my chosen audience', 'I can select tools and structures that best fit the writing task.'] },
+        ],
+      },
     ],
   },
   {
