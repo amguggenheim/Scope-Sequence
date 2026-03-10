@@ -257,7 +257,7 @@ const RubricBuilder = () => {
                       <span className="w-5 h-5 rounded bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-semibold flex-shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
-                      <span className="text-sm text-slate-700 leading-relaxed">{skill.text}</span>
+                      <span className="text-xs text-slate-700 leading-relaxed">{skill.text}</span>
                     </div>
                   </td>
                   {proficiencyLevels.map(p => (
