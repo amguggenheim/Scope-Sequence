@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RubricBuilder from './RubricBuilder.jsx';
-import ccsdLogo from '../public/ccsd-logo.png';
+import logo from '../public/logo.png';
 import {
   ChevronDown,
   Target,
@@ -773,10 +773,10 @@ export default function App() {
           <div className="flex items-center gap-4 sm:gap-6 flex-1">
             {/* Logo */}
             <img
-              src={ccsdLogo}
-              alt="Cherry Creek Schools"
+              src={logo}
+              alt="ELA Scope and Sequence"
               className="h-8 sm:h-10 w-auto hidden sm:block flex-shrink-0"
-              style={{ filter: 'grayscale(85%) opacity(0.6)', transition: 'filter 0.2s ease' }}
+              style={{ filter: 'grayscale(30%) opacity(0.65)', transition: 'filter 0.2s ease' }}
             />
             <div>
               <h1
