@@ -362,12 +362,12 @@ function SectionDropdown({ title, icon, children, color }) {
     <div className="border border-slate-200 rounded-lg overflow-visible">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
+        className="w-full flex items-center justify-between px-3 sm:px-4 py-3 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
         style={{ borderRadius: open ? '8px 8px 0 0' : '8px' }}
       >
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 min-w-0">
           <span style={{ color: open ? color : '#94a3b8' }}>{icon}</span>
-          <span className="text-sm font-medium text-slate-700">{title}</span>
+          <span className="text-xs sm:text-sm font-medium text-slate-700">{title}</span>
         </div>
         <ChevronDown
           size={14}
@@ -378,7 +378,7 @@ function SectionDropdown({ title, icon, children, color }) {
 
       {open && (
         <div
-          className="px-4 pb-4 pt-1 border-t border-slate-200 rounded-b-lg animate-fadeIn"
+          className="px-3 sm:px-4 pb-4 pt-1 border-t border-slate-200 rounded-b-lg animate-fadeIn text-xs sm:text-sm"
           style={{ backgroundColor: color + '08' }}
         >
           {children}
@@ -413,18 +413,18 @@ function UnitAccordion({ unit }) {
       {/* Unit Header */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-4 px-6 py-4 text-left rounded-lg transition-colors duration-150"
+        className="w-full flex items-center gap-3 sm:gap-4 px-3 sm:px-6 py-3 sm:py-4 text-left rounded-lg transition-colors duration-150"
         style={{ backgroundColor: open ? color.light : 'white' }}
       >
         <div
-          className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
+          className="w-6 sm:w-7 h-6 sm:h-7 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
           style={{ backgroundColor: color.main }}
         >
           {unit.id}
         </div>
-        <div className="flex-1">
-          <div className="font-medium text-slate-800 text-sm">Unit {unit.id}</div>
-          <div className="text-sm text-slate-600 mt-0.5" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+        <div className="flex-1 min-w-0">
+          <div className="font-medium text-slate-800 text-xs sm:text-sm">Unit {unit.id}</div>
+          <div className="text-xs sm:text-sm text-slate-600 mt-0.5 truncate sm:truncate-none" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
             Skill Focus: {unit.title.replace(/^Unit \d+:\s*/, '')}
           </div>
         </div>
@@ -437,18 +437,18 @@ function UnitAccordion({ unit }) {
 
       {/* Expanded Content */}
       {open && (
-        <div className="px-6 pb-6 space-y-3 animate-fadeIn" style={{ borderTop: `1px solid ${color.border}` }}>
+        <div className="px-3 sm:px-6 pb-4 sm:pb-6 space-y-3 animate-fadeIn" style={{ borderTop: `1px solid ${color.border}` }}>
           {/* Skill Description */}
           <div
-            className="mt-4 rounded-lg p-4 flex gap-3"
+            className="mt-4 rounded-lg p-3 sm:p-4 flex gap-3"
             style={{ backgroundColor: color.light, borderLeft: `3px solid ${color.main}` }}
           >
             <BookOpen size={15} className="flex-shrink-0 mt-0.5" style={{ color: color.main }} />
-            <div>
+            <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: color.main }}>
                 Skill Focus: {unit.title.replace(/^Unit \d+:\s*/, '')}
               </p>
-              <p className="text-sm text-slate-600 leading-relaxed">{unit.skillDescription}</p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{unit.skillDescription}</p>
             </div>
           </div>
 
@@ -489,7 +489,7 @@ function UnitAccordion({ unit }) {
                     >
                       {i + 1}
                     </span>
-                    <span className="text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
+                    <span className="text-xs sm:text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
                     <StandardsTooltip standards={skill.standards} color={color.main} />
                   </div>
                   <div className="ml-7 rounded-md border border-dashed px-3 py-2" style={{ borderColor: color.border }}>
@@ -803,27 +803,28 @@ export default function App() {
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       {/* Header */}
       <header style={{ backgroundColor: HEADER_COLOR }}>
-        <div className="max-w-5xl mx-auto px-8 py-5 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
           <div>
             <h1
-              className="text-2xl font-semibold"
+              className="text-xl sm:text-2xl font-semibold"
               style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
             >
               ELA Curriculum Framework
             </h1>
-            <p className="text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
+            <p className="text-xs sm:text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
           </div>
 
           {/* View Toggle */}
-          <div className="flex rounded-lg p-1 gap-1" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}>
+          <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}>
             {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Skills Progression']].map(([view, label]) => (
               <button
                 key={view}
                 onClick={() => setActiveView(view)}
-                className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
+                className="px-2 sm:px-4 py-1.5 rounded-md font-medium transition-all duration-150 whitespace-nowrap"
                 style={activeView === view ? { backgroundColor: '#F5EDD8', color: HEADER_COLOR } : { color: '#C8B89A' }}
               >
-                {label}
+                <span className="hidden sm:inline">{label}</span>
+                <span className="sm:hidden">{label.split(' ')[0]}</span>
               </button>
             ))}
           </div>
@@ -831,14 +832,14 @@ export default function App() {
 
         {/* Grade Selector */}
         <div style={{ backgroundColor: 'rgba(0,0,0,0.15)' }}>
-          <div className="max-w-5xl mx-auto px-8 py-2.5 flex items-center gap-3">
-            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.6)' }}>Grade</span>
+          <div className="max-w-5xl mx-auto px-4 sm:px-8 py-2 sm:py-2.5 flex items-center gap-2 sm:gap-3 overflow-x-auto">
+            <span className="text-xs font-semibold uppercase tracking-wider whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.6)' }}>Grade</span>
             <div className="flex gap-2">
               {['9', '10', '11', '12'].map((grade) => (
                 <button
                   key={grade}
                   onClick={() => setSelectedGrade(grade)}
-                  className="w-8 h-8 rounded-md text-sm font-semibold transition-all duration-150"
+                  className="w-8 h-8 rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 flex-shrink-0"
                   style={
                     selectedGrade === grade
                       ? { backgroundColor: '#F5EDD8', color: HEADER_COLOR }
@@ -854,7 +855,7 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-8 py-8">
+      <main className="max-w-5xl mx-auto px-4 sm:px-8 py-4 sm:py-8">
         {selectedGrade === '10' ? (
           <>
             {activeView === 'overview' && (
