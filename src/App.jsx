@@ -106,23 +106,13 @@ const unitsData = [
         ],
       },
       {
-        standard: 'RI.9-10.4',
-        title: 'Word Choice & Meaning (Informational Texts)',
+        standard: 'RL.9-10.4 & RI.9-10.4',
+        title: 'Word Choice & Meaning (Literary & Informational Texts)',
         grade9: [
-          { text: 'Determine the meaning of words and phrases, including figurative and connotative language.', outcomes: ['I can determine the meaning of words and phrases, including figurative and connotative language.'] },
+          { text: 'Determine the meaning of words and phrases across text types, including figurative and connotative language.', outcomes: ['I can use a variety of resources & strategies to determine meaning', 'I can determine figurative language meanings', 'I can differentiate connotative from literal meanings'] },
         ],
         grade10: [
-          { text: 'Analyze the cumulative impact of specific word choice on meaning and tone.', outcomes: ['I can analyze the cumulative impact of specific word choice on meaning and tone.'] },
-        ],
-      },
-      {
-        standard: 'RL.9-10.4',
-        title: 'Word Choice & Meaning (Literary Texts)',
-        grade9: [
-          { text: 'Determine the meaning of words and phrases, including figurative and connotative language.', outcomes: ['I can use a variety of resources & strategies to determine the meaning of words and phrases', 'I can determine the literal meaning of figurative language', 'I can differentiate the meaning of connotative language.'] },
-        ],
-        grade10: [
-          { text: 'Analyze the cumulative impact of specific word choice on meaning and tone.', outcomes: ['I can analyze how and when specific language is used to impact meaning', 'I can analyze how and when specific language is used to impact tone'] },
+          { text: 'Analyze how word choice cumulatively impacts meaning and tone in both literary and informational contexts.', outcomes: ['I can analyze how specific language affects meaning', 'I can analyze how word choice impacts tone', 'I can recognize differences in word choice across text types'] },
         ],
       },
       {
