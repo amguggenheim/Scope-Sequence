@@ -725,24 +725,24 @@ function VerticalProgression() {
       {progressionGrade === '10' ? (
         <>
           <div>
-            <h2 className="text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_COLOR }}>
+            <h2 className="text-lg sm:text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_COLOR }}>
               10th Grade ELA Skill Progression: Full Year
             </h2>
-            <p className="text-sm text-slate-500 mt-1">Q1 → Q2 → Q3 → Q4</p>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">Q1 → Q2 → Q3 → Q4</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             {progressionThemes.map((theme, idx) => (
-              <div key={idx} className="bg-white border border-slate-200 rounded-lg p-4">
-                <h3 className="text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+              <div key={idx} className="bg-white border border-slate-200 rounded-lg p-3 sm:p-4">
+                <h3 className="text-xs sm:text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
                   {theme.title}
                 </h3>
                 <div>
                   {theme.quarters.map((q, qIdx) => (
-                    <div key={qIdx} className="flex items-start gap-2.5">
+                    <div key={qIdx} className="flex items-start gap-2">
                       <div className="flex flex-col items-center flex-shrink-0 mt-0.5">
                         <span
-                          className="text-xs font-bold px-1.5 py-0.5 rounded text-white leading-tight"
+                          className="text-xs font-bold px-1.5 py-0.5 rounded text-white leading-tight whitespace-nowrap"
                           style={{ backgroundColor: HEADER_COLOR, opacity: 1 - qIdx * 0.18 }}
                         >
                           Q{qIdx + 1}
@@ -758,14 +758,14 @@ function VerticalProgression() {
           </div>
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center py-24 text-center">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_COLOR + '15' }}>
-            <BookOpen size={20} style={{ color: HEADER_COLOR }} />
+        <div className="flex flex-col items-center justify-center py-12 sm:py-24 text-center">
+          <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_COLOR + '15' }}>
+            <BookOpen size={18} style={{ color: HEADER_COLOR }} />
           </div>
-          <h2 className="text-lg font-semibold text-slate-700 mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+          <h2 className="text-base sm:text-lg font-semibold text-slate-700 mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
             Grade {progressionGrade} Coming Soon
           </h2>
-          <p className="text-sm text-slate-400">Vertical progression data for Grade {progressionGrade} hasn't been added yet.</p>
+          <p className="text-xs sm:text-sm text-slate-400 px-4">Skills progression data for Grade {progressionGrade} hasn't been added yet.</p>
         </div>
       )}
     </div>
