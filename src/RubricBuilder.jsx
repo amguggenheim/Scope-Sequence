@@ -50,44 +50,45 @@ const RubricBuilder = () => {
   const units = [
     {
       id: 1,
-      title: 'Unit 1: Foundations of Literary Analysis',
+      title: 'Unit 1: Foundational Analysis (Evidence, Structure, & Meaning)',
       essentialSkills: [
-        { text: 'Determine a theme or central idea of a text and analyze how it develops across the text.' },
-        { text: 'Cite strong textual evidence to support analysis and interpretation of texts.' },
-        { text: 'Analyze how word choice shapes the meaning and tone of a text.' },
-        { text: 'Analyze how an author develops and organizes ideas or arguments across a text.' },
-        { text: "Evaluate a speaker's point of view, reasoning, and use of evidence." },
-        { text: "Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others' ideas." }
+        { text: 'Determine a theme or central idea of a text and analyze how it develops across the text.', standards: ['RL.9-10.2'] },
+        { text: 'Cite strong textual evidence to support analysis and interpretation of texts.', standards: ['RL.9-10.1', 'RI.9-10.1'] },
+        { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4', 'RI.9-10.4'] },
+        { text: 'Analyze how an author develops and organizes ideas or arguments across a text.', standards: ['RI.9-10.5'] },
+        { text: "Evaluate a speaker's point of view, reasoning, and use of evidence.", standards: ['SL.9-10.3'] },
+        { text: "Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others' ideas.", standards: ['SL.9-10.1'] }
       ]
     },
     {
       id: 2,
-      title: 'Unit 2: Argument & Rhetoric',
+      title: 'Unit 2: Analyzing Rhetorical Craft: Language, Structure, and Argument',
       essentialSkills: [
-        { text: 'Analyze how authors use rhetoric to advance their purpose.' },
-        { text: 'Evaluate the validity of reasoning and relevance of evidence in arguments.' },
-        { text: 'Write arguments with clear claims, relevant evidence, and logical organization.' },
-        { text: "Address counterclaims fairly while strengthening one's own position." }
+        { text: 'Analyze how figurative language and stylistic choices shape meaning and tone.', standards: ['L.9-10.5', 'RL.9-10.5'] },
+        { text: 'Cite strong textual evidence to support analysis and interpretation.', standards: ['RL.9-10.1'] },
+        { text: 'Delineate and evaluate arguments, assessing whether reasoning and evidence are valid and sufficient.', standards: ['RI.9-10.8'] },
+        { text: 'Select relevant evidence to support claims in writing.', standards: ['W.9-10.1'] },
+        { text: 'Write clear arguments using discipline-specific language and formal academic tone.', standards: ['W.9-10.1', 'L.9-10.6'] }
       ]
     },
     {
       id: 3,
-      title: 'Unit 3: Narrative Craft',
+      title: 'Unit 3: Evaluating Arguments & Synthesizing Voices',
       essentialSkills: [
-        { text: "Analyze how an author's choices about structure create effects like mystery or tension." },
-        { text: 'Analyze a particular point of view or cultural experience reflected in literature.' },
-        { text: 'Write narratives using effective technique, descriptive details, and clear sequences.' },
-        { text: 'Use narrative techniques such as dialogue, pacing, and reflection.' }
+        { text: 'Analyze how arguments vary in strength based on reasoning and evidence quality.', standards: ['RI.9-10.1'] },
+        { text: 'Compare and contrast claims across multiple texts.', standards: ['RI.9-10.6'] },
+        { text: 'Evaluate the validity and relevance of evidence in arguments.', standards: ['RI.9-10.8'] },
+        { text: 'Synthesize information from multiple texts to develop new claims.', standards: ['RI.9-10.10'] }
       ]
     },
     {
       id: 4,
-      title: 'Unit 4: Research & Synthesis',
+      title: 'Unit 4: Inquiry, Transfer, & Metacognitive Defense',
       essentialSkills: [
-        { text: 'Conduct short and sustained research projects to answer questions or solve problems.' },
-        { text: 'Gather relevant information from multiple authoritative sources.' },
-        { text: 'Synthesize information from multiple texts on the same topic.' },
-        { text: 'Present information clearly and logically with appropriate evidence and multimedia.' }
+        { text: 'Conduct research projects to answer questions or solve problems.', standards: ['W.9-10.7'] },
+        { text: 'Gather and evaluate information from multiple authoritative sources.', standards: ['W.9-10.8'] },
+        { text: 'Synthesize evidence from research sources to support claims.', standards: ['W.9-10.9'] },
+        { text: 'Present information clearly with evidence and supporting details.', standards: ['SL.9-10.4'] }
       ]
     }
   ];
