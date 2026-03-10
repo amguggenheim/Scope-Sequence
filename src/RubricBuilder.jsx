@@ -57,8 +57,8 @@ const RubricBuilder = () => {
     { level: 5, label: 'Advanced',    headerBg: '#C8E6C9', headerColor: '#1B5E20' },
     { level: 4, label: 'Proficient',  headerBg: '#D4EDDA', headerColor: '#1B5E20' },
     { level: 3, label: 'Approaching', headerBg: '#BBDEFB', headerColor: '#0D47A1' },
-    { level: 2, label: 'Developing',  headerBg: '#FFF9C4', headerColor: '#F57F17' },
-    { level: 1, label: 'Beginning',   headerBg: '#FFCDD2', headerColor: '#B71C1C' },
+    { level: 2, label: 'Developing',  headerBg: '#F5EECC', headerColor: '#7A6B1B' },
+    { level: 1, label: 'Beginning',   headerBg: '#F5D9D9', headerColor: '#8B3A3A' },
   ];
 
   const currentUnit = units[parseInt(rubricUnit) - 1];
@@ -153,7 +153,7 @@ const RubricBuilder = () => {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#F5F3F0' }}>
+      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#EEE9E0' }}>
         <div className="p-6 sticky top-0">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
             Rubric Settings

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe — ELA Curriculum Framework</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: sans-serif; font-size: 13px; background: #F5F3F0; color: #333; }
+
+  /* ── HEADER ── */
+  .header { background: #98012e; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .header-title { color: white; font-size: 20px; font-weight: 700; }
+  .header-sub { color: rgba(255,255,255,0.7); font-size: 12px; margin-top: 2px; }
+  .tab-group { display: flex; background: rgba(0,0,0,0.2); border-radius: 8px; padding: 4px; gap: 4px; }
+  .tab { padding: 6px 14px; border-radius: 6px; color: rgba(255,255,255,0.8); cursor: pointer; font-size: 12px; border: none; background: none; }
+  .tab.active { background: white; color: #98012e; font-weight: 600; }
+
+  /* ── GRADE BAR ── */
+  .grade-bar { background: rgba(152,1,46,0.15); padding: 8px 40px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(152,1,46,0.1); }
+  .grade-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(152,1,46,0.5); }
+  .grade-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; color: #64748b; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .grade-btn.active { background: #98012e; color: white; border-color: #98012e; }
+
+  /* ── MAIN ── */
+  .main { max-width: 900px; margin: 0 auto; padding: 32px 40px; }
+
+  /* ── UNIT ACCORDION ── */
+  .unit { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .unit-header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; cursor: pointer; }
+  .unit-dot { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .unit-title { font-size: 14px; font-weight: 600; flex: 1; }
+  .chevron { color: #94a3b8; font-size: 12px; }
+  .unit-body { padding: 0 20px 20px; border-top: 1px solid #e8ecf0; }
+
+  /* ── SKILL FOCUS ── */
+  .skill-focus { margin-top: 14px; padding: 12px 14px; border-radius: 8px; border-left: 3px solid; display: flex; gap: 10px; }
+  .skill-focus-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .skill-focus-text { font-size: 12px; color: #475569; line-height: 1.6; }
+
+  /* ── SECTION DROPDOWN ── */
+  .section { border: 1px solid #e2e8f0; border-radius: 8px; margin-top: 8px; overflow: hidden; }
+  .section-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: white; cursor: pointer; font-size: 12px; font-weight: 500; color: #334155; }
+  .section-header .icon { width: 14px; height: 14px; border-radius: 3px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+  .section-body { padding: 12px 14px; border-top: 1px solid #e2e8f0; }
+
+  /* ── LISTS ── */
+  .eu-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .eu-check { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
+  .eu-text { font-size: 12px; color: #475569; line-height: 1.5; flex: 1; }
+  .st-badge { font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 3px; border: 1px solid; flex-shrink: 0; cursor: pointer; font-family: monospace; }
+
+  /* ── EQ LIST ── */
+  .eq-item { display: flex; gap: 8px; margin-bottom: 8px; }
+  .eq-q { font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .eq-text { font-size: 12px; color: #475569; line-height: 1.5; }
+
+  /* ── SKILL + CFA ── */
+  .skill-item { margin-bottom: 14px; }
+  .skill-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+  .skill-num { width: 18px; height: 18px; border-radius: 50%; color: white; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .skill-text { font-size: 12px; color: #475569; line-height: 1.5; flex: 1; }
+  .cfa-box { margin-left: 26px; border: 1px dashed #c5d4e4; border-radius: 6px; padding: 8px 10px; }
+  .cfa-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #5b7b9b; margin-bottom: 3px; }
+  .cfa-empty { font-size: 11px; color: #94a3b8; }
+
+  /* ── SUMMATIVES ── */
+  .summative-empty { border: 1px dashed #e2e8f0; border-radius: 6px; padding: 16px; text-align: center; color: #94a3b8; font-size: 11px; margin-bottom: 10px; }
+  .input-field { width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 10px; font-size: 11px; color: #475569; margin-bottom: 6px; background: white; }
+  .submit-btn { width: 100%; padding: 7px; border-radius: 6px; color: white; font-size: 11px; font-weight: 600; border: none; cursor: pointer; }
+
+  /* ── RIGOR ── */
+  .rigor-std-label { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rigor-std-badge { font-family: monospace; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+  .rigor-std-title { font-size: 11px; color: #64748b; }
+  .rigor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .rigor-col-header { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .grade-circle { width: 22px; height: 22px; border-radius: 50%; color: white; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .rigor-grade-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; }
+  .rigor-card { border-radius: 6px; border: 1px solid; padding: 10px; }
+  .rigor-card-text { font-size: 11px; font-weight: 500; color: #334155; margin-bottom: 6px; line-height: 1.4; }
+  .rigor-outcome { font-size: 10px; color: #64748b; display: flex; gap: 5px; margin-bottom: 3px; }
+  .rigor-dash { color: #cbd5e1; }
+
+  /* ── TOOLTIP POPOVER (shown inline for wireframe) ── */
+  .tooltip-demo { background: white; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); width: 260px; position: absolute; right: 50px; top: 0; z-index: 10; }
+  .tooltip-header { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tooltip-body { padding: 10px 12px; }
+  .tooltip-code { font-family: monospace; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 4px; }
+  .tooltip-desc { font-size: 11px; color: #64748b; line-height: 1.5; }
+
+  /* ── RUBRIC VIEW ── */
+  .rubric-layout { display: flex; gap: 24px; }
+  .rubric-sidebar { width: 240px; flex-shrink: 0; background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; }
+  .rubric-sidebar-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin-bottom: 12px; }
+  .sidebar-select { width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; padding: 7px 10px; font-size: 11px; color: #475569; background: white; margin-bottom: 10px; }
+  .outcome-chip { display: flex; gap: 7px; align-items: flex-start; margin-bottom: 7px; }
+  .outcome-num { width: 18px; height: 18px; border-radius: 50%; background: #98012e; color: white; font-size: 9px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .outcome-chip-text { font-size: 10px; color: #475569; line-height: 1.4; }
+  .rubric-main { flex: 1; }
+  .rubric-header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .rubric-title { font-size: 16px; font-weight: 700; color: #334155; }
+  .rubric-sub { font-size: 11px; color: #94a3b8; margin-top: 3px; }
+  .copy-btn { padding: 7px 14px; background: #334155; color: white; border-radius: 7px; font-size: 11px; font-weight: 600; border: none; cursor: pointer; }
+  .rubric-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+  .rubric-table th { padding: 10px 8px; font-size: 10px; font-weight: 700; text-align: center; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #f1f5f9; }
+  .rubric-table th:first-child { text-align: left; width: 22%; }
+  .rubric-table td { padding: 8px; vertical-align: top; border-bottom: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; }
+  .rubric-table td:first-child { background: #f8fafc; }
+  .rubric-textarea { width: 100%; height: 72px; border: 1px solid #e2e8f0; border-radius: 5px; padding: 6px 8px; font-size: 10px; color: #94a3b8; resize: none; background: #fafafa; }
+  .level-1 { background: #fff5f5; }
+  .level-2 { background: #fff7ed; }
+  .level-3 { background: #fefce8; }
+  .level-4 { background: #f0fdf4; }
+  .level-5 { background: #ecfdf5; }
+
+  /* ── VERTICAL PROGRESSION ── */
+  .prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .prog-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; }
+  .prog-card-title { font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 10px; }
+  .prog-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+  .q-badge { font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px; color: white; flex-shrink: 0; margin-top: 2px; }
+  .prog-text { font-size: 11px; color: #475569; line-height: 1.4; }
+
+  /* ── ANNOTATION ── */
+  .note { background: #fef9c3; border: 1px solid #fde047; border-radius: 5px; padding: 6px 10px; font-size: 10px; color: #713f12; margin-bottom: 8px; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin: 28px 0 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
+
+  /* colors per unit */
+  .u1 { color: #5B7B9B; } .u1-bg { background: #EEF2F7; } .u1-border { border-color: #C5D4E4; }
+  .u2 { color: #6B8B6B; } .u2-bg { background: #EEF5EE; } .u2-border { border-color: #BECEBD; }
+  .u3 { color: #A0715F; } .u3-bg { background: #F7F0EE; } .u3-border { border-color: #DFC5BC; }
+  .u4 { color: #7B6B9B; } .u4-bg { background: #F2EEF7; } .u4-border { border-color: #C8BFD9; }
+  .red { color: #98012e; } .red-bg { background: #98012e1a; } .red-border { border-color: #98012e40; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  HEADER                                               -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="header">
+  <div>
+    <div class="header-title">ELA Curriculum Framework</div>
+    <div class="header-sub">Cherry Creek School District</div>
+  </div>
+  <div class="tab-group">
+    <button class="tab active">Curriculum Overview</button>
+    <button class="tab">Create a Rubric</button>
+    <button class="tab">Vertical Progression</button>
+  </div>
+</div>
+
+<!-- Grade bar -->
+<div class="grade-bar">
+  <span class="grade-label">Grade</span>
+  <button class="grade-btn">9</button>
+  <button class="grade-btn active">10</button>
+  <button class="grade-btn">11</button>
+  <button class="grade-btn">12</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  VIEW 1: CURRICULUM OVERVIEW                          -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="main">
+  <div class="note">📋 VIEW 1: Curriculum Overview — Units 2–4 shown collapsed, Unit 1 expanded</div>
+
+  <!-- UNIT 1 — EXPANDED -->
+  <div class="unit" style="border-color:#C5D4E4;">
+    <div class="unit-header" style="background:#EEF2F7;">
+      <div class="unit-dot" style="background:#5B7B9B;">1</div>
+      <div class="unit-title">Unit 1: Foundational Analysis (Evidence, Structure, & Meaning)</div>
+      <span class="chevron">▲</span>
+    </div>
+    <div class="unit-body">
+
+      <!-- Skill Focus -->
+      <div class="skill-focus u1-bg u1-border" style="border-left-color:#5B7B9B;">
+        <div>
+          <div class="skill-focus-label u1">Skill Focus</div>
+          <div class="skill-focus-text">Students analyze literary and informational texts to determine themes and central ideas, examine how authors develop arguments and ideas through structure and word choice, and use textual evidence to support analysis in academic discussions.</div>
+        </div>
+      </div>
+
+      <!-- Essential Questions -->
+      <div class="section">
+        <div class="section-header">
+          <span><span class="icon u1-bg" style="border-radius:50%;"></span>Essential Questions</span>
+          <span class="chevron u1">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="eq-item"><span class="eq-q u1">Q.</span><span class="eq-text">How do we use evidence to support text analysis?</span></div>
+          <div class="eq-item"><span class="eq-q u1">Q.</span><span class="eq-text">How do text elements affect readers' experiences?</span></div>
+          <div class="eq-item"><span class="eq-q u1">Q.</span><span class="eq-text">How do readers determine the central ideas or themes of a text?</span></div>
+          <div class="eq-item"><span class="eq-q u1">Q.</span><span class="eq-text">How do authors' word choices influence meaning and tone?</span></div>
+          <div class="eq-item"><span class="eq-q u1">Q.</span><span class="eq-text">How does discussion with others deepen our understanding of texts?</span></div>
+        </div>
+      </div>
+
+      <!-- Students Will Understand -->
+      <div class="section">
+        <div class="section-header">
+          <span>🎯 Students Will Understand</span>
+          <span class="chevron u1">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="eu-item">
+            <div class="eu-check u1-bg" style="border:1.5px solid #5B7B9B;"></div>
+            <div class="eu-text">Themes and central ideas develop across a text through specific details and evidence.</div>
+            <span class="st-badge u1 u1-bg u1-border">ST</span>
+            <!-- Tooltip shown inline as demo -->
+            <div style="position:relative; width:0;">
+              <div class="tooltip-demo" style="top:-10px; right:-270px; display:none;">
+                <div class="tooltip-header u1-bg u1">Aligned Standards</div>
+                <div class="tooltip-body">
+                  <div class="tooltip-code u1-bg u1">RL.9-10.2</div>
+                  <div class="tooltip-desc">Determine a theme or central idea of a text and analyze in detail its development over the course of the text...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eu-item">
+            <div class="eu-check u1-bg" style="border:1.5px solid #5B7B9B;"></div>
+            <div class="eu-text">Strong analysis requires using textual evidence to explain and support interpretations.</div>
+            <span class="st-badge u1 u1-bg u1-border">ST</span>
+          </div>
+          <div class="eu-item">
+            <div class="eu-check u1-bg" style="border:1.5px solid #5B7B9B;"></div>
+            <div class="eu-text">Word choice shapes meaning, tone, and the reader's understanding of a text.</div>
+            <span class="st-badge u1 u1-bg u1-border">ST</span>
+          </div>
+          <div class="eu-item">
+            <div class="eu-check u1-bg" style="border:1.5px solid #5B7B9B;"></div>
+            <div class="eu-text">Academic discussions deepen understanding when participants support ideas with evidence and build on the perspectives of others.</div>
+            <span class="st-badge u1 u1-bg u1-border">ST</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Students Will Be Able To -->
+      <div class="section">
+        <div class="section-header">
+          <span>✅ Students Will Be Able To</span>
+          <span class="chevron u1">▼</span>
+        </div>
+        <div class="section-body">
+          <!-- Skill 1 -->
+          <div class="skill-item">
+            <div class="skill-row">
+              <div class="skill-num" style="background:#5B7B9B;">1</div>
+              <div class="skill-text">Determine a theme or central idea of a text and analyze how it develops across the text.</div>
+              <span class="st-badge u1 u1-bg u1-border">ST</span>
+            </div>
+            <div class="cfa-box u1-border">
+              <div class="cfa-label u1">CFAs</div>
+              <div class="cfa-empty">Not yet populated</div>
+            </div>
+          </div>
+          <!-- Skill 2 -->
+          <div class="skill-item">
+            <div class="skill-row">
+              <div class="skill-num" style="background:#5B7B9B;">2</div>
+              <div class="skill-text">Cite strong textual evidence to support analysis and interpretation of texts.</div>
+              <span class="st-badge u1 u1-bg u1-border">ST</span>
+            </div>
+            <div class="cfa-box u1-border">
+              <div class="cfa-label u1">CFAs</div>
+              <div class="cfa-empty">Not yet populated</div>
+            </div>
+          </div>
+          <!-- Skill 3 (collapsed for space) -->
+          <div class="skill-item" style="opacity:0.5;">
+            <div class="skill-row">
+              <div class="skill-num" style="background:#5B7B9B;">3</div>
+              <div class="skill-text">Analyze how word choice shapes the meaning and tone of a text.</div>
+              <span class="st-badge u1 u1-bg u1-border">ST</span>
+            </div>
+            <div class="cfa-box u1-border">
+              <div class="cfa-label u1">CFAs</div>
+              <div class="cfa-empty">Not yet populated</div>
+            </div>
+          </div>
+          <div style="text-align:center; font-size:10px; color:#94a3b8; margin-top:4px;">+ 3 more skills…</div>
+        </div>
+      </div>
+
+      <!-- Summatives -->
+      <div class="section">
+        <div class="section-header">
+          <span>📄 Summatives</span>
+          <span class="chevron" style="color:#94a3b8;">▶</span>
+        </div>
+      </div>
+
+      <!-- Rigor Expectations -->
+      <div class="section">
+        <div class="section-header">
+          <span>🎯 Rigor Expectations by Grade</span>
+          <span class="chevron u1">▼</span>
+        </div>
+        <div class="section-body">
+
+          <!-- Standard block -->
+          <div class="rigor-std-label">
+            <span class="rigor-std-badge u1-bg u1">SL.9-10.1</span>
+            <span class="rigor-std-title">Collaborative Discussions</span>
+          </div>
+          <div class="rigor-grid">
+            <!-- Grade 9 -->
+            <div>
+              <div class="rigor-col-header">
+                <div class="grade-circle" style="background:#5B7B9Baa;">9</div>
+                <span class="rigor-grade-label">Grade 9</span>
+              </div>
+              <div class="rigor-card" style="background:white; border-color:#e2e8f0;">
+                <div class="rigor-card-text">Come prepared for discussions, ask questions and respond to peers.</div>
+                <div class="rigor-outcome"><span class="rigor-dash">—</span>I can come prepared for a discussion</div>
+                <div class="rigor-outcome"><span class="rigor-dash">—</span>I can ask questions or make on-topic questions in response to peers</div>
+              </div>
+            </div>
+            <!-- Grade 10 -->
+            <div>
+              <div class="rigor-col-header">
+                <div class="grade-circle" style="background:#5B7B9B;">10</div>
+                <span class="rigor-grade-label u1">Grade 10</span>
+              </div>
+              <div class="rigor-card u1-bg u1-border">
+                <div class="rigor-card-text">Use language to propel a conversation forward, independent engagement in task, challenge peers with the goal of consensus.</div>
+                <div class="rigor-outcome u1"><span class="rigor-dash">—</span>I can use clarifying and probing questions to move the discussion forward</div>
+                <div class="rigor-outcome u1"><span class="rigor-dash">—</span>I can participate in a group discussion independently</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second standard -->
+          <div class="rigor-std-label" style="margin-top:8px;">
+            <span class="rigor-std-badge u1-bg u1">RI.9-10.4</span>
+            <span class="rigor-std-title">Word Choice & Meaning (Informational)</span>
+          </div>
+          <div style="text-align:center; font-size:10px; color:#94a3b8; margin-top:4px;">+ RL.9-10.4, RL.9-10.10, RI.9-10.10 …</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end unit 1 -->
+
+  <!-- UNITS 2–4 COLLAPSED -->
+  <div class="unit">
+    <div class="unit-header">
+      <div class="unit-dot u2-bg" style="background:#6B8B6B;">2</div>
+      <div class="unit-title">Unit 2: Analyzing Rhetorical Craft (Language, Structure, and Argument)</div>
+      <span class="chevron">▶</span>
+    </div>
+  </div>
+  <div class="unit">
+    <div class="unit-header">
+      <div class="unit-dot" style="background:#A0715F;">3</div>
+      <div class="unit-title">Unit 3: Evaluating Arguments & Synthesizing Voices</div>
+      <span class="chevron">▶</span>
+    </div>
+  </div>
+  <div class="unit">
+    <div class="unit-header">
+      <div class="unit-dot" style="background:#7B6B9B;">4</div>
+      <div class="unit-title">Unit 4: Inquiry, Transfer, & Metacognitive Defense</div>
+      <span class="chevron">▶</span>
+    </div>
+  </div>
+
+  <!-- Tooltip demo -->
+  <div class="section-title">ST BADGE → TOOLTIP (hover behavior)</div>
+  <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+    <div style="background:white; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; display:flex; align-items:center; gap:8px; max-width:340px;">
+      <div class="eu-text" style="flex:1;">Themes and central ideas develop across a text through specific details and evidence.</div>
+      <span class="st-badge u1 u1-bg u1-border">ST ▸</span>
+    </div>
+    <div class="tooltip-demo" style="position:relative;">
+      <div class="tooltip-header u1-bg u1">Aligned Standards</div>
+      <div class="tooltip-body">
+        <div style="margin-bottom:8px;">
+          <div class="tooltip-code u1-bg u1">RL.9-10.2</div>
+          <div class="tooltip-desc">Determine a theme or central idea of a text and analyze in detail its development over the course of the text, including how it emerges and is shaped and refined by specific details.</div>
+        </div>
+        <div>
+          <div class="tooltip-code u1-bg u1">RI.9-10.2</div>
+          <div class="tooltip-desc">Determine a central idea of a text and analyze its development over the course of the text, including how it emerges and is shaped and refined by specific details.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  VIEW 2: RUBRIC BUILDER                               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="section-title">VIEW 2: Create a Rubric</div>
+  <div class="note">📋 Left sidebar = settings + outcome list. Right = editable table. Copy button pastes HTML into Google Docs.</div>
+
+  <div class="rubric-layout">
+    <!-- Sidebar -->
+    <div class="rubric-sidebar">
+      <div class="rubric-sidebar-title">Rubric Settings</div>
+      <div style="font-size:10px; color:#94a3b8; margin-bottom:4px;">Grade Level</div>
+      <select class="sidebar-select"><option>10th Grade</option></select>
+      <div style="font-size:10px; color:#94a3b8; margin-bottom:4px;">Unit</div>
+      <select class="sidebar-select"><option>Unit 1</option></select>
+
+      <div style="border-top:1px solid #e2e8f0; margin:12px 0 10px;"></div>
+      <div class="rubric-sidebar-title">Outcomes (6)</div>
+      <div class="outcome-chip"><div class="outcome-num">1</div><div class="outcome-chip-text">Determine a theme or central idea of a text...</div></div>
+      <div class="outcome-chip"><div class="outcome-num">2</div><div class="outcome-chip-text">Cite strong textual evidence to support analysis...</div></div>
+      <div class="outcome-chip"><div class="outcome-num">3</div><div class="outcome-chip-text">Analyze how word choice shapes meaning and tone...</div></div>
+      <div style="text-align:center; font-size:10px; color:#94a3b8; margin-top:4px;">+ 3 more…</div>
+    </div>
+
+    <!-- Rubric table -->
+    <div class="rubric-main">
+      <div class="rubric-header-row">
+        <div>
+          <div class="rubric-title">Grade 10, Unit 1 — Proficiency Rubric</div>
+          <div class="rubric-sub">Fill in criteria, then copy to Google Docs</div>
+        </div>
+        <button class="copy-btn">📋 Copy Rubric</button>
+      </div>
+      <table class="rubric-table">
+        <thead>
+          <tr style="background:#f8fafc;">
+            <th style="color:#64748b;">Outcome</th>
+            <th class="level-1"><div style="font-size:13px;font-weight:700;">1</div><div style="font-weight:400;font-size:10px;color:#94a3b8;">Beginning</div></th>
+            <th class="level-2"><div style="font-size:13px;font-weight:700;">2</div><div style="font-weight:400;font-size:10px;color:#94a3b8;">Developing</div></th>
+            <th class="level-3"><div style="font-size:13px;font-weight:700;">3</div><div style="font-weight:400;font-size:10px;color:#94a3b8;">Approaching</div></th>
+            <th class="level-4"><div style="font-size:13px;font-weight:700;">4</div><div style="font-weight:400;font-size:10px;color:#94a3b8;">Proficient</div></th>
+            <th class="level-5"><div style="font-size:13px;font-weight:700;">5</div><div style="font-weight:400;font-size:10px;color:#94a3b8;">Advanced</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span style="background:#e2e8f0;color:#475569;font-size:10px;font-weight:700;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-right:5px;">1</span><span style="font-size:11px;color:#475569;">Determine a theme or central idea...</span></td>
+            <td class="level-1"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-2"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-3"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-4"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-5"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+          </tr>
+          <tr>
+            <td><span style="background:#e2e8f0;color:#475569;font-size:10px;font-weight:700;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-right:5px;">2</span><span style="font-size:11px;color:#475569;">Cite strong textual evidence...</span></td>
+            <td class="level-1"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-2"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-3"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-4"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+            <td class="level-5"><textarea class="rubric-textarea" placeholder="Enter criteria..."></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; padding:10px 12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; font-size:11px; color:#64748b;">
+        <strong>How to use:</strong> Fill in criteria for each level, then click "Copy Rubric" and paste into a Google Doc.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  VIEW 3: VERTICAL PROGRESSION                         -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="section-title">VIEW 3: Vertical Progression</div>
+  <div class="note">📋 Grade tabs same as Curriculum Overview. Grade 10 shows progression themes. Others show "coming soon".</div>
+
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+    <span class="grade-label" style="color:#94a3b8;">Grade</span>
+    <button class="grade-btn">9</button>
+    <button class="grade-btn active">10</button>
+    <button class="grade-btn">11</button>
+    <button class="grade-btn">12</button>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <div style="font-size:16px; font-weight:700; color:#98012e; font-family:serif;">10th Grade ELA Skill Progression: Full Year</div>
+    <div style="font-size:11px; color:#94a3b8; margin-top:3px;">Q1 → Q2 → Q3 → Q4</div>
+  </div>
+
+  <div class="prog-grid">
+    <div class="prog-card">
+      <div class="prog-card-title">Complexity of Thinking</div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e;">Q1</span><span class="prog-text">Understand single texts (theme/main idea)</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012ecc;">Q2</span><span class="prog-text">Analyze craft within texts (how meaning is made)</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e99;">Q3</span><span class="prog-text">Synthesize across texts (create new understanding)</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e66;">Q4</span><span class="prog-text">Independent inquiry (apply all skills to self-directed research)</span></div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-card-title">Writing Sophistication</div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e;">Q1</span><span class="prog-text">Arguments with evidence about texts</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012ecc;">Q2</span><span class="prog-text">Arguments with academic tone</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e99;">Q3</span><span class="prog-text">Arguments with sophisticated vocabulary</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e66;">Q4</span><span class="prog-text">Full arguments with counterclaims, rhetorical appeals, and research integration</span></div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-card-title">Source Work</div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e;">Q1</span><span class="prog-text">Use assigned texts</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012ecc;">Q2</span><span class="prog-text">Analyze single texts deeply</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e99;">Q3</span><span class="prog-text">Work with multiple texts</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e66;">Q4</span><span class="prog-text">Find, evaluate, and integrate own sources</span></div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-card-title">Audience Awareness</div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e;">Q1</span><span class="prog-text">Class discussions (peer audience)</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012ecc;">Q2</span><span class="prog-text">Academic tone (academic audience)</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e99;">Q3</span><span class="prog-text">Sophisticated vocabulary (discipline-specific audience)</span></div>
+      <div class="prog-row"><span class="q-badge" style="background:#98012e66;">Q4</span><span class="prog-text">Formal presentation with digital media (public/authentic audience)</span></div>
+    </div>
+  </div>
+
+</div><!-- end main -->
+</body>
+</html>

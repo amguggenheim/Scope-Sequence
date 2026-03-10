@@ -503,34 +503,13 @@ function UnitAccordion({ unit }) {
 
           {/* Summatives */}
           <SectionDropdown title="Summatives" icon={<FileText size={15} />} color={color.main}>
-            <div className="mt-2">
-              {summatives.length === 0 ? (
-                <div className="border border-dashed rounded-lg p-4 mb-4" style={{ borderColor: color.border }}>
-                  <p className="text-xs text-slate-400 text-center">No summatives submitted yet.</p>
-                </div>
-              ) : (
-                <ul className="space-y-2 mb-4">
-                  {summatives.map((s, i) => (
-                    <li key={i} className="bg-white rounded-lg border border-slate-200 p-3">
-                      <p className="text-sm font-medium text-slate-700">{s.title}</p>
-                      {s.description && <p className="text-xs text-slate-500 mt-1">{s.description}</p>}
-                      {s.link && (
-                        <a href={s.link} target="_blank" rel="noreferrer" className="text-xs underline mt-1 block" style={{ color: color.main }}>
-                          {s.link}
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <div className="space-y-2">
-                <input type="text" value={summativeForm.title} onChange={(e) => setSummativeForm({ ...summativeForm, title: e.target.value })} placeholder="Assessment title (required)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
-                <input type="text" value={summativeForm.description} onChange={(e) => setSummativeForm({ ...summativeForm, description: e.target.value })} placeholder="Brief description (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
-                <input type="text" value={summativeForm.link} onChange={(e) => setSummativeForm({ ...summativeForm, link: e.target.value })} placeholder="Link to resource (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
-                <button onClick={handleSummativeSubmit} className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90" style={{ backgroundColor: color.main }}>
-                  Submit Summative
-                </button>
-              </div>
+            <div className="mt-2 space-y-2">
+              <input type="text" value={summativeForm.title} onChange={(e) => setSummativeForm({ ...summativeForm, title: e.target.value })} placeholder="Assessment title (required)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
+              <input type="text" value={summativeForm.description} onChange={(e) => setSummativeForm({ ...summativeForm, description: e.target.value })} placeholder="Brief description (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
+              <input type="text" value={summativeForm.link} onChange={(e) => setSummativeForm({ ...summativeForm, link: e.target.value })} placeholder="Link to resource (optional)" className="w-full text-xs border border-slate-300 rounded-md px-3 py-2 text-slate-700 placeholder-slate-400 focus:outline-none bg-white" />
+              <button onClick={handleSummativeSubmit} className="w-full text-xs text-white rounded-md py-2 font-medium transition-opacity hover:opacity-90" style={{ backgroundColor: color.main }}>
+                Submit Summative
+              </button>
             </div>
           </SectionDropdown>
 
