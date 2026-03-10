@@ -54,11 +54,11 @@ const RubricBuilder = () => {
   ];
 
   const proficiencyLevels = [
-    { level: 1, label: 'Beginning',  headerBg: '#F5E6E6', headerColor: '#8B3A3A' },
-    { level: 2, label: 'Developing', headerBg: '#F5EDE0', headerColor: '#8B5E2A' },
-    { level: 3, label: 'Approaching',headerBg: '#F5F3DC', headerColor: '#7A7020' },
-    { level: 4, label: 'Proficient', headerBg: '#E8F2E8', headerColor: '#2F6B3A' },
-    { level: 5, label: 'Advanced',   headerBg: '#DFF0E8', headerColor: '#1F6B4A' },
+    { level: 5, label: 'Advanced',    headerBg: '#DFF0E8', headerColor: '#1F6B4A' },
+    { level: 4, label: 'Proficient',  headerBg: '#E8F2E8', headerColor: '#1F6B4A' },
+    { level: 3, label: 'Approaching', headerBg: '#F5F3DC', headerColor: '#1F6B4A' },
+    { level: 2, label: 'Developing',  headerBg: '#F5EDE0', headerColor: '#1F6B4A' },
+    { level: 1, label: 'Beginning',   headerBg: '#F5E6E6', headerColor: '#1F6B4A' },
   ];
 
   const currentUnit = units[parseInt(rubricUnit) - 1];
@@ -153,7 +153,7 @@ const RubricBuilder = () => {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#F5EDD8' }}>
+      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#F8F7F5' }}>
         <div className="p-6 sticky top-0">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
             Rubric Settings
