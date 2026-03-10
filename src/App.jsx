@@ -770,13 +770,13 @@ export default function App() {
       <header style={{ background: HEADER_GRADIENT }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
           {/* Logo + Title Section */}
-          <div className="flex items-center gap-3 sm:gap-4 flex-1">
+          <div className="flex items-center gap-2 sm:gap-3 flex-1">
             {/* Logo */}
             <img
               src={ccsdLogo}
               alt="Cherry Creek Schools"
-              className="h-12 sm:h-14 w-auto hidden sm:block flex-shrink-0"
-              style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
+              className="h-8 sm:h-10 w-auto hidden sm:block flex-shrink-0"
+              style={{ filter: 'grayscale(85%) opacity(0.6)', transition: 'filter 0.2s ease' }}
             />
             <div>
               <h1
