@@ -54,11 +54,11 @@ const RubricBuilder = () => {
   ];
 
   const proficiencyLevels = [
-    { level: 1, label: 'Beginning' },
-    { level: 2, label: 'Developing' },
-    { level: 3, label: 'Approaching' },
-    { level: 4, label: 'Proficient' },
-    { level: 5, label: 'Advanced' }
+    { level: 1, label: 'Beginning',  headerBg: '#F5E6E6', headerColor: '#8B3A3A' },
+    { level: 2, label: 'Developing', headerBg: '#F5EDE0', headerColor: '#8B5E2A' },
+    { level: 3, label: 'Approaching',headerBg: '#F5F3DC', headerColor: '#7A7020' },
+    { level: 4, label: 'Proficient', headerBg: '#E8F2E8', headerColor: '#2F6B3A' },
+    { level: 5, label: 'Advanced',   headerBg: '#DFF0E8', headerColor: '#1F6B4A' },
   ];
 
   const currentUnit = units[parseInt(rubricUnit) - 1];
@@ -242,9 +242,9 @@ const RubricBuilder = () => {
                   Outcome
                 </th>
                 {proficiencyLevels.map(p => (
-                  <th key={p.level} className="px-3 py-3 text-center text-xs font-semibold text-slate-600 uppercase tracking-wider">
-                    <div className="text-base font-semibold text-slate-700">{p.level}</div>
-                    <div className="font-normal normal-case text-slate-400">{p.label}</div>
+                  <th key={p.level} className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider" style={{ backgroundColor: p.headerBg }}>
+                    <div className="text-base font-semibold" style={{ color: p.headerColor }}>{p.level}</div>
+                    <div className="font-normal normal-case" style={{ color: p.headerColor, opacity: 0.8 }}>{p.label}</div>
                   </th>
                 ))}
               </tr>
@@ -261,12 +261,15 @@ const RubricBuilder = () => {
                     </div>
                   </td>
                   {proficiencyLevels.map(p => (
-                    <td key={p.level} className="px-2 py-2 align-top">
+                    <td key={p.level} className="px-2 py-2 align-top" style={{ backgroundColor: p.headerBg + '60' }}>
                       <textarea
                         value={getCellValue(idx, p.level)}
                         onChange={(e) => handleCellChange(idx, p.level, e.target.value)}
                         placeholder="Enter criteria..."
-                        className="w-full h-24 px-3 py-2 text-sm text-slate-700 bg-white border border-slate-200 rounded-lg resize-none placeholder:text-slate-300 hover:border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 transition-colors"
+                        className="w-full h-24 px-3 py-2 text-sm text-slate-700 bg-white rounded-lg resize-none placeholder:text-slate-300 focus:outline-none focus:ring-0 transition-colors"
+                        style={{ border: `1px solid ${p.headerBg}`, outline: 'none' }}
+                        onFocus={e => e.target.style.borderColor = p.headerColor + '80'}
+                        onBlur={e => e.target.style.borderColor = p.headerBg}
                       />
                     </td>
                   ))}

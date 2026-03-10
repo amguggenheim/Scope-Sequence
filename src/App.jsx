@@ -13,7 +13,7 @@ import {
 
 // ─── Color System ─────────────────────────────────────────────────────────────
 
-const HEADER_RED = '#98012e';
+const HEADER_COLOR = '#2D2416';
 
 const UNIT_COLORS = {
   1: { main: '#5B7B9B', light: '#EEF2F7', border: '#C5D4E4' },  // dusty blue
@@ -147,7 +147,7 @@ const unitsData = [
   },
   {
     id: 2,
-    title: 'Unit 2: Analyzing Rhetorical Craft (Language, Structure, and Argument)',
+    title: 'Unit 2: Analyzing Rhetorical Craft: Language, Structure, and Argument',
     skillDescription:
       'Students analyze how authors use rhetorical craft, figurative language, and structural choices to shape meaning and influence readers. They evaluate the reasoning and evidence within arguments and apply these techniques in their own writing using evidence and an appropriate academic tone.',
     essentialQuestions: [
@@ -443,7 +443,7 @@ function UnitAccordion({ unit }) {
             <BookOpen size={15} className="flex-shrink-0 mt-0.5" style={{ color: color.main }} />
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: color.main }}>
-                Skill Focus
+                Skill Focus: {unit.title.replace(/^Unit \d+:\s*/, '')}
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">{unit.skillDescription}</p>
             </div>
@@ -730,7 +730,7 @@ function VerticalProgression() {
               className="w-9 h-9 rounded-lg text-sm font-semibold border transition-all duration-150"
               style={
                 progressionGrade === grade
-                  ? { backgroundColor: HEADER_RED, color: 'white', borderColor: HEADER_RED }
+                  ? { backgroundColor: HEADER_COLOR, color: 'white', borderColor: HEADER_COLOR }
                   : { backgroundColor: 'white', color: '#64748b', borderColor: '#e2e8f0' }
               }
             >
@@ -743,7 +743,7 @@ function VerticalProgression() {
       {progressionGrade === '10' ? (
         <>
           <div>
-            <h2 className="text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_RED }}>
+            <h2 className="text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_COLOR }}>
               10th Grade ELA Skill Progression: Full Year
             </h2>
             <p className="text-sm text-slate-500 mt-1">Q1 → Q2 → Q3 → Q4</p>
@@ -761,11 +761,11 @@ function VerticalProgression() {
                       <div className="flex flex-col items-center flex-shrink-0 mt-0.5">
                         <span
                           className="text-xs font-bold px-1.5 py-0.5 rounded text-white leading-tight"
-                          style={{ backgroundColor: HEADER_RED, opacity: 1 - qIdx * 0.18 }}
+                          style={{ backgroundColor: HEADER_COLOR, opacity: 1 - qIdx * 0.18 }}
                         >
                           Q{qIdx + 1}
                         </span>
-                        {qIdx < 3 && <div className="w-px h-3 my-0.5" style={{ backgroundColor: HEADER_RED + '30' }} />}
+                        {qIdx < 3 && <div className="w-px h-3 my-0.5" style={{ backgroundColor: HEADER_COLOR + '30' }} />}
                       </div>
                       <p className="text-xs text-slate-600 leading-relaxed pb-1">{q}</p>
                     </div>
@@ -777,8 +777,8 @@ function VerticalProgression() {
         </>
       ) : (
         <div className="flex flex-col items-center justify-center py-24 text-center">
-          <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_RED + '15' }}>
-            <BookOpen size={20} style={{ color: HEADER_RED }} />
+          <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_COLOR + '15' }}>
+            <BookOpen size={20} style={{ color: HEADER_COLOR }} />
           </div>
           <h2 className="text-lg font-semibold text-slate-700 mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
             Grade {progressionGrade} Coming Soon
@@ -799,16 +799,16 @@ export default function App() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       {/* Header */}
-      <header style={{ backgroundColor: HEADER_RED }}>
+      <header style={{ backgroundColor: HEADER_COLOR }}>
         <div className="max-w-5xl mx-auto px-8 py-5 flex items-center justify-between">
           <div>
             <h1
-              className="text-2xl font-semibold text-white"
-              style={{ fontFamily: "'Fraunces', Georgia, serif" }}
+              className="text-2xl font-semibold"
+              style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
             >
               ELA Curriculum Framework
             </h1>
-            <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.75)' }}>Cherry Creek School District</p>
+            <p className="text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
           </div>
 
           {/* View Toggle */}
@@ -818,7 +818,7 @@ export default function App() {
                 key={view}
                 onClick={() => setActiveView(view)}
                 className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-                style={activeView === view ? { backgroundColor: 'white', color: HEADER_RED } : { color: 'rgba(255,255,255,0.8)' }}
+                style={activeView === view ? { backgroundColor: '#F5EDD8', color: HEADER_COLOR } : { color: '#C8B89A' }}
               >
                 {label}
               </button>
@@ -838,8 +838,8 @@ export default function App() {
                   className="w-8 h-8 rounded-md text-sm font-semibold transition-all duration-150"
                   style={
                     selectedGrade === grade
-                      ? { backgroundColor: 'white', color: HEADER_RED }
-                      : { backgroundColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.8)' }
+                      ? { backgroundColor: '#F5EDD8', color: HEADER_COLOR }
+                      : { backgroundColor: 'rgba(255,255,255,0.12)', color: '#C8B89A' }
                   }
                 >
                   {grade}
@@ -866,8 +866,8 @@ export default function App() {
           </>
         ) : (
           <div className="flex flex-col items-center justify-center py-24 text-center">
-            <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_RED + '15' }}>
-              <BookOpen size={20} style={{ color: HEADER_RED }} />
+            <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_COLOR + '15' }}>
+              <BookOpen size={20} style={{ color: HEADER_COLOR }} />
             </div>
             <h2 className="text-lg font-semibold text-slate-700 mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
               Grade {selectedGrade} Coming Soon
