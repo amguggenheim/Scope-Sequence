@@ -769,18 +769,28 @@ export default function App() {
       {/* Header */}
       <header style={{ background: HEADER_GRADIENT }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
-          <div className="flex-1">
-            <h1
-              className="text-xl sm:text-2xl font-semibold"
-              style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
-            >
-              ELA Curriculum Framework
-            </h1>
-            <p className="text-xs sm:text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
+          {/* Logo + Title Section */}
+          <div className="flex items-center gap-3 sm:gap-4 flex-1">
+            {/* Logo */}
+            <img
+              src={ccsdLogo}
+              alt="Cherry Creek Schools"
+              className="h-12 sm:h-14 w-auto hidden sm:block flex-shrink-0"
+              style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
+            />
+            <div>
+              <h1
+                className="text-xl sm:text-2xl font-semibold"
+                style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
+              >
+                ELA Scope & Sequence
+              </h1>
+              <p className="text-xs sm:text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
+            </div>
           </div>
 
+          {/* View Toggle */}
           <div className="flex items-center gap-4 sm:gap-6">
-            {/* View Toggle */}
             <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
               {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Skills Progression']].map(([view, label]) => (
                 <button
@@ -794,14 +804,6 @@ export default function App() {
                 </button>
               ))}
             </div>
-
-            {/* Logo */}
-            <img
-              src={ccsdLogo}
-              alt="Cherry Creek Schools"
-              className="h-14 sm:h-16 w-auto hidden sm:block"
-              style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
-            />
           </div>
         </div>
 
