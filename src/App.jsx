@@ -783,7 +783,7 @@ export default function App() {
                 className="text-xl sm:text-2xl font-semibold"
                 style={{ fontFamily: "'Fraunces', Georgia, serif", color: '#F5EDD8' }}
               >
-                ELA Scope & Sequence
+                ELA Scope and Sequence
               </h1>
               <p className="text-xs sm:text-sm mt-1" style={{ color: '#C8B89A' }}>Cherry Creek School District</p>
             </div>
