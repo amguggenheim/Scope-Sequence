@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         serif: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       colors: {
         taupe: {

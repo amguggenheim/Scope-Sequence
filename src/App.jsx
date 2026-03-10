@@ -13,7 +13,7 @@ import {
 
 // ─── Color System ─────────────────────────────────────────────────────────────
 
-const HEADER_RED = '#9E4848';
+const HEADER_RED = '#98012e';
 
 const UNIT_COLORS = {
   1: { main: '#5B7B9B', light: '#EEF2F7', border: '#C5D4E4' },  // dusty blue
@@ -321,7 +321,7 @@ function StandardsTooltip({ standards, color }) {
         }}
         aria-label="View aligned standards"
       >
-        STD
+        ST
       </button>
 
       {visible && (
@@ -464,7 +464,7 @@ function UnitAccordion({ unit }) {
               {unit.essentialQuestions.map((q, i) => (
                 <li key={i} className="flex items-start gap-2.5">
                   <span className="text-xs font-semibold flex-shrink-0 mt-0.5" style={{ color: color.main }}>Q.</span>
-                  <span className="text-sm text-slate-600 italic leading-relaxed">{q}</span>
+                  <span className="text-sm text-slate-600 leading-relaxed">{q}</span>
                 </li>
               ))}
             </ul>
@@ -541,8 +541,8 @@ function UnitAccordion({ unit }) {
             </div>
           </SectionDropdown>
 
-          {/* Suggested Summatives */}
-          <SectionDropdown title="Suggested Summatives" icon={<FileText size={15} />} color={color.main}>
+          {/* Summatives */}
+          <SectionDropdown title="Summatives" icon={<FileText size={15} />} color={color.main}>
             <div className="mt-2">
               {summatives.length === 0 ? (
                 <div className="border border-dashed rounded-lg p-4 mb-4" style={{ borderColor: color.border }}>
@@ -758,106 +758,77 @@ const skillDomains = [
 ];
 
 function VerticalProgression() {
-  const cellStyle = (type) => {
-    if (type === 'assess') return { bg: HEADER_RED + '0d', border: HEADER_RED + '40', labelColor: HEADER_RED, label: '🎯 ASSESS' };
-    if (type === 'continue') return { bg: '#f8fafc', border: '#e2e8f0', labelColor: '#64748b', label: '✓ Continue' };
-    return { bg: '#EEF2F7', border: '#C5D4E4', labelColor: '#5B7B9B', label: 'Introduce' };
-  };
+  const [progressionGrade, setProgressionGrade] = useState('10');
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_RED }}>
-          10th Grade ELA Skill Progression: Full Year
-        </h2>
-        <p className="text-sm text-slate-500 mt-1">Q1 → Q2 → Q3 → Q4</p>
-      </div>
-
-      {/* Progression Themes */}
-      <div className="grid grid-cols-2 gap-4">
-        {progressionThemes.map((theme, idx) => (
-          <div key={idx} className="bg-white border border-slate-200 rounded-lg p-4">
-            <h3 className="text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-              {theme.title}
-            </h3>
-            <div>
-              {theme.quarters.map((q, qIdx) => (
-                <div key={qIdx} className="flex items-start gap-2.5">
-                  <div className="flex flex-col items-center flex-shrink-0 mt-0.5">
-                    <span
-                      className="text-xs font-bold px-1.5 py-0.5 rounded text-white leading-tight"
-                      style={{ backgroundColor: HEADER_RED, opacity: 1 - qIdx * 0.18 }}
-                    >
-                      Q{qIdx + 1}
-                    </span>
-                    {qIdx < 3 && <div className="w-px h-3 my-0.5" style={{ backgroundColor: HEADER_RED + '30' }} />}
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed pb-1">{q}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Skill Domain Matrix */}
-      <div>
-        <h3 className="text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-          Skill Domain Matrix
-        </h3>
-        <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
-          <table className="w-full text-xs border-collapse">
-            <thead>
-              <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="px-4 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider w-40 border-r border-slate-200">
-                  Skill Domain
-                </th>
-                {quarterLabels.map((ql) => (
-                  <th key={ql.q} className="px-3 py-3 text-center border-r border-slate-200 last:border-r-0">
-                    <div className="font-bold text-slate-700" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>{ql.q}</div>
-                    <div className="text-xs font-normal text-slate-400">{ql.label}</div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {skillDomains.map((row, rIdx) => (
-                <tr key={rIdx} className="border-b border-slate-100 last:border-0">
-                  <td className="px-4 py-3 align-top font-medium text-slate-700 border-r border-slate-200 bg-slate-50/50 text-xs">
-                    {row.domain}
-                  </td>
-                  {row.quarters.map((cell, cIdx) => {
-                    const s = cellStyle(cell.type);
-                    return (
-                      <td key={cIdx} className="px-3 py-3 align-top border-r border-slate-200 last:border-r-0" style={{ backgroundColor: s.bg }}>
-                        <span className="text-xs font-semibold block mb-1" style={{ color: s.labelColor }}>{s.label}</span>
-                        <span className="text-xs text-slate-600 leading-relaxed">{cell.text}</span>
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <div className="space-y-6">
+      {/* Grade Tabs */}
+      <div className="flex items-center gap-3">
+        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Grade</span>
+        <div className="flex gap-2">
+          {['9', '10', '11', '12'].map((grade) => (
+            <button
+              key={grade}
+              onClick={() => setProgressionGrade(grade)}
+              className="w-9 h-9 rounded-lg text-sm font-semibold border transition-all duration-150"
+              style={
+                progressionGrade === grade
+                  ? { backgroundColor: HEADER_RED, color: 'white', borderColor: HEADER_RED }
+                  : { backgroundColor: 'white', color: '#64748b', borderColor: '#e2e8f0' }
+              }
+            >
+              {grade}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Legend */}
-      <div className="flex items-center gap-6 text-xs text-slate-500">
-        <span className="font-medium text-slate-600">Legend:</span>
-        <span className="flex items-center gap-1.5">
-          <span className="font-semibold" style={{ color: HEADER_RED }}>🎯 ASSESS</span>
-          <span>— primary assessment point</span>
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="font-semibold text-slate-500">✓ Continue</span>
-          <span>— skill continues from prior quarter</span>
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="font-semibold" style={{ color: '#5B7B9B' }}>Introduce</span>
-          <span>— new skill introduced</span>
-        </span>
-      </div>
+      {progressionGrade === '10' ? (
+        <>
+          <div>
+            <h2 className="text-xl font-semibold" style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_RED }}>
+              10th Grade ELA Skill Progression: Full Year
+            </h2>
+            <p className="text-sm text-slate-500 mt-1">Q1 → Q2 → Q3 → Q4</p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {progressionThemes.map((theme, idx) => (
+              <div key={idx} className="bg-white border border-slate-200 rounded-lg p-4">
+                <h3 className="text-sm font-semibold text-slate-700 mb-3" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+                  {theme.title}
+                </h3>
+                <div>
+                  {theme.quarters.map((q, qIdx) => (
+                    <div key={qIdx} className="flex items-start gap-2.5">
+                      <div className="flex flex-col items-center flex-shrink-0 mt-0.5">
+                        <span
+                          className="text-xs font-bold px-1.5 py-0.5 rounded text-white leading-tight"
+                          style={{ backgroundColor: HEADER_RED, opacity: 1 - qIdx * 0.18 }}
+                        >
+                          Q{qIdx + 1}
+                        </span>
+                        {qIdx < 3 && <div className="w-px h-3 my-0.5" style={{ backgroundColor: HEADER_RED + '30' }} />}
+                      </div>
+                      <p className="text-xs text-slate-600 leading-relaxed pb-1">{q}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="flex flex-col items-center justify-center py-24 text-center">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: HEADER_RED + '15' }}>
+            <BookOpen size={20} style={{ color: HEADER_RED }} />
+          </div>
+          <h2 className="text-lg font-semibold text-slate-700 mb-2" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+            Grade {progressionGrade} Coming Soon
+          </h2>
+          <p className="text-sm text-slate-400">Vertical progression data for Grade {progressionGrade} hasn't been added yet.</p>
+        </div>
+      )}
     </div>
   );
 }
@@ -869,69 +840,55 @@ export default function App() {
   const [selectedGrade, setSelectedGrade] = useState('10');
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FAFAF8' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
       {/* Header */}
-      <header className="bg-white border-b border-slate-200">
+      <header style={{ backgroundColor: HEADER_RED }}>
         <div className="max-w-5xl mx-auto px-8 py-5 flex items-center justify-between">
           <div>
             <h1
-              className="text-2xl font-semibold"
-              style={{ fontFamily: "'Fraunces', Georgia, serif", color: HEADER_RED }}
+              className="text-2xl font-semibold text-white"
+              style={{ fontFamily: "'Fraunces', Georgia, serif" }}
             >
               ELA Curriculum Framework
             </h1>
-            <p className="text-sm text-slate-500 mt-1">Cherry Creek School District</p>
+            <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.75)' }}>Cherry Creek School District</p>
           </div>
 
           {/* View Toggle */}
-          <div className="flex bg-slate-100 rounded-lg p-1 gap-1">
-            <button
-              onClick={() => setActiveView('overview')}
-              className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-              style={activeView === 'overview' ? { backgroundColor: HEADER_RED, color: 'white' } : { color: '#475569' }}
-            >
-              Curriculum Overview
-            </button>
-            <button
-              onClick={() => setActiveView('rubric')}
-              className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-              style={activeView === 'rubric' ? { backgroundColor: HEADER_RED, color: 'white' } : { color: '#475569' }}
-            >
-              Create a Rubric
-            </button>
-            <button
-              onClick={() => setActiveView('progression')}
-              className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
-              style={activeView === 'progression' ? { backgroundColor: HEADER_RED, color: 'white' } : { color: '#475569' }}
-            >
-              Vertical Progression
-            </button>
+          <div className="flex rounded-lg p-1 gap-1" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}>
+            {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['progression', 'Vertical Progression']].map(([view, label]) => (
+              <button
+                key={view}
+                onClick={() => setActiveView(view)}
+                className="px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150"
+                style={activeView === view ? { backgroundColor: 'white', color: HEADER_RED } : { color: 'rgba(255,255,255,0.8)' }}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Grade Selector */}
-        <div className="border-t border-slate-100">
-          <div className="max-w-5xl mx-auto px-8 py-3 flex items-center gap-3">
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Grade</span>
+        <div style={{ backgroundColor: 'rgba(0,0,0,0.15)' }}>
+          <div className="max-w-5xl mx-auto px-8 py-2.5 flex items-center gap-3">
+            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.6)' }}>Grade</span>
             <div className="flex gap-2">
               {['9', '10', '11', '12'].map((grade) => (
                 <button
                   key={grade}
                   onClick={() => setSelectedGrade(grade)}
-                  className="w-9 h-9 rounded-lg text-sm font-semibold border transition-all duration-150"
+                  className="w-8 h-8 rounded-md text-sm font-semibold transition-all duration-150"
                   style={
                     selectedGrade === grade
-                      ? { backgroundColor: HEADER_RED, color: 'white', borderColor: HEADER_RED }
-                      : { backgroundColor: '#f8fafc', color: '#64748b', borderColor: '#e2e8f0' }
+                      ? { backgroundColor: 'white', color: HEADER_RED }
+                      : { backgroundColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.8)' }
                   }
                 >
                   {grade}
                 </button>
               ))}
             </div>
-            {selectedGrade !== '10' && (
-              <span className="text-xs text-slate-400 italic ml-1">Grade {selectedGrade} curriculum coming soon</span>
-            )}
           </div>
         </div>
       </header>
