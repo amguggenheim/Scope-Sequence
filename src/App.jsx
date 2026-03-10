@@ -491,7 +491,6 @@ function UnitAccordion({ unit }) {
                       {i + 1}
                     </span>
                     <span className="text-xs sm:text-sm text-slate-600 flex-1 leading-relaxed">{skill.text}</span>
-                    <StandardsTooltip standards={skill.standards} color={color.main} />
                   </div>
                   <div className="ml-7 rounded-md border border-dashed px-3 py-2" style={{ borderColor: color.border }}>
                     <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: color.main }}>CFAs</p>
