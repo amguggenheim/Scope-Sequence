@@ -770,7 +770,7 @@ export default function App() {
       <header style={{ background: HEADER_GRADIENT }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
           {/* Logo + Title Section */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-1">
+          <div className="flex items-center gap-4 sm:gap-6 flex-1">
             {/* Logo */}
             <img
               src={ccsdLogo}
