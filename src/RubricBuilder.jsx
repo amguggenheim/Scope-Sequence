@@ -278,7 +278,7 @@ const RubricBuilder = () => {
                   Outcome
                 </th>
                 {proficiencyLevels.map(p => (
-                  <th key={p.level} className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider" style={{ backgroundColor: p.headerBg }}>
+                  <th key={p.level} className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-wider border-r border-slate-300" style={{ backgroundColor: p.headerBg }}>
                     <div className="text-base font-semibold" style={{ color: p.headerColor }}>{p.level}</div>
                     <div className="font-normal normal-case" style={{ color: p.headerColor, opacity: 0.8 }}>{p.label}</div>
                   </th>
