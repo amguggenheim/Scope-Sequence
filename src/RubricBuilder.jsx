@@ -6,6 +6,7 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
   const [rubricUnit, setRubricUnit] = useState('1');
   const [copied, setCopied] = useState(false);
   const [rubricData, setRubricData] = useState({});
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const tableRef = useRef(null);
 
   const units = unitsProp;
@@ -117,9 +118,17 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
+      {/* Mobile sidebar toggle */}
+      <button
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="md:hidden w-full px-4 py-3 bg-stone-100 border-b border-stone-200 text-sm font-medium text-slate-700 flex items-center justify-between"
+      >
+        <span>Rubric Settings — Grade {rubricGrade}, Unit {rubricUnit}</span>
+        <ChevronDown size={16} className={`transition-transform ${sidebarOpen ? 'rotate-180' : ''}`} />
+      </button>
       {/* Sidebar */}
-      <aside className="w-72 flex-shrink-0 border-r border-stone-200 min-h-[calc(100vh-113px)]" style={{ backgroundColor: '#EEE9E0' }}>
+      <aside className={`${sidebarOpen ? 'block' : 'hidden'} md:block w-full md:w-72 flex-shrink-0 border-b md:border-b-0 md:border-r border-stone-200 md:min-h-[calc(100vh-113px)]`} style={{ backgroundColor: '#EEE9E0' }}>
         <div className="p-6 sticky top-0">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
             Rubric Settings
@@ -165,7 +174,7 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
 
       {/* Main Content */}
       <main className="flex-1 p-8">
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
           <div>
             <h2 className="text-xl font-semibold text-slate-800" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
               Grade {rubricGrade}, Unit {rubricUnit} — Proficiency Rubric
@@ -190,8 +199,8 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
           </button>
         </div>
 
-        <div className="border border-slate-200 rounded-xl overflow-hidden bg-white">
-          <table ref={tableRef} className="w-full">
+        <div className="border border-slate-200 rounded-xl overflow-x-auto bg-white">
+          <table ref={tableRef} className="w-full min-w-[700px]">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
                 <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-[22%]">
@@ -219,10 +228,26 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
                   {proficiencyLevels.map(p => (
                     <td key={p.level} className="px-2 py-2 align-top">
                       <textarea
+                        data-row={idx}
+                        data-col={p.level}
                         value={getCellValue(idx, p.level)}
                         onChange={(e) => handleCellChange(idx, p.level, e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.ctrlKey || e.metaKey) {
+                            let targetRow = idx;
+                            let targetCol = p.level;
+                            if (e.key === 'ArrowRight') targetCol = Math.min(5, p.level + 1);
+                            else if (e.key === 'ArrowLeft') targetCol = Math.max(1, p.level - 1);
+                            else if (e.key === 'ArrowDown') targetRow = Math.min(currentUnit.essentialSkills.length - 1, idx + 1);
+                            else if (e.key === 'ArrowUp') targetRow = Math.max(0, idx - 1);
+                            else return;
+                            e.preventDefault();
+                            const target = document.querySelector(`textarea[data-row="${targetRow}"][data-col="${targetCol}"]`);
+                            if (target) target.focus();
+                          }
+                        }}
                         placeholder="Enter criteria..."
-                        className="w-full h-24 px-3 py-2 text-sm text-slate-700 bg-white border border-slate-200 rounded-lg resize-none placeholder:text-slate-300 hover:border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 transition-colors"
+                        className="w-full h-24 px-3 py-2 text-sm text-slate-700 bg-white border border-slate-200 rounded-lg resize-none placeholder:text-slate-300 hover:border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-1 transition-colors"
                       />
                     </td>
                   ))}

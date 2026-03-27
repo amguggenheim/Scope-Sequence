@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RubricBuilder from './RubricBuilder.jsx';
+import DepartmentView from './DepartmentView.jsx';
 import { grade9Units, grade10Units, grade11Units, grade12Units, gradeStandardsReference } from './gradeData.js';
 import logo from '../public/logo.png';
 import {
@@ -59,8 +60,8 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
 
       {visible && (
         <div
-          className="absolute right-7 z-50 w-80 bg-white rounded-lg border border-slate-200 shadow-lg animate-tooltip"
-          style={{ top: '50%', transform: 'translateY(-50%)' }}
+          className="absolute z-50 w-72 sm:w-80 bg-white rounded-lg border border-slate-200 shadow-lg animate-tooltip right-0 top-full mt-2 sm:right-7 sm:top-1/2 sm:mt-0 sm:-translate-y-1/2"
+          style={{}}
         >
           <div className="px-3 py-2 border-b border-slate-100" style={{ backgroundColor: color + '15' }}>
             <span className="text-xs font-semibold uppercase tracking-wider" style={{ color }}>Aligned Standards</span>
@@ -95,7 +96,7 @@ function SectionDropdown({ title, icon, children, color }) {
     <div className="border border-slate-200 rounded-lg overflow-visible">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-3 sm:px-4 py-3 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
+        className="w-full flex items-center justify-between px-3 sm:px-4 py-3 text-left bg-white hover:bg-slate-50 transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:outline-none"
         style={{ borderRadius: open ? '8px 8px 0 0' : '8px' }}
       >
         <div className="flex items-center gap-2.5 min-w-0">
@@ -137,7 +138,7 @@ function UnitAccordion({ unit, standardsRef }) {
       {/* Unit Header */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 sm:gap-4 px-3 sm:px-6 py-3 sm:py-4 text-left rounded-lg transition-colors duration-150"
+        className="w-full flex items-center gap-3 sm:gap-4 px-3 sm:px-6 py-3 sm:py-4 text-left rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:outline-none"
         style={{ backgroundColor: open ? color.light : 'white' }}
       >
         <div
@@ -235,7 +236,7 @@ function UnitAccordion({ unit, standardsRef }) {
                   ) : (
                     <p className="text-xs font-medium text-slate-500 mb-3">{rigorItem.title}</p>
                   )}
-                  <div className="grid grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Grade 9 */}
                     <div>
                       <div className="flex items-center gap-2 mb-3">
@@ -298,6 +299,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-slate-800 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-medium">
+        Skip to content
+      </a>
       {/* Header */}
       <header style={{ background: HEADER_GRADIENT }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
@@ -324,7 +328,7 @@ export default function App() {
           {/* View Toggle */}
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
-              {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric']].map(([view, label]) => (
+              {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['department', 'Department View']].map(([view, label]) => (
                 <button
                   key={view}
                   onClick={() => setActiveView(view)}
@@ -340,6 +344,7 @@ export default function App() {
         </div>
 
         {/* Grade Selector */}
+        {activeView !== 'department' && (
         <div style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.08) 100%)' }}>
           <div className="max-w-5xl mx-auto px-4 sm:px-8 py-2 sm:py-2.5 flex items-center gap-2 sm:gap-3 overflow-x-auto">
             <span className="text-xs font-semibold uppercase tracking-wider whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.6)' }}>Grade</span>
@@ -361,10 +366,11 @@ export default function App() {
             </div>
           </div>
         </div>
+        )}
       </header>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-8 py-4 sm:py-8">
+      <main id="main-content" className={`mx-auto px-4 sm:px-8 py-4 sm:py-8 ${activeView === 'department' ? 'max-w-7xl' : 'max-w-5xl'}`}>
         {activeView === 'overview' && (
           <div className="space-y-3">
             {(GRADE_UNITS[selectedGrade] || []).map((unit) => (
@@ -373,6 +379,7 @@ export default function App() {
           </div>
         )}
         {activeView === 'rubric' && <RubricBuilder standardsReference={gradeStandardsReference[selectedGrade] || {}} units={GRADE_UNITS[selectedGrade] || []} grade={selectedGrade} />}
+        {activeView === 'department' && <DepartmentView gradeUnits={GRADE_UNITS} standardsRef={gradeStandardsReference} />}
       </main>
     </div>
   );
