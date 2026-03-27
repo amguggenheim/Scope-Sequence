@@ -220,6 +220,70 @@ function UnitAccordion({ unit, standardsRef }) {
             </ol>
           </SectionDropdown>
 
+          {/* Rigor Expectations */}
+          {unit.rigor && <SectionDropdown title="Rigor Expectations by Grade" icon={<Target size={15} />} color={color.main}>
+            <div className="mt-2 space-y-5">
+              {(Array.isArray(unit.rigor) ? unit.rigor : [unit.rigor]).map((rigorItem, rigorIdx) => (
+                <div key={rigorIdx}>
+                  {Array.isArray(unit.rigor) && unit.rigor.length > 1 ? (
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded" style={{ backgroundColor: color.light, color: color.main }}>
+                        {rigorItem.standard}
+                      </span>
+                      <span className="text-xs text-slate-500">{rigorItem.title}</span>
+                    </div>
+                  ) : (
+                    <p className="text-xs font-medium text-slate-500 mb-3">{rigorItem.title}</p>
+                  )}
+                  <div className="grid grid-cols-2 gap-5">
+                    {/* Grade 9 */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main + 'aa' }}>9</span>
+                        <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Grade 9</span>
+                      </div>
+                      <div className="space-y-3">
+                        {rigorItem.grade9.map((item, i) => (
+                          <div key={i} className="bg-white rounded-lg border border-slate-200 p-3">
+                            <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
+                            <ul className="space-y-1">
+                              {item.outcomes.map((o, j) => (
+                                <li key={j} className="text-xs text-slate-600 flex items-start gap-2">
+                                  <span className="text-sm text-slate-500 font-medium mt-0 flex-shrink-0">•</span>{o}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Grade 10 */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main }}>10</span>
+                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: color.main }}>Grade 10</span>
+                      </div>
+                      <div className="space-y-3">
+                        {rigorItem.grade10.map((item, i) => (
+                          <div key={i} className="rounded-lg border p-3" style={{ backgroundColor: color.light, borderColor: color.border }}>
+                            <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
+                            <ul className="space-y-1">
+                              {item.outcomes.map((o, j) => (
+                                <li key={j} className="text-xs flex items-start gap-1.5" style={{ color: color.main }}>
+                                  <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>•</span>{o}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </SectionDropdown>}
+
         </div>
       )}
     </div>
