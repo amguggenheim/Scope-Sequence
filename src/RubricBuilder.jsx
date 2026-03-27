@@ -1,97 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FileText, Copy, Check, ChevronDown } from 'lucide-react';
 
-const standardsReference = {
-  'RL.9-10.1': 'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text.',
-  'RL.9-10.2': 'Determine a theme or central idea of a text and analyze in detail its development over the course of the text, including how it emerges and is shaped and refined by specific details; provide an objective summary of the text.',
-  'RL.9-10.3': 'Analyze how complex characters (e.g., those with multiple or conflicting motivations) develop over the course of a text, interact with other characters, and advance the plot or develop the theme.',
-  'RL.9-10.4': 'Determine the meaning of words and phrases as they are used in the text, including figurative and connotative meanings; analyze the cumulative impact of specific word choices on meaning and tone.',
-  'RL.9-10.5': "Analyze how an author's choices concerning how to structure a text, order events within it, and manipulate time create such effects as mystery, tension, or surprise.",
-  'RL.9-10.6': 'Analyze a particular point of view or cultural experience reflected in a work of literature from outside the United States, drawing on a wide reading of world literature.',
-  'RL.9-10.10': 'By the end of grade 10, read and comprehend literature, including stories, dramas, and poems, in the grades 9–10 text complexity band proficiently, with scaffolding as needed at the high end of the range.',
-  'RI.9-10.1': 'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text.',
-  'RI.9-10.2': 'Determine a central idea of a text and analyze its development over the course of the text, including how it emerges and is shaped and refined by specific details; provide an objective summary of the text.',
-  'RI.9-10.4': 'Determine the meaning of words and phrases as they are used in a text, including figurative, connotative, and technical meanings; analyze the cumulative impact of specific word choices on meaning and tone.',
-  'RI.9-10.5': "Analyze in detail how an author's ideas or claims are developed and refined by particular sentences, paragraphs, or larger portions of a text.",
-  'RI.9-10.6': "Determine an author's point of view or purpose in a text and analyze how an author uses rhetoric to advance that point of view or purpose.",
-  'RI.9-10.8': 'Delineate and evaluate the argument and specific claims in a text, assessing whether the reasoning is valid and the evidence is relevant and sufficient; identify false statements and fallacious reasoning.',
-  'RI.9-10.10': 'By the end of grade 10, read and comprehend literary nonfiction in the grades 9–10 text complexity band proficiently, with scaffolding as needed at the high end of the range.',
-  'SL.9-10.1': "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9–10 topics, texts, and issues, building on others' ideas and expressing their own clearly and persuasively.",
-  'SL.9-10.1a-d': 'Come to discussions prepared; follow agreed-upon rules; propel conversations; respond thoughtfully to diverse perspectives.',
-  'SL.9-10.3': "Evaluate a speaker's point of view, reasoning, and use of evidence and rhetoric, identifying any fallacious reasoning or exaggerated or distorted evidence.",
-  'SL.9-10.4': 'Present information, findings, and supporting evidence clearly, concisely, and logically such that listeners can follow the line of reasoning.',
-  'W.9-10.1': 'Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence.',
-  'W.9-10.1a': "Introduce precise claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that establishes clear relationships among claim(s), counterclaims, reasons, and evidence.",
-  'W.9-10.1b': "Develop claim(s) and counterclaims fairly, supplying evidence for each while pointing out the strengths and limitations of both in a manner that anticipates the audience's knowledge level and concerns.",
-  'W.9-10.2': 'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content.',
-  'W.9-10.3': 'Write narratives to develop real or imagined experiences or events using effective technique, well-chosen details, and well-structured event sequences.',
-  'W.9-10.3a': 'Engage and orient the reader by setting out a problem, situation, or observation, establishing one or multiple point(s) of view, and introducing a narrator and/or characters.',
-  'W.9-10.3b': 'Use narrative techniques, such as dialogue, pacing, description, reflection, and multiple plot lines, to develop experiences, events, and/or characters.',
-  'W.9-10.4': 'Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience.',
-  'W.9-10.5': 'Develop and strengthen writing as needed by planning, revising, editing, rewriting, or trying a new approach.',
-  'W.9-10.7': 'Conduct short as well as more sustained research projects to answer a question or solve a problem; narrow or broaden the inquiry when appropriate.',
-  'W.9-10.8': 'Gather relevant information from multiple authoritative print and digital sources, using advanced searches effectively; assess the usefulness of each source in answering the research question.',
-  'W.9-10.9': 'Draw evidence from literary or informational texts to support analysis, reflection, and research.',
-  'L.9-10.1': 'Demonstrate command of the conventions of standard English grammar and usage when writing or speaking.',
-  'L.9-10.2': 'Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.',
-  'L.9-10.3': 'Apply knowledge of language to understand how language functions in different contexts, to make effective choices for meaning or style.',
-  'L.9-10.4': 'Determine or clarify the meaning of unknown and multiple-meaning words and phrases based on grades 9–10 reading and content.',
-  'L.9-10.5': 'Demonstrate understanding of figurative language, word relationships, and nuances in word meanings.',
-  'L.9-10.6': 'Acquire and use accurately general academic and domain-specific words and phrases.',
-};
-
-const RubricBuilder = () => {
-  const [rubricGrade, setRubricGrade] = useState('10');
+const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade = '10' }) => {
+  const rubricGrade = grade;
   const [rubricUnit, setRubricUnit] = useState('1');
   const [copied, setCopied] = useState(false);
   const [rubricData, setRubricData] = useState({});
   const tableRef = useRef(null);
 
-  const units = [
-    {
-      id: 1,
-      title: 'Unit 1: Foundational Analysis (Evidence, Structure, & Meaning)',
-      essentialSkills: [
-        { text: 'Determine a theme or central idea of a text and analyze how it develops across the text.', standards: ['RL.9-10.2'] },
-        { text: 'Cite strong textual evidence to support analysis and interpretation of texts.', standards: ['RL.9-10.1', 'RI.9-10.1'] },
-        { text: 'Analyze how word choice shapes the meaning and tone of a text.', standards: ['RL.9-10.4', 'RI.9-10.4'] },
-        { text: 'Analyze how an author develops and organizes ideas or arguments across a text.', standards: ['RI.9-10.5'] },
-        { text: "Evaluate a speaker's point of view, reasoning, and use of evidence.", standards: ['SL.9-10.3'] },
-        { text: "Prepare for and participate effectively in academic discussions by asking questions, citing evidence, and building on others' ideas.", standards: ['SL.9-10.1'] }
-      ]
-    },
-    {
-      id: 2,
-      title: 'Unit 2: Analyzing Rhetorical Craft: Language, Structure, and Argument',
-      essentialSkills: [
-        { text: 'Analyze how figurative language and stylistic choices shape meaning and tone.', standards: ['L.9-10.5', 'RL.9-10.5'] },
-        { text: 'Cite strong textual evidence to support analysis and interpretation.', standards: ['RL.9-10.1'] },
-        { text: 'Delineate and evaluate arguments, assessing whether reasoning and evidence are valid and sufficient.', standards: ['RI.9-10.8'] },
-        { text: 'Select relevant evidence to support claims in writing.', standards: ['W.9-10.1'] },
-        { text: 'Write clear arguments using discipline-specific language and formal academic tone.', standards: ['W.9-10.1', 'L.9-10.6'] }
-      ]
-    },
-    {
-      id: 3,
-      title: 'Unit 3: Evaluating Arguments & Synthesizing Voices',
-      essentialSkills: [
-        { text: 'Analyze how arguments vary in strength based on reasoning and evidence quality.', standards: ['RI.9-10.1'] },
-        { text: 'Compare and contrast claims across multiple texts.', standards: ['RI.9-10.6'] },
-        { text: 'Evaluate the validity and relevance of evidence in arguments.', standards: ['RI.9-10.8'] },
-        { text: 'Synthesize information from multiple texts to develop new claims.', standards: ['RI.9-10.10'] }
-      ]
-    },
-    {
-      id: 4,
-      title: 'Unit 4: Inquiry, Transfer, & Metacognitive Defense',
-      essentialSkills: [
-        { text: 'Conduct research projects to answer questions or solve problems.', standards: ['W.9-10.7'] },
-        { text: 'Gather and evaluate information from multiple authoritative sources.', standards: ['W.9-10.8'] },
-        { text: 'Synthesize evidence from research sources to support claims.', standards: ['W.9-10.9'] },
-        { text: 'Present information clearly with evidence and supporting details.', standards: ['SL.9-10.4'] }
-      ]
+  const units = unitsProp;
+
+  // Reset unit selection when grade changes and current unit exceeds available units
+  useEffect(() => {
+    if (parseInt(rubricUnit) > units.length) {
+      setRubricUnit('1');
     }
-  ];
+  }, [units.length, rubricUnit]);
 
   const proficiencyLevels = [
     { level: 5, label: 'Advanced',    headerBg: '#FFFFFF', headerColor: '#2C2416' },
@@ -101,8 +25,10 @@ const RubricBuilder = () => {
     { level: 1, label: 'Beginning',   headerBg: '#FFFFFF', headerColor: '#2C2416' },
   ];
 
-  const currentUnit = units[parseInt(rubricUnit) - 1];
+  const currentUnit = units[parseInt(rubricUnit) - 1] || units[0];
   const rubricKey = `${rubricGrade}-${rubricUnit}`;
+
+  if (!currentUnit) return null;
 
   const handleCellChange = (skillIdx, level, value) => {
     setRubricData(prev => ({
@@ -201,16 +127,10 @@ const RubricBuilder = () => {
 
           <div className="mb-5">
             <label className="block text-sm font-medium text-slate-700 mb-2">Grade Level</label>
-            <select
-              value={rubricGrade}
-              onChange={(e) => setRubricGrade(e.target.value)}
-              className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-slate-700 text-sm focus:border-slate-400 focus:ring-0 transition-colors cursor-pointer"
-            >
-              <option value="9">9th Grade</option>
-              <option value="10">10th Grade</option>
-              <option value="11">11th Grade</option>
-              <option value="12">12th Grade</option>
-            </select>
+            <div className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-slate-700 text-sm">
+              {rubricGrade}th Grade
+            </div>
+            <p className="mt-1 text-xs text-slate-400">Use the grade selector in the header to change</p>
           </div>
 
           <div className="mb-6">
