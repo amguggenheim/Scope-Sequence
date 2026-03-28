@@ -397,6 +397,28 @@ export const grade11Units = [
       { text: 'Evaluate an author\'s point of view and purpose shape a text.', standards: ['RI.11-12.6'] },
       { text: 'Explain how structure and evidence contribute to a text\'s effectiveness.', standards: ['RI.11-12.5', 'SL.11-12.1'] },
     ],
+    rigor: [
+      {
+        standard: 'RL.11-12.1',
+        title: 'Citing Textual Evidence',
+        grade11: [
+          { text: 'Cite strong and thorough evidence to support analysis; begin to identify areas where the text leaves meaning uncertain.', outcomes: ['I can cite evidence to support explicit and inferential analysis.', 'I can identify areas where a text leaves meaning uncertain.'] },
+        ],
+        grade12: [
+          { text: 'Independently navigate textual ambiguity and use evidence to defend nuanced interpretations.', outcomes: ['I can independently cite evidence that addresses ambiguity and complexity in a text.', 'I can use evidence to defend interpretations of texts that leave matters uncertain.'] },
+        ],
+      },
+      {
+        standard: 'RI.11-12.6',
+        title: 'Author\'s Purpose & Rhetoric',
+        grade11: [
+          { text: 'Analyze how style and content contribute to a text\'s persuasive power and effectiveness.', outcomes: ['I can analyze how style contributes to a text\'s persuasive power.', 'I can evaluate how content and rhetoric work together to advance an author\'s purpose.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate the power, persuasiveness, and beauty of particularly effective rhetoric by analyzing the interplay of style and content.', outcomes: ['I can evaluate how rhetoric creates power, persuasiveness, or beauty in a text.', 'I can analyze the interplay of style and content in texts with particularly effective rhetoric.'] },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -421,6 +443,28 @@ export const grade11Units = [
       { text: 'Interpret figurative and connotative language in context.', standards: ['L.11-12.5', 'RL.11-12.4'] },
       { text: 'Analyze how tone and word choice influence a text\'s meaning and impact.', standards: ['RI.11-12.4', 'RL.11-12.4'] },
       { text: 'Distinguish what is stated directly from what is implied in a text.', standards: ['RL.11-12.1'] },
+    ],
+    rigor: [
+      {
+        standard: 'RL.11-12.5',
+        title: 'Analyzing Text Structure',
+        grade11: [
+          { text: 'Analyze how specific structural parts of a text contribute to overall meaning and the author\'s purpose.', outcomes: ['I can analyze how an author\'s structural choices contribute to a text\'s overall meaning.', 'I can explain how the structure of specific parts relates to the whole.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate how structural choices create aesthetic impact and shape the reader\'s experience.', outcomes: ['I can evaluate how structural choices create aesthetic impact.', 'I can analyze how beginning, ending, and resolution choices shape the reader\'s experience.'] },
+        ],
+      },
+      {
+        standard: 'RL.11-12.3',
+        title: 'Author\'s Choices & Story Elements',
+        grade11: [
+          { text: 'Analyze how an author\'s choices about setting, action, and character introduction shape the text\'s meaning.', outcomes: ['I can analyze how an author\'s choices about story elements shape meaning.', 'I can explain how the development of characters relates to the overall structure.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate the impact of authorial decisions on the text\'s meaning and thematic effect.', outcomes: ['I can evaluate how an author\'s structural and developmental choices create specific effects.', 'I can analyze the relationship between authorial choices and the text\'s thematic impact.'] },
+        ],
+      },
     ],
   },
   {
@@ -449,6 +493,18 @@ export const grade11Units = [
       { text: 'Address counterclaims fairly and logically.', standards: ['W.11-12.1', 'SL.11-12.3'] },
       { text: 'Maintain a formal and objective tone in writing.', standards: ['W.11-12.1'] },
     ],
+    rigor: [
+      {
+        standard: 'W.11-12.1',
+        title: 'Argumentative Writing',
+        grade11: [
+          { text: 'Write arguments with precise, knowledgeable claims that establish significance and anticipate the audience\'s knowledge and concerns.', outcomes: ['I can introduce knowledgeable claims and establish their significance.', 'I can develop claims and counterclaims that anticipate the audience\'s knowledge and concerns.'] },
+        ],
+        grade12: [
+          { text: 'Write sophisticated arguments that fully anticipate and address audience values and biases within a broader context.', outcomes: ['I can write arguments that fully anticipate and address audience values and biases.', 'I can establish the significance of claims within a broader context.'] },
+        ],
+      },
+    ],
   },
   {
     id: 4,
@@ -473,6 +529,18 @@ export const grade11Units = [
       { text: 'Edit writing to ensure correct grammar, punctuation, and conventions.', standards: ['L.11-12.1', 'L.11-12.2'] },
       { text: 'Strengthen writing by refining word choice, tone, and sentence structure.', standards: ['L.11-12.3', 'W.11-12.4'] },
       { text: 'Prepare writing that is appropriate for specific audiences and purposes.', standards: ['W.11-12.4', 'W.11-12.5'] },
+    ],
+    rigor: [
+      {
+        standard: 'W.11-12.5',
+        title: 'Writing Process & Revision',
+        grade11: [
+          { text: 'Revise writing with increasing independence, focusing on purpose, audience, and clarity using multiple revision strategies.', outcomes: ['I can revise for purpose, audience, and clarity with increasing independence.', 'I can use multiple revision strategies to strengthen my writing.'] },
+        ],
+        grade12: [
+          { text: 'Independently refine writing for rhetorical effectiveness and precision without external scaffolds.', outcomes: ['I can independently revise for rhetorical effectiveness and precision.', 'I can self-assess and improve my writing without external scaffolds.'] },
+        ],
+      },
     ],
   },
   {
@@ -499,6 +567,28 @@ export const grade11Units = [
       { text: 'Interpret how authors use literary elements to communicate complex ideas.', standards: ['RL.11-12.1', 'RL.11-12.3'] },
       { text: 'Synthesize ideas from literary texts and other disciplines to deepen understanding of real-world topics.', standards: ['W.11-12.9'] },
     ],
+    rigor: [
+      {
+        standard: 'RL.11-12.2',
+        title: 'Theme & Central Idea',
+        grade11: [
+          { text: 'Identify and track multiple themes in a text and analyze how they interact and build on one another.', outcomes: ['I can identify two or more themes in a text.', 'I can analyze how themes interact and build on one another.'] },
+        ],
+        grade12: [
+          { text: 'Produce sophisticated analysis of how interacting themes create a complex account of human experience.', outcomes: ['I can analyze how multiple themes produce a complex account of human experience.', 'I can evaluate how the interaction of themes contributes to a text\'s overall meaning.'] },
+        ],
+      },
+      {
+        standard: 'RL.11-12.3',
+        title: 'Author\'s Choices & Story Elements',
+        grade11: [
+          { text: 'Analyze how an author\'s choices about setting, action, and character introduction shape the text\'s meaning.', outcomes: ['I can analyze how an author\'s choices about story elements shape meaning.', 'I can explain how the development of characters relates to the overall structure.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate the impact of authorial decisions on the text\'s meaning and thematic effect.', outcomes: ['I can evaluate how an author\'s structural and developmental choices create specific effects.', 'I can analyze the relationship between authorial choices and the text\'s thematic impact.'] },
+        ],
+      },
+    ],
   },
   {
     id: 6,
@@ -522,6 +612,28 @@ export const grade11Units = [
       { text: 'Evaluate the credibility, bias, and relevance of sources.', standards: ['W.11-12.8'] },
       { text: 'Synthesize information from multiple texts and media to answer complex questions.', standards: ['RI.11-12.1', 'W.11-12.7'] },
       { text: 'Organize and present research findings clearly using appropriate formats or media.', standards: ['W.11-12.2', 'SL.11-12.4'] },
+    ],
+    rigor: [
+      {
+        standard: 'W.11-12.8',
+        title: 'Evaluating Sources',
+        grade11: [
+          { text: 'Assess the usefulness and reliability of sources, moving beyond surface-level evaluation to examine strengths and limitations.', outcomes: ['I can assess the strengths and limitations of each source in answering my research question.', 'I can distinguish between credible and unreliable sources using multiple criteria.'] },
+        ],
+        grade12: [
+          { text: 'Independently evaluate sources by analyzing their strengths, limitations, and potential biases in the context of a research question.', outcomes: ['I can independently evaluate sources for reliability, bias, and relevance to my research.', 'I can justify my source selections based on a thorough assessment of strengths and limitations.'] },
+        ],
+      },
+      {
+        standard: 'W.11-12.7',
+        title: 'Research & Inquiry',
+        grade11: [
+          { text: 'Conduct sustained research to answer complex questions, synthesizing multiple sources and refining the inquiry as needed.', outcomes: ['I can conduct sustained research that synthesizes information from multiple sources.', 'I can refine my research question based on emerging findings.'] },
+        ],
+        grade12: [
+          { text: 'Independently design and execute research projects that answer self-generated questions and demonstrate original analysis.', outcomes: ['I can independently design a research project that demonstrates original thinking.', 'I can synthesize diverse sources to produce new insights and conclusions.'] },
+        ],
+      },
     ],
   },
   {
@@ -548,6 +660,28 @@ export const grade11Units = [
       { text: 'Develop arguments that address complex real-world issues using credible evidence.', standards: ['W.11-12.1'] },
       { text: 'Use persuasive strategies and rhetorical techniques to communicate arguments effectively.', standards: ['SL.11-12.4', 'W.11-12.1'] },
     ],
+    rigor: [
+      {
+        standard: 'RI.11-12.8',
+        title: 'Evaluating Reasoning in Seminal Texts',
+        grade11: [
+          { text: 'Evaluate the reasoning and rhetoric in significant U.S. texts, identifying false statements and assessing whether evidence is valid and sufficient.', outcomes: ['I can evaluate reasoning in seminal U.S. texts and public documents.', 'I can identify false reasoning and assess the sufficiency of evidence in civic arguments.'] },
+        ],
+        grade12: [
+          { text: 'Critically analyze the constitutional principles and legal reasoning in foundational U.S. documents, evaluating their application to contemporary issues.', outcomes: ['I can analyze the reasoning in seminal U.S. texts and evaluate their relevance to current issues.', 'I can assess how constitutional principles are applied in contemporary public discourse.'] },
+        ],
+      },
+      {
+        standard: 'SL.11-12.3',
+        title: 'Evaluating a Speaker\'s Reasoning',
+        grade11: [
+          { text: 'Evaluate a speaker\'s point of view, reasoning, and use of evidence and rhetoric, identifying any fallacious reasoning or distorted evidence.', outcomes: ['I can evaluate a speaker\'s reasoning and identify logical fallacies.', 'I can assess whether a speaker\'s evidence is relevant, sufficient, and undistorted.'] },
+        ],
+        grade12: [
+          { text: 'Critically evaluate the logic, evidence, and rhetorical strategies of speakers across diverse contexts, identifying subtle biases and logical gaps.', outcomes: ['I can identify subtle biases and logical gaps in a speaker\'s argument.', 'I can evaluate how rhetorical strategies are used to influence audiences in civic and professional contexts.'] },
+        ],
+      },
+    ],
   },
   {
     id: 8,
@@ -570,6 +704,28 @@ export const grade11Units = [
       { text: 'Revise and polish pieces for inclusion in their portfolio.', standards: ['W.11-12.5', 'W.11-12.4'] },
       { text: 'Present and defend their ideas clearly to an audience.', standards: ['SL.11-12.4', 'SL.11-12.6'] },
       { text: 'Use evidence and reasoning to respond to questions and feedback about their work.', standards: ['W.11-12.9', 'SL.11-12.4'] },
+    ],
+    rigor: [
+      {
+        standard: 'SL.11-12.1',
+        title: 'Collaborative Discussions',
+        grade11: [
+          { text: 'Promote civil, democratic discussions with clear goals and engage with divergent and creative perspectives.', outcomes: ['I can promote civil, democratic discussions with clear goals.', 'I can synthesize comments and claims from multiple perspectives.'] },
+        ],
+        grade12: [
+          { text: 'Resolve contradictions in discussion through evidence and reasoning, and determine what additional research is needed to deepen investigation.', outcomes: ['I can resolve contradictions in discussion through evidence and reasoning.', 'I can determine what additional information is needed to deepen investigation.'] },
+        ],
+      },
+      {
+        standard: 'W.11-12.5',
+        title: 'Writing Process & Revision',
+        grade11: [
+          { text: 'Revise writing with increasing independence, focusing on purpose, audience, and clarity using multiple revision strategies.', outcomes: ['I can revise for purpose, audience, and clarity with increasing independence.', 'I can use multiple revision strategies to strengthen my writing.'] },
+        ],
+        grade12: [
+          { text: 'Independently refine writing for rhetorical effectiveness and precision without external scaffolds.', outcomes: ['I can independently revise for rhetorical effectiveness and precision.', 'I can self-assess and improve my writing without external scaffolds.'] },
+        ],
+      },
     ],
   },
 ];
@@ -603,6 +759,28 @@ export const grade12Units = [
       { text: 'Interpret information and draw conclusions through careful analysis.', standards: ['RL.11-12.1'] },
       { text: 'Reflect on personal goals and experiences to inform writing and learning.', standards: ['W.11-12.5'] },
     ],
+    rigor: [
+      {
+        standard: 'W.11-12.3',
+        title: 'Narrative Writing',
+        grade11: [
+          { text: 'Write narratives using well-structured event sequences with effective technique and well-chosen details.', outcomes: ['I can use narrative techniques such as pacing, dialogue, and reflection to develop experiences.', 'I can structure event sequences to build toward a meaningful conclusion.'] },
+        ],
+        grade12: [
+          { text: 'Write narratives that build toward a particular tone and outcome, using precise details and sophisticated techniques to create a unified effect.', outcomes: ['I can craft narratives that build toward a particular tone and outcome.', 'I can use precise details and sophisticated techniques to create a unified narrative effect.'] },
+        ],
+      },
+      {
+        standard: 'RL.11-12.5',
+        title: 'Analyzing Text Structure',
+        grade11: [
+          { text: 'Analyze how specific structural parts of a text contribute to overall meaning and the author\'s purpose.', outcomes: ['I can analyze how an author\'s structural choices contribute to a text\'s overall meaning.', 'I can explain how the structure of specific parts relates to the whole.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate how structural choices create aesthetic impact and shape the reader\'s experience.', outcomes: ['I can evaluate how structural choices create aesthetic impact.', 'I can analyze how beginning, ending, and resolution choices shape the reader\'s experience.'] },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -629,6 +807,28 @@ export const grade12Units = [
       { text: 'Analyze how authors\' structural and stylistic choices contribute to meaning.', standards: ['RL.11-12.5', 'RL.11-12.4'] },
       { text: 'Distinguish between evidence, inference, and interpretation.', standards: ['RL.11-12.1'] },
       { text: 'Use collaboration and discussion to refine interpretations and consider diverse perspectives.', standards: ['SL.11-12.1'] },
+    ],
+    rigor: [
+      {
+        standard: 'RL.11-12.1',
+        title: 'Citing Textual Evidence',
+        grade11: [
+          { text: 'Cite strong and thorough evidence to support analysis; begin to identify areas where the text leaves meaning uncertain.', outcomes: ['I can cite evidence to support explicit and inferential analysis.', 'I can identify areas where a text leaves meaning uncertain.'] },
+        ],
+        grade12: [
+          { text: 'Independently navigate textual ambiguity and use evidence to defend nuanced interpretations.', outcomes: ['I can independently cite evidence that addresses ambiguity and complexity in a text.', 'I can use evidence to defend interpretations of texts that leave matters uncertain.'] },
+        ],
+      },
+      {
+        standard: 'W.11-12.1',
+        title: 'Argumentative Writing',
+        grade11: [
+          { text: 'Write arguments with precise, knowledgeable claims that establish significance and anticipate the audience\'s knowledge and concerns.', outcomes: ['I can introduce knowledgeable claims and establish their significance.', 'I can develop claims and counterclaims that anticipate the audience\'s knowledge and concerns.'] },
+        ],
+        grade12: [
+          { text: 'Write sophisticated arguments that fully anticipate and address audience values and biases within a broader context.', outcomes: ['I can write arguments that fully anticipate and address audience values and biases.', 'I can establish the significance of claims within a broader context.'] },
+        ],
+      },
     ],
   },
   {
@@ -660,6 +860,28 @@ export const grade12Units = [
       { text: 'Interpret information, make predictions, and draw conclusions through analytical reading.', standards: ['RL.11-12.1', 'RI.11-12.1'] },
       { text: 'Communicate ideas clearly in writing across a variety of contexts and purposes.', standards: ['L.11-12.3', 'W.11-12.4'] },
     ],
+    rigor: [
+      {
+        standard: 'RI.11-12.6',
+        title: 'Author\'s Purpose & Rhetoric',
+        grade11: [
+          { text: 'Analyze how style and content contribute to a text\'s persuasive power and effectiveness.', outcomes: ['I can analyze how style contributes to a text\'s persuasive power.', 'I can evaluate how content and rhetoric work together to advance an author\'s purpose.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate the power, persuasiveness, and beauty of particularly effective rhetoric by analyzing the interplay of style and content.', outcomes: ['I can evaluate how rhetoric creates power, persuasiveness, or beauty in a text.', 'I can analyze the interplay of style and content in texts with particularly effective rhetoric.'] },
+        ],
+      },
+      {
+        standard: 'W.11-12.1',
+        title: 'Argumentative Writing',
+        grade11: [
+          { text: 'Write arguments with precise, knowledgeable claims that establish significance and anticipate the audience\'s knowledge and concerns.', outcomes: ['I can introduce knowledgeable claims and establish their significance.', 'I can develop claims and counterclaims that anticipate the audience\'s knowledge and concerns.'] },
+        ],
+        grade12: [
+          { text: 'Write sophisticated arguments that fully anticipate and address audience values and biases within a broader context.', outcomes: ['I can write arguments that fully anticipate and address audience values and biases.', 'I can establish the significance of claims within a broader context.'] },
+        ],
+      },
+    ],
   },
   {
     id: 4,
@@ -688,6 +910,28 @@ export const grade12Units = [
       { text: 'Analyze how authors\' structural choices contribute to meaning and impact.', standards: ['RL.11-12.5'] },
       { text: 'Explain how perspective and point of view influence interpretation.', standards: ['RL.11-12.6'] },
       { text: 'Present ideas clearly through discussion or presentation while responding to other perspectives.', standards: ['SL.11-12.4', 'SL.11-12.1'] },
+    ],
+    rigor: [
+      {
+        standard: 'RL.11-12.5',
+        title: 'Analyzing Text Structure',
+        grade11: [
+          { text: 'Analyze how specific structural parts of a text contribute to overall meaning and the author\'s purpose.', outcomes: ['I can analyze how an author\'s structural choices contribute to a text\'s overall meaning.', 'I can explain how the structure of specific parts relates to the whole.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate how structural choices create aesthetic impact and shape the reader\'s experience.', outcomes: ['I can evaluate how structural choices create aesthetic impact.', 'I can analyze how beginning, ending, and resolution choices shape the reader\'s experience.'] },
+        ],
+      },
+      {
+        standard: 'RI.11-12.5',
+        title: 'Informational Text Structure',
+        grade11: [
+          { text: 'Analyze how an author structures an informational text to develop and refine ideas or claims.', outcomes: ['I can analyze how an author uses structure to develop ideas in an informational text.', 'I can explain how specific paragraphs or sections contribute to the development of a claim.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate how an author\'s structural choices in informational texts create clarity, emphasis, and persuasive effect.', outcomes: ['I can evaluate how structural choices in informational texts create emphasis and persuasion.', 'I can analyze how the organization of an informational text serves its rhetorical purpose.'] },
+        ],
+      },
     ],
   },
   {
@@ -719,6 +963,28 @@ export const grade12Units = [
       { text: 'Explain how themes emerge and develop over the course of a text.', standards: ['RL.11-12.2'] },
       { text: 'Engage in discussion to consider multiple interpretations of a text.', standards: ['SL.11-12.1'] },
     ],
+    rigor: [
+      {
+        standard: 'RL.11-12.3',
+        title: 'Author\'s Choices & Story Elements',
+        grade11: [
+          { text: 'Analyze how an author\'s choices about setting, action, and character introduction shape the text\'s meaning.', outcomes: ['I can analyze how an author\'s choices about story elements shape meaning.', 'I can explain how the development of characters relates to the overall structure.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate the impact of authorial decisions on the text\'s meaning and thematic effect.', outcomes: ['I can evaluate how an author\'s structural and developmental choices create specific effects.', 'I can analyze the relationship between authorial choices and the text\'s thematic impact.'] },
+        ],
+      },
+      {
+        standard: 'RL.11-12.2',
+        title: 'Theme & Central Idea',
+        grade11: [
+          { text: 'Identify and track multiple themes in a text and analyze how they interact and build on one another.', outcomes: ['I can identify two or more themes in a text.', 'I can analyze how themes interact and build on one another.'] },
+        ],
+        grade12: [
+          { text: 'Produce sophisticated analysis of how interacting themes create a complex account of human experience.', outcomes: ['I can analyze how multiple themes produce a complex account of human experience.', 'I can evaluate how the interaction of themes contributes to a text\'s overall meaning.'] },
+        ],
+      },
+    ],
   },
   {
     id: 6,
@@ -745,6 +1011,28 @@ export const grade12Units = [
       { text: 'Cite strong textual evidence to support analysis and interpretation.', standards: ['RL.11-12.1'] },
       { text: 'Develop informative or explanatory writing that clearly organizes and explains complex ideas.', standards: ['W.11-12.2', 'W.11-12.3'] },
     ],
+    rigor: [
+      {
+        standard: 'RL.11-12.5',
+        title: 'Analyzing Text Structure',
+        grade11: [
+          { text: 'Analyze how specific structural parts of a text contribute to overall meaning and the author\'s purpose.', outcomes: ['I can analyze how an author\'s structural choices contribute to a text\'s overall meaning.', 'I can explain how the structure of specific parts relates to the whole.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate how structural choices create aesthetic impact and shape the reader\'s experience.', outcomes: ['I can evaluate how structural choices create aesthetic impact.', 'I can analyze how beginning, ending, and resolution choices shape the reader\'s experience.'] },
+        ],
+      },
+      {
+        standard: 'RL.11-12.4',
+        title: 'Word Choice & Language',
+        grade11: [
+          { text: 'Analyze the cumulative impact of specific word choices on meaning and tone, including words with multiple meanings.', outcomes: ['I can analyze the cumulative impact of word choices on meaning and tone.', 'I can interpret words with multiple meanings in context.'] },
+        ],
+        grade12: [
+          { text: 'Evaluate language that is particularly fresh, engaging, or beautiful and analyze how it contributes to the text\'s overall effect.', outcomes: ['I can evaluate language that is particularly fresh, engaging, or beautiful.', 'I can analyze how an author\'s word choices contribute to a text\'s aesthetic and thematic impact.'] },
+        ],
+      },
+    ],
   },
   {
     id: 7,
@@ -769,6 +1057,28 @@ export const grade12Units = [
       { text: 'Compare how context, medium, and audience influence the meaning and impact of literary and informational texts.', standards: ['RI.11-12.7', 'RI.11-12.6'] },
       { text: 'Evaluate the effectiveness of rhetorical and stylistic choices used to communicate ideas across different media.', standards: ['RI.11-12.6', 'SL.11-12.2'] },
       { text: 'Use information from multiple sources and media accurately and ethically when developing and communicating ideas.', standards: ['SL.11-12.2', 'W.11-12.8'] },
+    ],
+    rigor: [
+      {
+        standard: 'RI.11-12.7',
+        title: 'Integrating Multiple Sources & Media',
+        grade11: [
+          { text: 'Analyze various accounts of a subject told in different mediums, determining which details are emphasized in each account.', outcomes: ['I can analyze how different mediums emphasize different details about the same subject.', 'I can compare accounts across media to identify similarities and differences in presentation.'] },
+        ],
+        grade12: [
+          { text: 'Integrate and evaluate multiple sources of information presented in different media or formats to address a question or solve a problem.', outcomes: ['I can integrate and evaluate information from multiple sources in different media.', 'I can synthesize information across formats to address complex questions.'] },
+        ],
+      },
+      {
+        standard: 'SL.11-12.2',
+        title: 'Evaluating Information from Diverse Media',
+        grade11: [
+          { text: 'Integrate multiple sources of information presented in diverse media and formats, evaluating the credibility and accuracy of each source.', outcomes: ['I can integrate information from diverse media and formats.', 'I can evaluate the credibility and accuracy of sources presented in different media.'] },
+        ],
+        grade12: [
+          { text: 'Independently evaluate and synthesize information from diverse media, noting discrepancies among accounts and assessing their impact on interpretation.', outcomes: ['I can independently evaluate and synthesize information from diverse media sources.', 'I can identify and assess discrepancies among accounts presented in different formats.'] },
+        ],
+      },
     ],
   },
   {
@@ -795,6 +1105,28 @@ export const grade12Units = [
       { text: 'Use digital technologies and media to produce and present ideas clearly and effectively.', standards: ['SL.11-12.5', 'SL.11-12.6'] },
       { text: 'Engage in collaborative discussions that evaluate multiple perspectives and refine ideas.', standards: ['SL.11-12.1'] },
       { text: 'Reflect on and evaluate their growth as readers, writers, and thinkers.', standards: ['W.11-12.5'] },
+    ],
+    rigor: [
+      {
+        standard: 'SL.11-12.1',
+        title: 'Collaborative Discussions',
+        grade11: [
+          { text: 'Promote civil, democratic discussions with clear goals and engage with divergent and creative perspectives.', outcomes: ['I can promote civil, democratic discussions with clear goals.', 'I can synthesize comments and claims from multiple perspectives.'] },
+        ],
+        grade12: [
+          { text: 'Resolve contradictions in discussion through evidence and reasoning, and determine what additional research is needed to deepen investigation.', outcomes: ['I can resolve contradictions in discussion through evidence and reasoning.', 'I can determine what additional information is needed to deepen investigation.'] },
+        ],
+      },
+      {
+        standard: 'W.11-12.5',
+        title: 'Writing Process & Revision',
+        grade11: [
+          { text: 'Revise writing with increasing independence, focusing on purpose, audience, and clarity using multiple revision strategies.', outcomes: ['I can revise for purpose, audience, and clarity with increasing independence.', 'I can use multiple revision strategies to strengthen my writing.'] },
+        ],
+        grade12: [
+          { text: 'Independently refine writing for rhetorical effectiveness and precision without external scaffolds.', outcomes: ['I can independently revise for rhetorical effectiveness and precision.', 'I can self-assess and improve my writing without external scaffolds.'] },
+        ],
+      },
     ],
   },
 ];
