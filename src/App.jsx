@@ -179,7 +179,7 @@ function GleItem({ group, color }) {
           <ul className="space-y-1.5">
             {group.evidenceOutcomes.map((eo, eIdx) => (
               <li key={eIdx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
-                <span className="text-sm text-slate-400 flex-shrink-0">•</span>
+                <span className="text-lg text-slate-400 flex-shrink-0 -mt-0.5">•</span>
                 <span>{eo}</span>
               </li>
             ))}
