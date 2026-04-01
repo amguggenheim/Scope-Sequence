@@ -1,6 +1,33 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FileText, Copy, Check, ChevronDown } from 'lucide-react';
 
+function RubricGleItem({ group }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-2.5 py-2 text-left hover:bg-slate-50 transition-colors duration-150"
+      >
+        <span className="text-xs font-medium text-slate-700 leading-relaxed">{group.gle || group.standard}</span>
+        <ChevronDown size={12} className={`transition-transform duration-200 flex-shrink-0 ml-1.5 ${open ? 'rotate-180' : ''}`} style={{ color: open ? '#64748b' : '#94a3b8' }} />
+      </button>
+      {open && (
+        <div className="px-2.5 pb-2.5 pt-1 border-t border-slate-100 bg-slate-50/50">
+          <ul className="space-y-1">
+            {group.evidenceOutcomes.map((eo, eIdx) => (
+              <li key={eIdx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-1.5">
+                <span className="text-slate-400 flex-shrink-0 mt-0.5">•</span>
+                <span>{eo}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
 const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade = '10' }) => {
   const rubricGrade = grade;
   const [rubricUnit, setRubricUnit] = useState('1');
@@ -155,6 +182,19 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
             </select>
             <p className="mt-2 text-xs text-slate-500 leading-relaxed">{currentUnit.title}</p>
           </div>
+
+          {currentUnit.majorStandards && currentUnit.majorStandards.length > 0 && (
+            <div className="border-t border-slate-200 pt-5">
+              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                Priority Standards
+              </h3>
+              <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
+                {currentUnit.majorStandards.map((group, gIdx) => (
+                  <RubricGleItem key={gIdx} group={group} />
+                ))}
+              </div>
+            </div>
+          )}
 
         </div>
       </aside>
