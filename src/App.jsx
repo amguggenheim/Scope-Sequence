@@ -50,6 +50,15 @@ const GRADE_DOC_LINKS = {
 function StandardsTooltip({ standards, color, standardsRef = {} }) {
   const [visible, setVisible] = useState(false);
   const ref = React.useRef(null);
+  const id = React.useRef(Math.random().toString(36).slice(2));
+
+  React.useEffect(() => {
+    const handleClose = (e) => {
+      if (e.detail !== id.current) setVisible(false);
+    };
+    document.addEventListener('close-tooltips', handleClose);
+    return () => document.removeEventListener('close-tooltips', handleClose);
+  }, []);
 
   React.useEffect(() => {
     if (!visible) return;
@@ -60,10 +69,17 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [visible]);
 
+  const handleToggle = () => {
+    if (!visible) {
+      document.dispatchEvent(new CustomEvent('close-tooltips', { detail: id.current }));
+    }
+    setVisible(!visible);
+  };
+
   return (
     <div ref={ref} className="relative inline-flex items-center flex-shrink-0 ml-1.5">
       <button
-        onClick={() => setVisible(!visible)}
+        onClick={handleToggle}
         className="transition-colors duration-150 px-1.5 py-0.5 rounded text-xs font-mono font-semibold border"
         style={{
           color: visible ? 'white' : color,
