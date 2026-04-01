@@ -374,7 +374,7 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
 
 export default function App() {
   const [activeView, setActiveView] = useState('overview');
-  const [selectedGrade, setSelectedGrade] = useState('10');
+  const [selectedGrade, setSelectedGrade] = useState('9');
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>

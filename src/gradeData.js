@@ -232,7 +232,7 @@ export const grade9Units = [
           'Introduce precise claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that establishes clear relationships among claim(s), counterclaims, reasons, and evidence. (CCSS: W.9-10.1a)',
           'Develop claim(s) and counterclaims fairly, supplying evidence for each while pointing out the strengths and limitations of both in a manner that anticipates the audience’s knowledge level and concerns. (CCSS: W.9- 10.1b)',
           'Use words, phrases, and clauses to link the major sections of the text, create cohesion, and clarify the relationships between claim(s) and reasons, between reasons and evidence, and between claim(s) and counterclaims. (CCSS: W.9-10.1c)',
-          'Determine purpose for writing and use rhetorical appeals (i.e., ethos, pathos, logos) to address audience expectations and needs.',
+          'Determine purpose for writing and use rhetorical appeals (i.e., ethos, pathos, logos) to address audience expectations and needs. (CAS)',
           'Establish and maintain a formal style and objective tone while attending to the norms and conventions of the discipline in which they are writing. (CCSS: W.9-10.1d)',
           'Provide a concluding statement or section that follows from and supports the argument presented. (CCSS: W.9-10.1e)'
         ],
@@ -729,7 +729,7 @@ export const grade10Units = [
           'Introduce precise claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that establishes clear relationships among claim(s), counterclaims, reasons, and evidence. (CCSS: W.9-10.1a)',
           'Develop claim(s) and counterclaims fairly, supplying evidence for each while pointing out the strengths and limitations of both in a manner that anticipates the audience’s knowledge level and concerns. (CCSS: W.9- 10.1b)',
           'Use words, phrases, and clauses to link the major sections of the text, create cohesion, and clarify the relationships between claim(s) and reasons, between reasons and evidence, and between claim(s) and counterclaims. (CCSS: W.9-10.1c)',
-          'Determine purpose for writing and use rhetorical appeals (i.e., ethos, pathos, logos) to address audience expectations and needs.',
+          'Determine purpose for writing and use rhetorical appeals (i.e., ethos, pathos, logos) to address audience expectations and needs. (CAS)',
           'Establish and maintain a formal style and objective tone while attending to the norms and conventions of the discipline in which they are writing. (CCSS: W.9-10.1d)',
           'Provide a concluding statement or section that follows from and supports the argument presented. (CCSS: W.9-10.1e)'
         ],
@@ -1156,8 +1156,8 @@ export const grade12Units = [
         standard: 'Standard 2: Reading for All Purposes',
         gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
-          'Designate a purpose for reading expository texts and use new learning to complete a specific task (such as convince an audience, shape a personal opinion or decision, or perform an activity).',
-          'Predict the impact an informational text will have on an audience and justify the prediction.',
+          'Designate a purpose for reading expository texts and use new learning to complete a specific task (such as convince an audience, shape a personal opinion or decision, or perform an activity). (CAS)',
+          'Predict the impact an informational text will have on an audience and justify the prediction. (CAS)',
           'Determine an author’s point of view or purpose in a text in which the rhetoric is particularly effective, analyzing how style and content contribute to the power, persuasiveness or beauty of the text. (CCSS: RI.11-12.6)'
         ],
       },
@@ -1183,7 +1183,7 @@ export const grade12Units = [
           'Use a variety of techniques to sequence events so that they build on one another to create a coherent whole and build toward a particular tone and outcome (for example, a sense of mystery, suspense, growth, or resolution). (CCSS W.11-12.3c)',
           'Use precise words and phrases, telling details, and sensory language to convey a vivid picture of the experiences, events, setting, and/or characters. (CCSS W.11-12.3d)',
           'Provide a conclusion that follows from and reflects on what is experienced, observed, or resolved over the course of the narrative. (CCSS W.11-12.3e)',
-          'Select and use stylistic devices to craft engaging and effective text.'
+          'Select and use stylistic devices to craft engaging and effective text. (CAS)'
         ],
       },
       {
@@ -1605,7 +1605,7 @@ export const grade12Units = [
           'Use a variety of techniques to sequence events so that they build on one another to create a coherent whole and build toward a particular tone and outcome (for example, a sense of mystery, suspense, growth, or resolution). (CCSS W.11-12.3c)',
           'Use precise words and phrases, telling details, and sensory language to convey a vivid picture of the experiences, events, setting, and/or characters. (CCSS W.11-12.3d)',
           'Provide a conclusion that follows from and reflects on what is experienced, observed, or resolved over the course of the narrative. (CCSS W.11-12.3e)',
-          'Select and use stylistic devices to craft engaging and effective text.'
+          'Select and use stylistic devices to craft engaging and effective text. (CAS)'
         ],
       },
       {
@@ -1656,6 +1656,8 @@ export const gradeStandardsReference = {
     'SL.9-10.1': "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9\u201310 topics, texts, and issues, building on others' ideas and expressing their own clearly and persuasively.",
     'SL.9-10.3': "Evaluate a speaker's point of view, reasoning, and use of evidence and rhetoric, identifying any fallacious reasoning or exaggerated or distorted evidence.",
     'SL.9-10.4': 'Present information, findings, and supporting evidence clearly, concisely, and logically such that listeners can follow the line of reasoning.',
+    'SL.9-10.5': 'Make strategic use of digital media in presentations to enhance understanding of findings, reasoning, and evidence and to add interest.',
+    'RI.9-10.7': 'Analyze various accounts of a subject told in different mediums, determining which details are emphasized in each account.',
     'L.9-10.1': 'Demonstrate command of the conventions of standard English grammar and usage when writing or speaking.',
     'L.9-10.2': 'Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.',
     'L.9-10.3': 'Apply knowledge of language to understand how language functions in different contexts, to make effective choices for meaning or style.',
@@ -1692,6 +1694,8 @@ export const gradeStandardsReference = {
     'SL.9-10.1a-d': 'Come to discussions prepared; follow agreed-upon rules; propel conversations; respond thoughtfully to diverse perspectives.',
     'SL.9-10.3': "Evaluate a speaker's point of view, reasoning, and use of evidence and rhetoric, identifying any fallacious reasoning or exaggerated or distorted evidence.",
     'SL.9-10.4': 'Present information, findings, and supporting evidence clearly, concisely, and logically such that listeners can follow the line of reasoning.',
+    'SL.9-10.5': 'Make strategic use of digital media in presentations to enhance understanding of findings, reasoning, and evidence and to add interest.',
+    'RI.9-10.7': 'Analyze various accounts of a subject told in different mediums, determining which details are emphasized in each account.',
     'L.9-10.1': 'Demonstrate command of the conventions of standard English grammar and usage when writing or speaking.',
     'L.9-10.2': 'Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.',
     'L.9-10.3': 'Apply knowledge of language to understand how language functions in different contexts, to make effective choices for meaning or style.',

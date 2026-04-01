@@ -427,7 +427,7 @@ function EmptyCard({ grade }) {
 // ─── Department View ──────────────────────────────────────────────────────────
 
 export default function DepartmentView({ gradeUnits, standardsRef }) {
-  const [subView, setSubView] = useState('compare');
+  const [subView, setSubView] = useState('overview');
   const [hoveredStandard, setHoveredStandard] = useState(null);
 
   // Left panel state (Compare tab)
@@ -448,7 +448,7 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
     <div className="space-y-6">
       {/* Sub-tab Toggle */}
       <div className="flex gap-2 mb-6">
-        {[['compare', 'Compare'], ['overview', 'All Grades Overview']].map(([view, label]) => (
+        {[['overview', 'All Grades Overview'], ['compare', 'Compare']].map(([view, label]) => (
           <button
             key={view}
             onClick={() => setSubView(view)}
