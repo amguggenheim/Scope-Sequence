@@ -178,8 +178,8 @@ function GleItem({ group, color }) {
         <div className="px-3 pb-3 pt-1 border-t border-slate-100" style={{ backgroundColor: color.main + '08' }}>
           <ul className="space-y-1.5">
             {group.evidenceOutcomes.map((eo, eIdx) => (
-              <li key={eIdx} className="text-sm text-slate-600 leading-relaxed flex items-start gap-2">
-                <span className="text-lg text-slate-400 flex-shrink-0 -mt-0.5">•</span>
+              <li key={eIdx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
+                <span className="text-sm text-slate-400 flex-shrink-0">•</span>
                 <span>{eo}</span>
               </li>
             ))}
