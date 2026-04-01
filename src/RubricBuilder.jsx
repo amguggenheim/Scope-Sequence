@@ -159,7 +159,7 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
         <ChevronDown size={16} className={`transition-transform ${sidebarOpen ? 'rotate-180' : ''}`} />
       </button>
       {/* Sidebar */}
-      <aside className={`${sidebarOpen ? 'block' : 'hidden'} md:block w-full md:w-72 flex-shrink-0 border-b md:border-b-0 md:border-r border-stone-200 md:min-h-[calc(100vh-113px)]`} style={{ backgroundColor: '#EEE9E0' }}>
+      <aside className={`${sidebarOpen ? 'block' : 'hidden'} md:block w-full md:w-72 flex-shrink-0 border-b md:border-b-0 md:border-r-2 border-stone-300 md:min-h-[calc(100vh-113px)] shadow-sm`} style={{ backgroundColor: '#EEE9E0' }}>
         <div className="p-6 sticky top-0">
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
             Rubric Settings
