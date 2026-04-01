@@ -145,13 +145,17 @@ function SectionDropdown({ title, icon, children, color }) {
 
 function GleItem({ group, color }) {
   const [open, setOpen] = useState(false);
+  const ccssCodesRaw = group.evidenceOutcomes
+    .map(eo => { const m = eo.match(/\(CCSS[:\s]+([^)]+)\)/); return m ? m[1].trim() : null; })
+    .filter(Boolean);
+  const ccssCodes = [...new Set(ccssCodesRaw)];
   return (
     <div className="border border-slate-200 rounded-lg overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-3 py-2.5 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
       >
-        <span className="text-xs sm:text-sm font-medium text-slate-700">{group.gle || group.standard}{group.gle && group.standard ? <span className="text-slate-400 font-normal"> ({group.standard})</span> : ''}</span>
+        <span className="text-xs sm:text-sm font-medium text-slate-700">{group.gle || group.standard}{ccssCodes.length > 0 ? <span className="text-slate-400 font-normal"> ({ccssCodes.join(', ')})</span> : ''}</span>
         <ChevronDown size={14} className={`transition-transform duration-200 flex-shrink-0 ml-2 ${open ? 'rotate-180' : ''}`} style={{ color: open ? color.main : '#94a3b8' }} />
       </button>
       {open && (
