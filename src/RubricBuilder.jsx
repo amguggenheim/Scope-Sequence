@@ -156,19 +156,6 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
             <p className="mt-2 text-xs text-slate-500 leading-relaxed">{currentUnit.title}</p>
           </div>
 
-          <div className="border-t border-slate-200 pt-5">
-            <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Standards
-            </h3>
-            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
-              {[...new Set(currentUnit.essentialSkills.flatMap(skill => skill.standards))].map((standardCode, idx) => (
-                <div key={idx} className="p-2 bg-white border border-slate-200 rounded-lg">
-                  <p className="text-xs font-mono font-semibold text-slate-700 mb-1">{standardCode}</p>
-                  <p className="text-xs text-slate-600 leading-relaxed">{standardsReference[standardCode]}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </aside>
 
