@@ -7,6 +7,7 @@ import {
   ChevronDown,
   Target,
   CheckCircle,
+  FileText,
   Check,
   BookOpen,
   HelpCircle,
@@ -35,6 +36,13 @@ const GRADE_UNITS = {
   '10': grade10Units,
   '11': grade11Units,
   '12': grade12Units,
+};
+
+const GRADE_DOC_LINKS = {
+  '9': 'https://docs.google.com/spreadsheets/d/1G56Vkzgv0oxnV2JxvftBEEWsBhqmGE7KAAX9ELAcGA4/edit?usp=sharing',
+  '10': 'https://docs.google.com/spreadsheets/d/12g-1awlhBZW7LPqv3qlIC4Nhs77M0vPiCU_aOsfTN9Y/edit?usp=sharing',
+  '11': 'https://docs.google.com/spreadsheets/d/11OfNJV9V7-Q9-TeWpG8dgOCTnDZmKqlaPZns_hHtJiQ/edit?usp=sharing',
+  '12': 'https://docs.google.com/spreadsheets/d/1W_c7OQoGGlQN6P_qP-JiO6Hc1wOb20YVJQWLB9eiYs8/edit?usp=sharing',
 };
 
 // ─── Standards Tooltip ────────────────────────────────────────────────────────
@@ -376,6 +384,23 @@ export default function App() {
             {(GRADE_UNITS[selectedGrade] || []).map((unit) => (
               <UnitAccordion key={unit.id} unit={unit} standardsRef={gradeStandardsReference[selectedGrade] || {}} />
             ))}
+            {GRADE_DOC_LINKS[selectedGrade] && (
+              <div className="mt-4 bg-white border border-slate-200 rounded-lg p-4 flex items-center gap-3">
+                <FileText size={16} className="text-slate-400 flex-shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-slate-700">Full Scope & Sequence Document</p>
+                  <a
+                    href={GRADE_DOC_LINKS[selectedGrade]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm underline hover:no-underline"
+                    style={{ color: HEADER_COLOR }}
+                  >
+                    View Grade {selectedGrade} Scope & Sequence in Google Sheets
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         )}
         {activeView === 'rubric' && <RubricBuilder standardsReference={gradeStandardsReference[selectedGrade] || {}} units={GRADE_UNITS[selectedGrade] || []} grade={selectedGrade} />}
