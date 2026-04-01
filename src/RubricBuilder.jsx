@@ -9,7 +9,7 @@ function RubricGleItem({ group }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-2.5 py-2 text-left hover:bg-slate-50 transition-colors duration-150"
       >
-        <span className="text-xs font-medium text-slate-700 leading-relaxed">{group.gle || group.standard}</span>
+        <span className="text-xs font-medium text-slate-700 leading-relaxed">{group.gle || group.standard}{group.gle && group.standard ? <span className="text-slate-400 font-normal"> ({group.standard})</span> : ''}</span>
         <ChevronDown size={12} className={`transition-transform duration-200 flex-shrink-0 ml-1.5 ${open ? 'rotate-180' : ''}`} style={{ color: open ? '#64748b' : '#94a3b8' }} />
       </button>
       {open && (

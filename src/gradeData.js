@@ -63,7 +63,7 @@ export const grade9Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text. (CCSS: RL.9-10.1)',
           'Determine a theme or central idea of a text and analyze in detail its development over the course of the text, including how it emerges and is shaped and refined by specific details; provide an objective summary of the text. (CCSS: RL.9-10.2)',
@@ -134,7 +134,7 @@ export const grade9Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Determine the meaning of words and phrases as they are used in the text, including figurative and connotative meanings; analyze the cumulative impact of specific word choices on meaning and tone (for example: how the language evokes a sense of time and place; how it sets a formal or informal tone). (CCSS: RL.9-10.4)',
           'Analyze how an author’s choices concerning how to structure a text, order events within it (for example: parallel plots), and manipulate time (for example: pacing, flashbacks) create such effects as mystery, tension, or surprise. (CCSS: RL.9-10.5)'
@@ -142,7 +142,7 @@ export const grade9Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 2: Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
+        gle: 'Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
         evidenceOutcomes: [
           'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content. (CCSS: W.9-10.2)',
           'Introduce a topic; organize complex ideas, concepts, and information to make important connections and distinctions; include formatting (for example: headings), graphics (for example: figures, tables), and multimedia when useful to aiding comprehension. (CCSS: W.9-10.2a)',
@@ -217,7 +217,7 @@ export const grade9Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text. (CCSS: RI.9-10.1)',
           'Determine a central idea of a text and analyze its development over the course of the text, including how it emerges and is shaped and refined by specific details; provide an objective summary of the text. (CCSS. RI.9- 10.2)',
@@ -226,7 +226,7 @@ export const grade9Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 1: Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
+        gle: 'Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
         evidenceOutcomes: [
           'Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence. (CCSS: W.9-10.1)',
           'Introduce precise claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that establishes clear relationships among claim(s), counterclaims, reasons, and evidence. (CCSS: W.9-10.1a)',
@@ -291,14 +291,14 @@ export const grade9Units = [
     majorStandards: [
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 4: Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
+        gle: 'Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
         evidenceOutcomes: [
           'Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience. (Grade-specific expectations for writing types are defined in expectations 1-2 above.) (CCSS: W.9-10.4)'
         ],
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Conduct short as well as more sustained research projects to answer a question (including a self-generated question) or solve a problem; narrow or broaden the inquiry when appropriate; synthesize multiple sources on the subject, demonstrating understanding of the subject under investigation. (CCSS: W.9-10.7)',
           'Gather relevant information from multiple authoritative sources, using advanced searches effectively; assess the usefulness of each source in answering the research question; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and following a standard format for citation. (adapted from CCSS: W.9-10.8)',
@@ -339,7 +339,7 @@ export const grade9Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 9– 10 topics, texts, and issues, building on others’ ideas and expressing their own clearly and persuasively. (CCSS: SL.9-10.1)',
           'Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas. (CCSS: SL.9-10.1a)',
@@ -350,21 +350,21 @@ export const grade9Units = [
       },
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Present information, findings, and supporting evidence clearly, concisely, and logically such that listeners can follow the line of reasoning and the organization, development, substance, and style are appropriate to purpose, audience, and task. (CCSS: SL.9-10.4)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text. (CCSS: RL.9-10.1)'
         ],
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 4: Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
+        gle: 'Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
         evidenceOutcomes: [
           'Apply knowledge of language to understand how language functions in different contexts, to make effective choices for meaning or style, and to comprehend more fully when reading or listening. (CCSS: L.9-10.3)',
           'Write and edit work so that it conforms to the guidelines in a style manual (for example: MLA Handbook, or APA handbook) appropriate for the discipline and writing type. (adapted from CCSS: L.9-10.3a)',
@@ -440,7 +440,7 @@ export const grade10Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 9– 10 topics, texts, and issues, building on others’ ideas and expressing their own clearly and persuasively. (CCSS: SL.9-10.1)',
           'Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas. (CCSS: SL.9-10.1a)',
@@ -452,7 +452,7 @@ export const grade10Units = [
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Determine the meaning of words and phrases as they are used in a text, including figurative, connotative, and technical meanings; analyze the cumulative impact of specific word choices on meaning and tone (for example: how the language of a court opinion differs from that of a newspaper). (CCSS: RI.9-10.4)'
         ],
@@ -520,14 +520,14 @@ export const grade10Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text. (CCSS: RL.9-10.1)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 3:  Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
+        gle: 'Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
         evidenceOutcomes: [
           '10.2.5.3b. Demonstrate understanding of figurative language, word relationships, and nuances in word meanings. (CCSS: L.9-10.5)',
           'Interpret figures of speech (for example: euphemism, oxymoron) in context and analyze their role in the text. (CCSS: L.9-10.5a)',
@@ -599,7 +599,7 @@ export const grade10Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 9– 10 topics, texts, and issues, building on others’ ideas and expressing their own clearly and persuasively. (CCSS: SL.9-10.1)',
           'Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas. (CCSS: SL.9-10.1a)',
@@ -610,21 +610,21 @@ export const grade10Units = [
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text. (CCSS: RI.9-10.1)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 3:  Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
+        gle: 'Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
         evidenceOutcomes: [
           'Acquire and use accurately general academic and domain-specific words and phrases, sufficient for reading, writing, speaking, and listening at the college and career readiness level; demonstrate independence in gathering vocabulary knowledge when considering a word or phrase important to comprehension or expression. (CCSS: L.9-10.6)'
         ],
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 2: Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
+        gle: 'Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
         evidenceOutcomes: [
           'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content. (CCSS: W.9-10.2)',
           'Introduce a topic; organize complex ideas, concepts, and information to make important connections and distinctions; include formatting (for example: headings), graphics (for example: figures, tables), and multimedia when useful to aiding comprehension. (CCSS: W.9-10.2a)',
@@ -637,14 +637,14 @@ export const grade10Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 4: Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
+        gle: 'Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
         evidenceOutcomes: [
           'Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience. (Grade-specific expectations for writing types are defined in expectations 1-2 above.) (CCSS: W.9-10.4)'
         ],
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Gather relevant information from multiple authoritative sources, using advanced searches effectively; assess the usefulness of each source in answering the research question; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and following a standard format for citation. (adapted from CCSS: W.9-10.8)'
         ],
@@ -703,7 +703,7 @@ export const grade10Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 9– 10 topics, texts, and issues, building on others’ ideas and expressing their own clearly and persuasively. (CCSS: SL.9-10.1)',
           'Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas. (CCSS: SL.9-10.1a)',
@@ -715,7 +715,7 @@ export const grade10Units = [
       },
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Present information, findings, and supporting evidence clearly, concisely, and logically such that listeners can follow the line of reasoning and the organization, development, substance, and style are appropriate to purpose, audience, and task. (CCSS: SL.9-10.4)',
           'Make strategic use of digital media (for example: textual, graphical, audio, visual, and interactive elements) in presentations to enhance understanding of findings, reasoning, and evidence and to add interest. (CCSS: SL.9-10.5)'
@@ -723,7 +723,7 @@ export const grade10Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 1: Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
+        gle: 'Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
         evidenceOutcomes: [
           'Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence. (CCSS: W.9-10.1)',
           'Introduce precise claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that establishes clear relationships among claim(s), counterclaims, reasons, and evidence. (CCSS: W.9-10.1a)',
@@ -736,7 +736,7 @@ export const grade10Units = [
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Gather relevant information from multiple authoritative sources, using advanced searches effectively; assess the usefulness of each source in answering the research question; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and following a standard format for citation. (adapted from CCSS: W.9-10.8)'
         ],
@@ -777,7 +777,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Determine two or more central ideas of a text and analyze their development over the course of the text, including how they interact and build on one another to provide a complex analysis; provide an objective summary of the text. (CCSS: RI.11-12.2)',
           'Determine an author’s point of view or purpose in a text in which the rhetoric is particularly effective, analyzing how style and content contribute to the power, persuasiveness or beauty of the text. (CCSS: RI.11-12.6)'
@@ -785,7 +785,7 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Draw evidence from literary or informational texts to support analysis, reflection, and research. (CCSS: W.11-12.9)',
           'Apply grades 11-12 Reading standards to literature (for example: “Demonstrate knowledge of 18th-, 19th- and early 20th-century foundational works of American literature, including how two or more texts from the same period treat similar themes or topics”). (CCSS: W.11-12.9a)',
@@ -821,7 +821,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Analyze the impact of the author’s choices regarding how to develop and relate elements of a story or drama (for example: where a story is set, how the action is ordered, how the characters are introduced and developed). (CCSS: RL.11-12.3)',
           'Analyze how an author’s choices concerning how to structure specific parts of a text (for example: the choice of where to begin or end a story, the choice to provide a comedic or tragic resolution) contribute to its overall structure and meaning as well as its aesthetic impact. (CCSS: RL.11-12.5)'
@@ -829,7 +829,7 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Draw evidence from literary or informational texts to support analysis, reflection, and research. (CCSS: W.11-12.9)',
           'Apply grades 11-12 Reading standards to literature (for example: “Demonstrate knowledge of 18th-, 19th- and early 20th-century foundational works of American literature, including how two or more texts from the same period treat similar themes or topics”). (CCSS: W.11-12.9a)',
@@ -867,7 +867,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain. (CCSS: RI.11-12.1)',
           'Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text. (CCSS: RI.11-12.3)'
@@ -875,7 +875,7 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 1: Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
+        gle: 'Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
         evidenceOutcomes: [
           'Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence. (CCSS W.11-12.1)',
           'Introduce precise, knowledgeable claim(s), establish the significance of the claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that logically sequences claim(s), counterclaims, reasons, and evidence. (CCSS W.11-12.1a)',
@@ -887,7 +887,7 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Draw evidence from literary or informational texts to support analysis, reflection, and research. (CCSS: W.11-12.9)',
           'Apply grades 11-12 Reading standards to literature (for example: “Demonstrate knowledge of 18th-, 19th- and early 20th-century foundational works of American literature, including how two or more texts from the same period treat similar themes or topics”). (CCSS: W.11-12.9a)',
@@ -923,7 +923,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 1: Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
+        gle: 'Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
         evidenceOutcomes: [
           'Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence. (CCSS W.11-12.1)',
           'Introduce precise, knowledgeable claim(s), establish the significance of the claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that logically sequences claim(s), counterclaims, reasons, and evidence. (CCSS W.11-12.1a)',
@@ -935,14 +935,14 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 4: Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
+        gle: 'Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
         evidenceOutcomes: [
           'Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience. (Grade-specific expectations for writing types are defined in expectations 1-2 above.) (CCSS: W.11-12.4)'
         ],
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Draw evidence from literary or informational texts to support analysis, reflection, and research. (CCSS: W.11-12.9)',
           'Apply grades 11-12 Reading standards to literature (for example: “Demonstrate knowledge of 18th-, 19th- and early 20th-century foundational works of American literature, including how two or more texts from the same period treat similar themes or topics”). (CCSS: W.11-12.9a)',
@@ -978,7 +978,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain. (CCSS: RL.11-12.1)',
           'Determine two or more themes or central ideas of a text and analyze their development over the course of the text, including how they interact and build on one another to produce a complex account; provide an objective summary of the text. (CCSS: RL.11-12.2)',
@@ -987,7 +987,7 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Conduct short as well as more sustained research projects to answer a question (including a self-generated question) or solve a problem; narrow or broaden the inquiry when appropriate; synthesize multiple sources on the subject, demonstrating understanding of the subject under investigation. (CCSS: W.11-12.7)',
           'Gather relevant information from multiple authoritative print and digital sources, using advanced searches effectively; assess the strengths and limitations of each source in terms of the task, purpose, and audience; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and overreliance on any one source and following a standard format for citation. (CCSS: W.11-12.8)',
@@ -1024,7 +1024,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 2: Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
+        gle: 'Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
         evidenceOutcomes: [
           'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content. (CCSS W.11-12.2)',
           'Introduce a topic; organize complex ideas, concepts, and information so that each new element builds on that which precedes it to create a unified whole; include formatting (for example: headings), graphics (for example: figures, tables), and multimedia when useful to aiding comprehension. (CCSS W.11-12.2a)',
@@ -1037,7 +1037,7 @@ export const grade11Units = [
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Conduct short as well as more sustained research projects to answer a question (including a self-generated question) or solve a problem; narrow or broaden the inquiry when appropriate; synthesize multiple sources on the subject, demonstrating understanding of the subject under investigation. (CCSS: W.11-12.7)',
           'Gather relevant information from multiple authoritative print and digital sources, using advanced searches effectively; assess the strengths and limitations of each source in terms of the task, purpose, and audience; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and overreliance on any one source and following a standard format for citation. (CCSS: W.11-12.8)',
@@ -1075,7 +1075,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Conduct short as well as more sustained research projects to answer a question (including a self-generated question) or solve a problem; narrow or broaden the inquiry when appropriate; synthesize multiple sources on the subject, demonstrating understanding of the subject under investigation. (CCSS: W.11-12.7)',
           'Gather relevant information from multiple authoritative print and digital sources, using advanced searches effectively; assess the strengths and limitations of each source in terms of the task, purpose, and audience; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and overreliance on any one source and following a standard format for citation. (CCSS: W.11-12.8)',
@@ -1111,7 +1111,7 @@ export const grade11Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Present information, findings, and supporting evidence, conveying a clear and distinct perspective, such that listeners can follow the line of reasoning, alternative or opposing perspectives are addressed, and the organization, development, substance, and style are appropriate to purpose, audience, and a range of formal and informal tasks. (CCSS: SL.11-12.4)',
           'Make strategic use of digital media (for example: textual, graphical, audio, visual, and interactive elements) in presentations to enhance understanding of findings, reasoning, and evidence and to add interest. (CCSS: SL.11-12.5)',
@@ -1154,7 +1154,7 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Designate a purpose for reading expository texts and use new learning to complete a specific task (such as convince an audience, shape a personal opinion or decision, or perform an activity).',
           'Predict the impact an informational text will have on an audience and justify the prediction.',
@@ -1163,7 +1163,7 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 3:  Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
+        gle: 'Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
         evidenceOutcomes: [
           'Determine or clarify the meaning of unknown and multiple-meaning words and phrases based on grades 11–12 reading and content, choosing flexibly from a range of strategies. (CCSS: L.11-12.4)',
           'Use context (for example: the overall meaning of a sentence, paragraph, or text; a word’s position or function in a sentence) as a clue to the meaning of a word or phrase. (CCSS: L.11-12.4a)',
@@ -1175,7 +1175,7 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 3: Write engaging and significant real or imagined narratives that build toward a particular tone or outcome.',
+        gle: 'Write engaging and significant real or imagined narratives that build toward a particular tone or outcome.',
         evidenceOutcomes: [
           'Write narratives to develop real or imagined experiences or events using effective technique, well-chosen details, and well-structured event sequences. (CCSS W.11-12.3)',
           'Engage and orient the reader by setting out a problem, situation, or observation and its significance, establishing one or multiple point(s) of view, and introducing a narrator and/or characters; create a smooth progression of experiences or events. (CCSS W.11-12.3a)',
@@ -1188,7 +1188,7 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 4: Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
+        gle: 'Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
         evidenceOutcomes: [
           'Demonstrate command of the conventions of Standard English grammar and usage when writing or speaking. (CCSS: L.11-12.1)',
           'Apply the understanding that usage is a matter of convention, can change over time, and is sometimes contested. (CCSS: L.11-12.1a)',
@@ -1230,7 +1230,7 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 11–12 topics, texts, and issues, building on others’ ideas and expressing their own clearly and persuasively. (CCSS: SL.11-12.1)',
           'Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas. (CCSS: SL.11-12.1a)',
@@ -1241,14 +1241,14 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Adapt speech to a variety of contexts and tasks, demonstrating a command of formal English when indicated or appropriate. (CCSS: SL.11-12.6)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain. (CCSS:RL.11-12.1)'
         ],
@@ -1287,7 +1287,7 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 1: Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
+        gle: 'Write thoughtful, well-developed arguments that support knowledgeable and significant claims, ancipating and addressing the audience\'s values and biases.',
         evidenceOutcomes: [
           'Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence. (CCSS W.11-12.1)',
           'Introduce precise, knowledgeable claim(s), establish the significance of the claim(s), distinguish the claim(s) from alternate or opposing claims, and create an organization that logically sequences claim(s), counterclaims, reasons, and evidence. (CCSS W.11-12.1a)',
@@ -1299,7 +1299,7 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 2: Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
+        gle: 'Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
         evidenceOutcomes: [
           'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content. (CCSS W.11-12.2)',
           'Introduce a topic; organize complex ideas, concepts, and information so that each new element builds on that which precedes it to create a unified whole; include formatting (for example: headings), graphics (for example: figures, tables), and multimedia when useful to aiding comprehension. (CCSS W.11-12.2a)',
@@ -1343,7 +1343,7 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 11–12 topics, texts, and issues, building on others’ ideas and expressing their own clearly and persuasively. (CCSS: SL.11-12.1)',
           'Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas. (CCSS: SL.11-12.1a)',
@@ -1354,14 +1354,14 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Present information, findings, and supporting evidence, conveying a clear and distinct perspective, such that listeners can follow the line of reasoning, alternative or opposing perspectives are addressed, and the organization, development, substance, and style are appropriate to purpose, audience, and a range of formal and informal tasks. (CCSS: SL.11-12.4)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain. (CCSS:RL.11-12.1)',
           'Analyze the impact of the author’s choices regarding how to develop and relate elements of a story or drama (for example: where a story is set, how the action is ordered, how the characters are introduced and developed). (CCSS: RL.11-12.3)'
@@ -1401,7 +1401,7 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Present information, findings, and supporting evidence, conveying a clear and distinct perspective, such that listeners can follow the line of reasoning, alternative or opposing perspectives are addressed, and the organization, development, substance, and style are appropriate to purpose, audience, and a range of formal and informal tasks. (CCSS: SL.11-12.4)',
           'Make strategic use of digital media (for example: textual, graphical, audio, visual, and interactive elements) in presentations to enhance understanding of findings, reasoning, and evidence and to add interest. (CCSS: SL.11-12.5)',
@@ -1410,7 +1410,7 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 3:  Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
+        gle: 'Understand how language influences the comprehension of narrative, argumentative, and informational texts.',
         evidenceOutcomes: [
           'Acquire and use accurately general academic and domain-specific words and phrases, sufficient for reading, writing, speaking, and listening at the college and career readiness level; demonstrate independence in gathering vocabulary knowledge when considering a word or phrase important to comprehension or expression. (CCSS: L.11-12.6)'
         ],
@@ -1445,21 +1445,21 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain. (CCSS:RL.11-12.1)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain. (CCSS: RI.11-12.1)'
         ],
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 2: Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
+        gle: 'Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
         evidenceOutcomes: [
           'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content. (CCSS W.11-12.2)',
           'Introduce a topic; organize complex ideas, concepts, and information so that each new element builds on that which precedes it to create a unified whole; include formatting (for example: headings), graphics (for example: figures, tables), and multimedia when useful to aiding comprehension. (CCSS W.11-12.2a)',
@@ -1499,21 +1499,21 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Integrate multiple sources of information presented in diverse formats and media (for example: visually, quantitatively, orally) in order to make informed decisions and solve problems, evaluating the credibility and accuracy of each source and noting any discrepancies among the data. (CCSS: SL.11-12.2)'
         ],
       },
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Make strategic use of digital media (for example: textual, graphical, audio, visual, and interactive elements) in presentations to enhance understanding of findings, reasoning, and evidence and to add interest. (CCSS: SL.11-12.5)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Analyze how an author’s choices concerning how to structure specific parts of a text (for example: the choice of where to begin or end a story, the choice to provide a comedic or tragic resolution) contribute to its overall structure and meaning as well as its aesthetic impact. (CCSS: RL.11-12.5)',
           'By the end of 12th grade, analyze multiple interpretations of a story, drama, or poem (for example: recorded or live production of a play or recorded novel or poetry), evaluating how each version interprets the source text. (for example: a play by Shakespeare and/or a play by an American dramatist.) (adapted from CCSS: RL.11-12.7)'
@@ -1521,14 +1521,14 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 2: Interpret and evaluate complex informational texts using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex informational texts using various critical reading strategies.',
         evidenceOutcomes: [
           'Determine an author’s point of view or purpose in a text in which the rhetoric is particularly effective, analyzing how style and content contribute to the power, persuasiveness or beauty of the text. (CCSS: RI.11-12.6)'
         ],
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Gather relevant information from multiple authoritative print and digital sources, using advanced searches effectively; assess the strengths and limitations of each source in terms of the task, purpose, and audience; integrate information into the text selectively to maintain the flow of ideas, avoiding plagiarism and overreliance on any one source and following a standard format for citation. (CCSS: W.11-12.8)'
         ],
@@ -1563,28 +1563,28 @@ export const grade12Units = [
     majorStandards: [
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 1: Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
+        gle: 'Follow collaborative guidelines to ensure a hearing of a full range of positions on a topic or issue, and evaluate responses.',
         evidenceOutcomes: [
           'Integrate multiple sources of information presented in diverse formats and media (for example: visually, quantitatively, orally) in order to make informed decisions and solve problems, evaluating the credibility and accuracy of each source and noting any discrepancies among the data. (CCSS: SL.11-12.2)'
         ],
       },
       {
         standard: 'Standard 1: Oral Expression and Listening',
-        gle: 'GLE 2: Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
+        gle: 'Integrate credible, accurate information into appropriate media and formats to meet an audience\'s needs.',
         evidenceOutcomes: [
           'Present information, findings, and supporting evidence, conveying a clear and distinct perspective, such that listeners can follow the line of reasoning, alternative or opposing perspectives are addressed, and the organization, development, substance, and style are appropriate to purpose, audience, and a range of formal and informal tasks. (CCSS: SL.11-12.4)'
         ],
       },
       {
         standard: 'Standard 2: Reading for All Purposes',
-        gle: 'GLE 1: Interpret and evaluate complex literature using various critical reading strategies.',
+        gle: 'Interpret and evaluate complex literature using various critical reading strategies.',
         evidenceOutcomes: [
           'Determine the meaning of words and phrases as they are used in the text, including figurative and connotative meanings; analyze the impact of specific word choices on meaning and tone, including words with multiple meanings or language that is particularly fresh, engaging, or beautiful. (Include Shakespeare as well as other authors.) (CCSS: RL.11- 12.4)'
         ],
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 2: Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
+        gle: 'Write informative/explanatory texts to examine and convey complex ideas through the effective selection, organization, and analysis of content.',
         evidenceOutcomes: [
           'Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately through the effective selection, organization, and analysis of content. (CCSS W.11-12.2)',
           'Introduce a topic; organize complex ideas, concepts, and information so that each new element builds on that which precedes it to create a unified whole; include formatting (for example: headings), graphics (for example: figures, tables), and multimedia when useful to aiding comprehension. (CCSS W.11-12.2a)',
@@ -1597,7 +1597,7 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 3: Write engaging and significant real or imagined narratives that build toward a particular tone or outcome.',
+        gle: 'Write engaging and significant real or imagined narratives that build toward a particular tone or outcome.',
         evidenceOutcomes: [
           'Write narratives to develop real or imagined experiences or events using effective technique, well-chosen details, and well-structured event sequences. (CCSS W.11-12.3)',
           'Engage and orient the reader by setting out a problem, situation, or observation and its significance, establishing one or multiple point(s) of view, and introducing a narrator and/or characters; create a smooth progression of experiences or events. (CCSS W.11-12.3a)',
@@ -1610,14 +1610,14 @@ export const grade12Units = [
       },
       {
         standard: 'Standard 3: Writing and Composition',
-        gle: 'GLE 4: Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
+        gle: 'Use a recursive writing process to produce, publish, and update individual or shared writing projects in response to ongoing feedback.',
         evidenceOutcomes: [
           'Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience. (Grade-specific expectations for writing types are defined in expectations 1-2 above.) (CCSS: W.11-12.4)'
         ],
       },
       {
         standard: 'Standard 4: Research and Inquiry',
-        gle: 'GLE 1: Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
+        gle: 'Synthesize multiple, authoritative literary and/or informational sources to answer questions or solve problems, producing well-organized and developed research projects that defend information, conclusions, and solutions.',
         evidenceOutcomes: [
           'Draw evidence from literary or informational texts to support analysis, reflection, and research. (CCSS: W.11-12.9)',
           'Apply grades 11-12 Reading standards to literature (for example: “Demonstrate knowledge of 18th-, 19th- and early 20th-century foundational works of American literature, including how two or more texts from the same period treat similar themes or topics”). (CCSS: W.11-12.9a)',

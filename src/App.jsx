@@ -53,8 +53,7 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
   return (
     <div className="relative inline-flex items-center flex-shrink-0 ml-1.5">
       <button
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
+        onClick={() => setVisible(!visible)}
         className="transition-colors duration-150 px-1.5 py-0.5 rounded text-xs font-mono font-semibold border"
         style={{
           color: visible ? 'white' : color,
@@ -69,12 +68,14 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
       {visible && (
         <div
           className="absolute z-50 w-72 sm:w-80 bg-white rounded-lg border border-slate-200 shadow-lg animate-tooltip right-0 top-full mt-2 sm:right-7 sm:top-1/2 sm:mt-0 sm:-translate-y-1/2"
-          style={{}}
         >
-          <div className="px-3 py-2 border-b border-slate-100" style={{ backgroundColor: color + '15' }}>
+          <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between" style={{ backgroundColor: color + '15' }}>
             <span className="text-xs font-semibold uppercase tracking-wider" style={{ color }}>Aligned Standards</span>
+            <button onClick={() => setVisible(false)} className="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Close">
+              <span className="text-sm font-medium">&times;</span>
+            </button>
           </div>
-          <div className="p-3 space-y-3">
+          <div className="p-3 space-y-3 max-h-80 overflow-y-auto">
             {standards.map((code) => (
               <div key={code}>
                 <span
@@ -140,7 +141,7 @@ function GleItem({ group, color }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-3 py-2.5 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
       >
-        <span className="text-xs sm:text-sm font-medium text-slate-700">{group.gle || group.standard}</span>
+        <span className="text-xs sm:text-sm font-medium text-slate-700">{group.gle || group.standard}{group.gle && group.standard ? <span className="text-slate-400 font-normal"> ({group.standard})</span> : ''}</span>
         <ChevronDown size={14} className={`transition-transform duration-200 flex-shrink-0 ml-2 ${open ? 'rotate-180' : ''}`} style={{ color: open ? color.main : '#94a3b8' }} />
       </button>
       {open && (
