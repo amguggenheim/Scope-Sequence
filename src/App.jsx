@@ -93,7 +93,7 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
 
       {visible && (
         <div
-          className="absolute z-50 w-72 sm:w-80 bg-white rounded-lg border border-slate-200 shadow-lg animate-tooltip right-0 top-full mt-2 sm:right-7 sm:top-1/2 sm:mt-0 sm:-translate-y-1/2"
+          className="absolute z-50 w-72 sm:w-80 bg-white rounded-lg border border-slate-200 shadow-xl right-0 bottom-full mb-2 sm:right-7 sm:bottom-auto sm:top-1/2 sm:mb-0 sm:-translate-y-1/2"
         >
           <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between" style={{ backgroundColor: color + '15' }}>
             <span className="text-xs font-semibold uppercase tracking-wider" style={{ color }}>Aligned Standards</span>
