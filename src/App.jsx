@@ -49,9 +49,19 @@ const GRADE_DOC_LINKS = {
 
 function StandardsTooltip({ standards, color, standardsRef = {} }) {
   const [visible, setVisible] = useState(false);
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    if (!visible) return;
+    const handleClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setVisible(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [visible]);
 
   return (
-    <div className="relative inline-flex items-center flex-shrink-0 ml-1.5">
+    <div ref={ref} className="relative inline-flex items-center flex-shrink-0 ml-1.5">
       <button
         onClick={() => setVisible(!visible)}
         className="transition-colors duration-150 px-1.5 py-0.5 rounded text-xs font-mono font-semibold border"
