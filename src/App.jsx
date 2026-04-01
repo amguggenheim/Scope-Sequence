@@ -130,6 +130,35 @@ function SectionDropdown({ title, icon, children, color }) {
   );
 }
 
+// ─── GLE Expandable Item ──────────────────────────────────────────────────────
+
+function GleItem({ group, color }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-slate-200 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-3 py-2.5 text-left bg-white hover:bg-slate-50 transition-colors duration-150"
+      >
+        <span className="text-xs sm:text-sm font-medium text-slate-700">{group.gle || group.standard}</span>
+        <ChevronDown size={14} className={`transition-transform duration-200 flex-shrink-0 ml-2 ${open ? 'rotate-180' : ''}`} style={{ color: open ? color.main : '#94a3b8' }} />
+      </button>
+      {open && (
+        <div className="px-3 pb-3 pt-1 border-t border-slate-100" style={{ backgroundColor: color.main + '08' }}>
+          <ul className="space-y-1.5">
+            {group.evidenceOutcomes.map((eo, eIdx) => (
+              <li key={eIdx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
+                <span className="text-slate-400 flex-shrink-0 mt-0.5">•</span>
+                <span>{eo}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Unit Accordion ───────────────────────────────────────────────────────────
 
 function UnitAccordion({ unit, standardsRef }) {
@@ -229,23 +258,12 @@ function UnitAccordion({ unit, standardsRef }) {
             </ol>
           </SectionDropdown>
 
-          {/* Major Standards */}
+          {/* Priority Standards */}
           {unit.majorStandards && unit.majorStandards.length > 0 && (
-            <SectionDropdown title="Major Standards" icon={<BookOpen size={15} />} color={color.main}>
-              <div className="mt-2 space-y-4">
+            <SectionDropdown title="Priority Standards" icon={<BookOpen size={15} />} color={color.main}>
+              <div className="mt-2 space-y-2">
                 {unit.majorStandards.map((group, gIdx) => (
-                  <div key={gIdx}>
-                    <p className="text-xs font-semibold text-slate-700 mb-1">{group.standard}</p>
-                    {group.gle && <p className="text-xs text-slate-500 mb-2 italic">{group.gle}</p>}
-                    <ul className="space-y-1.5 ml-1">
-                      {group.evidenceOutcomes.map((eo, eIdx) => (
-                        <li key={eIdx} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
-                          <span className="text-slate-400 flex-shrink-0 mt-0.5">•</span>
-                          <span>{eo}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <GleItem key={gIdx} group={group} color={color} />
                 ))}
               </div>
             </SectionDropdown>
