@@ -39,10 +39,10 @@ const GRADE_UNITS = {
 };
 
 const GRADE_DOC_LINKS = {
-  '9': 'https://docs.google.com/spreadsheets/d/1G56Vkzgv0oxnV2JxvftBEEWsBhqmGE7KAAX9ELAcGA4/edit?usp=sharing',
-  '10': 'https://docs.google.com/spreadsheets/d/12g-1awlhBZW7LPqv3qlIC4Nhs77M0vPiCU_aOsfTN9Y/edit?usp=sharing',
-  '11': 'https://docs.google.com/spreadsheets/d/11OfNJV9V7-Q9-TeWpG8dgOCTnDZmKqlaPZns_hHtJiQ/edit?usp=sharing',
-  '12': 'https://docs.google.com/spreadsheets/d/1W_c7OQoGGlQN6P_qP-JiO6Hc1wOb20YVJQWLB9eiYs8/edit?usp=sharing',
+  '9': 'https://docs.google.com/spreadsheets/d/1G56Vkzgv0oxnV2JxvftBEEWsBhqmGE7KAAX9ELAcGA4/export?format=xlsx',
+  '10': 'https://docs.google.com/spreadsheets/d/12g-1awlhBZW7LPqv3qlIC4Nhs77M0vPiCU_aOsfTN9Y/export?format=xlsx',
+  '11': 'https://docs.google.com/spreadsheets/d/11OfNJV9V7-Q9-TeWpG8dgOCTnDZmKqlaPZns_hHtJiQ/export?format=xlsx',
+  '12': 'https://docs.google.com/spreadsheets/d/1W_c7OQoGGlQN6P_qP-JiO6Hc1wOb20YVJQWLB9eiYs8/export?format=xlsx',
 };
 
 // ─── Standards Tooltip ────────────────────────────────────────────────────────
@@ -467,7 +467,7 @@ export default function App() {
                     className="text-sm underline hover:no-underline"
                     style={{ color: HEADER_COLOR }}
                   >
-                    View Grade {selectedGrade} Scope & Sequence in Google Sheets
+                    Download Grade {selectedGrade} Scope & Sequence (.xlsx)
                   </a>
                 </div>
               </div>
