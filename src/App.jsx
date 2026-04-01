@@ -229,6 +229,45 @@ function UnitAccordion({ unit, standardsRef }) {
             </ol>
           </SectionDropdown>
 
+          {/* Colorado Academic Standards */}
+          <SectionDropdown title="Colorado Academic Standards" icon={<BookOpen size={15} />} color={color.main}>
+            <div className="mt-2 space-y-2">
+              {(() => {
+                const allStandards = [...new Set([
+                  ...unit.enduringUnderstandings.flatMap(eu => eu.standards),
+                  ...unit.essentialSkills.flatMap(es => es.standards),
+                ])].filter(Boolean).sort();
+
+                const groups = {};
+                allStandards.forEach(code => {
+                  const prefix = code.match(/^[A-Z]+/)?.[0] || 'Other';
+                  const labels = { RL: 'Reading Literature', RI: 'Reading Informational', W: 'Writing', SL: 'Speaking & Listening', L: 'Language' };
+                  const label = labels[prefix] || prefix;
+                  if (!groups[label]) groups[label] = [];
+                  groups[label].push(code);
+                });
+
+                return Object.entries(groups).map(([group, codes]) => (
+                  <div key={group}>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-2 mt-3" style={{ color: color.main }}>{group}</p>
+                    <div className="space-y-2">
+                      {codes.map(code => (
+                        <div key={code} className="flex items-start gap-2 bg-white rounded-lg border border-slate-200 p-2.5">
+                          <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded flex-shrink-0" style={{ backgroundColor: color.light, color: color.main }}>
+                            {code}
+                          </span>
+                          <p className="text-xs text-slate-600 leading-relaxed">
+                            {standardsRef[code] || 'Standard description not available.'}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ));
+              })()}
+            </div>
+          </SectionDropdown>
+
           {/* Rigor Expectations */}
           {unit.rigor && <SectionDropdown title="Rigor Expectations by Grade" icon={<Target size={15} />} color={color.main}>
             <div className="mt-2 space-y-5">
