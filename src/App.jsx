@@ -301,7 +301,7 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
           )}
 
           {/* Rigor Expectations */}
-          {unit.rigor && <SectionDropdown title="Rigor Expectations by Grade" icon={<Target size={15} />} color={color.main}>
+          {unit.rigor && <SectionDropdown title="Rigor Expectations Between Grades" icon={<Target size={15} />} color={color.main}>
             <div className="mt-2 space-y-5">
               {(Array.isArray(unit.rigor) ? unit.rigor : [unit.rigor]).map((rigorItem, rigorIdx) => (
                 <div key={rigorIdx}>
