@@ -93,7 +93,7 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
 
       {visible && (
         <div
-          className="absolute z-50 w-72 sm:w-80 bg-white rounded-lg border border-slate-200 shadow-xl right-0 bottom-full mb-2 sm:right-7 sm:bottom-auto sm:top-1/2 sm:mb-0 sm:-translate-y-1/2"
+          className="absolute z-50 w-80 sm:w-96 bg-white rounded-lg border border-slate-200 shadow-xl right-0 bottom-full mb-2 sm:right-7 sm:bottom-auto sm:top-1/2 sm:mb-0 sm:-translate-y-1/2"
         >
           <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between" style={{ backgroundColor: color + '15' }}>
             <span className="text-xs font-semibold uppercase tracking-wider" style={{ color }}>Aligned Standards</span>
@@ -105,12 +105,12 @@ function StandardsTooltip({ standards, color, standardsRef = {} }) {
             {standards.map((code) => (
               <div key={code}>
                 <span
-                  className="inline-block text-xs font-mono font-semibold px-2 py-0.5 rounded mb-1"
+                  className="inline-block text-sm font-mono font-semibold px-2 py-0.5 rounded mb-1"
                   style={{ backgroundColor: color + '15', color }}
                 >
                   {code}
                 </span>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 leading-relaxed">
                   {standardsRef[code] || 'Standard description not available.'}
                 </p>
               </div>
