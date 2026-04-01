@@ -325,10 +325,10 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
                       <div className="space-y-3">
                         {rigorItem.grade9.map((item, i) => (
                           <div key={i} className={selectedGrade === '9' ? 'rounded-lg border p-3' : 'bg-white rounded-lg border border-slate-200 p-3'} style={selectedGrade === '9' ? { backgroundColor: color.light, borderColor: color.border } : {}}>
-                            <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
+                            <p className="text-sm font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
-                                <li key={j} className={selectedGrade === '9' ? 'text-xs flex items-start gap-1.5' : 'text-xs text-slate-600 flex items-start gap-2'} style={selectedGrade === '9' ? { color: color.main } : {}}>
+                                <li key={j} className={selectedGrade === '9' ? 'text-sm flex items-start gap-1.5' : 'text-sm text-slate-600 flex items-start gap-2'} style={selectedGrade === '9' ? { color: color.main } : {}}>
                                   <span className={selectedGrade === '9' ? 'mt-0.5 flex-shrink-0' : 'text-sm text-slate-500 font-medium mt-0 flex-shrink-0'} style={selectedGrade === '9' ? { color: color.border } : {}}>•</span>{o}
                                 </li>
                               ))}
@@ -346,10 +346,10 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
                       <div className="space-y-3">
                         {rigorItem.grade10.map((item, i) => (
                           <div key={i} className={selectedGrade === '10' ? 'rounded-lg border p-3' : 'bg-white rounded-lg border border-slate-200 p-3'} style={selectedGrade === '10' ? { backgroundColor: color.light, borderColor: color.border } : {}}>
-                            <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
+                            <p className="text-sm font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
-                                <li key={j} className={selectedGrade === '10' ? 'text-xs flex items-start gap-1.5' : 'text-xs text-slate-600 flex items-start gap-2'} style={selectedGrade === '10' ? { color: color.main } : {}}>
+                                <li key={j} className={selectedGrade === '10' ? 'text-sm flex items-start gap-1.5' : 'text-sm text-slate-600 flex items-start gap-2'} style={selectedGrade === '10' ? { color: color.main } : {}}>
                                   <span className={selectedGrade === '10' ? 'mt-0.5 flex-shrink-0' : 'text-sm text-slate-500 font-medium mt-0 flex-shrink-0'} style={selectedGrade === '10' ? { color: color.border } : {}}>•</span>{o}
                                 </li>
                               ))}
