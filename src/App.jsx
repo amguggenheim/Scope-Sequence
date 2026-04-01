@@ -456,8 +456,8 @@ export default function App() {
               <UnitAccordion key={unit.id} unit={unit} standardsRef={gradeStandardsReference[selectedGrade] || {}} selectedGrade={selectedGrade} />
             ))}
             {GRADE_DOC_LINKS[selectedGrade] && (
-              <div className="mt-4 bg-white border border-slate-200 rounded-lg p-4 flex items-center gap-3">
-                <FileText size={16} className="text-slate-400 flex-shrink-0" />
+              <div className="mt-4 border border-stone-200 rounded-lg p-4 flex items-center gap-3" style={{ backgroundColor: '#EEE9E0' }}>
+                <FileText size={16} className="text-slate-500 flex-shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-slate-700">Full Scope & Sequence Document</p>
                   <a
