@@ -161,7 +161,7 @@ function GleItem({ group, color }) {
 
 // ─── Unit Accordion ───────────────────────────────────────────────────────────
 
-function UnitAccordion({ unit, standardsRef }) {
+function UnitAccordion({ unit, standardsRef, selectedGrade }) {
   const [open, setOpen] = useState(false);
   const color = UNIT_COLORS[unit.id];
 
@@ -288,17 +288,17 @@ function UnitAccordion({ unit, standardsRef }) {
                     {/* Grade 9 */}
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main + 'aa' }}>9</span>
-                        <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Grade 9</span>
+                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: selectedGrade === '9' ? color.main : color.main + 'aa' }}>9</span>
+                        <span className={`text-xs font-semibold uppercase tracking-wider ${selectedGrade === '9' ? '' : 'text-slate-500'}`} style={selectedGrade === '9' ? { color: color.main } : {}}>Grade 9</span>
                       </div>
                       <div className="space-y-3">
                         {rigorItem.grade9.map((item, i) => (
-                          <div key={i} className="bg-white rounded-lg border border-slate-200 p-3">
+                          <div key={i} className={selectedGrade === '9' ? 'rounded-lg border p-3' : 'bg-white rounded-lg border border-slate-200 p-3'} style={selectedGrade === '9' ? { backgroundColor: color.light, borderColor: color.border } : {}}>
                             <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
-                                <li key={j} className="text-xs text-slate-600 flex items-start gap-2">
-                                  <span className="text-sm text-slate-500 font-medium mt-0 flex-shrink-0">•</span>{o}
+                                <li key={j} className={selectedGrade === '9' ? 'text-xs flex items-start gap-1.5' : 'text-xs text-slate-600 flex items-start gap-2'} style={selectedGrade === '9' ? { color: color.main } : {}}>
+                                  <span className={selectedGrade === '9' ? 'mt-0.5 flex-shrink-0' : 'text-sm text-slate-500 font-medium mt-0 flex-shrink-0'} style={selectedGrade === '9' ? { color: color.border } : {}}>•</span>{o}
                                 </li>
                               ))}
                             </ul>
@@ -309,17 +309,17 @@ function UnitAccordion({ unit, standardsRef }) {
                     {/* Grade 10 */}
                     <div>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: color.main }}>10</span>
-                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: color.main }}>Grade 10</span>
+                        <span className="w-6 h-6 rounded-full text-white text-xs font-semibold flex items-center justify-center" style={{ backgroundColor: selectedGrade === '10' ? color.main : color.main + 'aa' }}>10</span>
+                        <span className={`text-xs font-semibold uppercase tracking-wider ${selectedGrade === '10' ? '' : 'text-slate-500'}`} style={selectedGrade === '10' ? { color: color.main } : {}}>Grade 10</span>
                       </div>
                       <div className="space-y-3">
                         {rigorItem.grade10.map((item, i) => (
-                          <div key={i} className="rounded-lg border p-3" style={{ backgroundColor: color.light, borderColor: color.border }}>
+                          <div key={i} className={selectedGrade === '10' ? 'rounded-lg border p-3' : 'bg-white rounded-lg border border-slate-200 p-3'} style={selectedGrade === '10' ? { backgroundColor: color.light, borderColor: color.border } : {}}>
                             <p className="text-xs font-medium text-slate-700 mb-2 leading-relaxed">{item.text}</p>
                             <ul className="space-y-1">
                               {item.outcomes.map((o, j) => (
-                                <li key={j} className="text-xs flex items-start gap-1.5" style={{ color: color.main }}>
-                                  <span className="mt-0.5 flex-shrink-0" style={{ color: color.border }}>•</span>{o}
+                                <li key={j} className={selectedGrade === '10' ? 'text-xs flex items-start gap-1.5' : 'text-xs text-slate-600 flex items-start gap-2'} style={selectedGrade === '10' ? { color: color.main } : {}}>
+                                  <span className={selectedGrade === '10' ? 'mt-0.5 flex-shrink-0' : 'text-sm text-slate-500 font-medium mt-0 flex-shrink-0'} style={selectedGrade === '10' ? { color: color.border } : {}}>•</span>{o}
                                 </li>
                               ))}
                             </ul>
@@ -422,7 +422,7 @@ export default function App() {
         {activeView === 'overview' && (
           <div className="space-y-3">
             {(GRADE_UNITS[selectedGrade] || []).map((unit) => (
-              <UnitAccordion key={unit.id} unit={unit} standardsRef={gradeStandardsReference[selectedGrade] || {}} />
+              <UnitAccordion key={unit.id} unit={unit} standardsRef={gradeStandardsReference[selectedGrade] || {}} selectedGrade={selectedGrade} />
             ))}
             {GRADE_DOC_LINKS[selectedGrade] && (
               <div className="mt-4 bg-white border border-slate-200 rounded-lg p-4 flex items-center gap-3">
