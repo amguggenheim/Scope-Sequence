@@ -340,7 +340,7 @@ function GradeUnitAccordion({ grade, unit, unitColor, hoveredStandard, onStandar
           <div className="min-w-0">
             <span className="text-xs font-medium text-slate-500">Unit {unit.id}</span>
             <h4
-              className="text-xs font-medium text-slate-700 leading-snug line-clamp-1"
+              className="text-xs font-medium text-slate-700 leading-snug"
               style={{ fontFamily: "'Fraunces', Georgia, serif" }}
             >
               {extractSkillFocus(unit.title)}
