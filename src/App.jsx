@@ -420,6 +420,14 @@ export default function App() {
                 </button>
               ))}
             </div>
+            <button
+              onClick={() => setShowAbout(true)}
+              className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-150 flex-shrink-0"
+              style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#C8B89A' }}
+              title="About this resource"
+            >
+              i
+            </button>
           </div>
         </div>
 
@@ -478,16 +486,6 @@ export default function App() {
         {activeView === 'rubric' && <RubricBuilder standardsReference={gradeStandardsReference[selectedGrade] || {}} units={GRADE_UNITS[selectedGrade] || []} grade={selectedGrade} />}
         {activeView === 'department' && <DepartmentView gradeUnits={GRADE_UNITS} standardsRef={gradeStandardsReference} />}
       </main>
-
-      {/* Footer */}
-      <footer className="max-w-5xl mx-auto px-4 sm:px-8 py-6 flex justify-center border-t border-stone-200 mt-4">
-        <button
-          onClick={() => setShowAbout(true)}
-          className="text-sm text-slate-500 hover:text-slate-700 underline transition-colors"
-        >
-          About this resource
-        </button>
-      </footer>
 
       {/* About Modal */}
       {showAbout && (
