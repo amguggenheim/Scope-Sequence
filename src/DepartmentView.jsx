@@ -582,7 +582,7 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
 
                 {/* 4-Column Grid */}
                 <div
-                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 rounded-b-lg p-4"
+                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-start rounded-b-lg p-4"
                   style={{ backgroundColor: color.light, border: `1px solid ${color.border}`, borderTop: 'none' }}
                 >
                   {grades.map((grade) => {
