@@ -316,7 +316,7 @@ function GradeUnitAccordion({ grade, unit, unitColor, hoveredStandard, onStandar
 
   return (
     <div
-      className="bg-white rounded-lg transition-all duration-200 overflow-hidden"
+      className="bg-white rounded-lg transition-all duration-200 overflow-hidden min-h-[72px]"
       style={{
         border: isHighlighted
           ? `2px solid ${gradeColor}`
@@ -582,7 +582,7 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
 
                 {/* 4-Column Grid */}
                 <div
-                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-start rounded-b-lg p-4"
+                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 rounded-b-lg p-4"
                   style={{ backgroundColor: color.light, border: `1px solid ${color.border}`, borderTop: 'none' }}
                 >
                   {grades.map((grade) => {
@@ -593,7 +593,7 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
                     if (quarterUnits.length === 0) return null;
 
                     return (
-                      <div key={grade} className="space-y-2">
+                      <div key={grade} className="space-y-2 flex flex-col">
                         {quarterUnits.map((unit, i) => (
                           <GradeUnitAccordion
                             key={`${grade}-${i}`}
