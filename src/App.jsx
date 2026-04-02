@@ -206,7 +206,7 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
       {/* Unit Header */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 sm:gap-4 px-3 sm:px-6 py-3 sm:py-4 text-left rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:outline-none"
+        className="w-full flex items-center gap-3 sm:gap-4 px-3 sm:px-6 py-3 sm:py-4 text-left rounded-lg transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:outline-none min-h-[64px] sm:min-h-[72px]"
         style={{ backgroundColor: open ? color.light : 'white' }}
       >
         <div
@@ -217,7 +217,7 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-medium text-slate-800 text-xs sm:text-sm">Unit {unit.id}</div>
-          <div className="text-xs sm:text-sm text-slate-600 mt-0.5 truncate sm:truncate-none" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
+          <div className="text-xs sm:text-sm text-slate-600 mt-0.5" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
             Skill Focus: {unit.title.replace(/^Unit \d+:\s*/, '')}
           </div>
         </div>
