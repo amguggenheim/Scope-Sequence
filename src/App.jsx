@@ -375,6 +375,7 @@ function UnitAccordion({ unit, standardsRef, selectedGrade }) {
 export default function App() {
   const [activeView, setActiveView] = useState('overview');
   const [selectedGrade, setSelectedGrade] = useState('9');
+  const [showAbout, setShowAbout] = useState(false);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F3F0' }}>
@@ -404,8 +405,15 @@ export default function App() {
             </div>
           </div>
 
-          {/* View Toggle */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          {/* View Toggle + About */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              onClick={() => setShowAbout(true)}
+              className="px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-150"
+              style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#C8B89A' }}
+            >
+              ℹ About
+            </button>
             <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
               {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['department', 'Department View']].map(([view, label]) => (
                 <button
@@ -477,6 +485,32 @@ export default function App() {
         {activeView === 'rubric' && <RubricBuilder standardsReference={gradeStandardsReference[selectedGrade] || {}} units={GRADE_UNITS[selectedGrade] || []} grade={selectedGrade} />}
         {activeView === 'department' && <DepartmentView gradeUnits={GRADE_UNITS} standardsRef={gradeStandardsReference} />}
       </main>
+
+      {/* About Modal */}
+      {showAbout && (
+        <div className="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4" onClick={() => setShowAbout(false)}>
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+              <h3 className="text-base font-semibold" style={{ color: HEADER_COLOR, fontFamily: "'Fraunces', Georgia, serif" }}>About This Resource</h3>
+              <button onClick={() => setShowAbout(false)} className="text-slate-400 hover:text-slate-600 text-xl">&times;</button>
+            </div>
+            <div className="px-6 py-5 space-y-4 text-sm text-slate-600 leading-relaxed">
+              <p>The Colorado Academic Standards (CAS) help teachers ensure their students have the skills and knowledge they need to be on course toward college or career readiness.</p>
+              <p>The CCSD Scope and Sequence identifies the Grade Level Expectations (GLE) and Evidence Outcomes (EO) providing goals for student learning at each grading period.</p>
+              <p>The High School ELA Scope & Sequence was revised in 2026 to support instructional alignment, teacher planning, and clarity across all high schools in CCSD. This resource reflects a commitment to ensuring that all students have access to the full range of Colorado's Reading, Writing, and Communicating Standards.</p>
+              <p>While the Scope & Sequence provides a clear and coherent map of which standards are taught and when, it is not a scripted curriculum. Unit-level elements such as assessments, instructional strategies, and differentiated supports are intentionally developed through the district's <strong className="text-slate-700">15-Day Challenge PLC unit planning process</strong>.</p>
+              <p>In this way, the Scope & Sequence and the 15-Day Challenge work together: the Scope & Sequence clarifies what standards and skills teachers might prioritize within each unit, while the 15-Day Challenge supports collaborative teams in designing the instruction, learning experiences, and assessments that bring those units to life.</p>
+              <p className="mb-2">This flexible instructional resource is meant to:</p>
+              <ul className="list-disc ml-5 space-y-1.5">
+                <li>Offer transparency and consistency across grade levels and schools</li>
+                <li>Provide a strong foundation for 15-Day unit planning and instructional design</li>
+                <li>Support vertical articulation from middle school literacy instruction through high school coursework and advanced English pathways</li>
+                <li>Support new teacher onboarding and cross-school collaboration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

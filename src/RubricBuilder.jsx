@@ -219,8 +219,9 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
             className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
               copied
                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                : 'bg-slate-800 text-white hover:bg-slate-700'
+                : 'text-white hover:opacity-90'
             }`}
+            style={!copied ? { backgroundColor: '#A0715F' } : {}}
           >
             {copied ? (
               <><Check className="w-4 h-4" /> Copied! Paste in Google Docs</>
