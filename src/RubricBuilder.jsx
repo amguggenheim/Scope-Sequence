@@ -238,7 +238,7 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
           </button>
         </div>
 
-        <div className="border border-slate-200 rounded-xl overflow-x-auto bg-white">
+        <div className="border-2 border-stone-300 rounded-xl overflow-x-auto bg-white shadow-sm">
           <table ref={tableRef} className="w-full min-w-[700px]">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
