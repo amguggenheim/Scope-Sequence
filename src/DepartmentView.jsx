@@ -364,10 +364,10 @@ function GradeUnitCard({ grade, unit, unitColor, hoveredStandard, onStandardHove
         )}
       </div>
 
-      {/* Essential Skills */}
+      {/* Students Will Be Able To */}
       <div className="px-3 pb-3" style={{ borderTop: '1px solid #f1f5f9' }}>
         <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mt-2 mb-1.5" style={{ fontSize: '10px' }}>
-          Essential Skills
+          Students Will Be Able To
         </p>
         <ul className="space-y-1.5">
           {(unit.essentialSkills || []).map((skill, i) => (
