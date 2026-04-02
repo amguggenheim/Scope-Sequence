@@ -301,6 +301,26 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
             <strong className="text-slate-700">How to use:</strong> Fill in the criteria for each proficiency level. When you're done, click "Copy Rubric" and paste directly into a Google Doc. The table formatting will be preserved.
           </p>
         </div>
+
+        <div className="mt-4 flex justify-center">
+          <button
+            onClick={() => {
+              if (window.confirm('Clear all rubric data for this grade and unit?')) {
+                setRubricData(prev => {
+                  const next = { ...prev };
+                  delete next[rubricKey];
+                  return next;
+                });
+              }
+            }}
+            className="text-xs px-4 py-1.5 rounded-md border transition-colors"
+            style={{ color: '#A0715F', borderColor: '#DFC5BC', backgroundColor: 'transparent' }}
+            onMouseEnter={e => { e.target.style.backgroundColor = '#F7F0EE'; }}
+            onMouseLeave={e => { e.target.style.backgroundColor = 'transparent'; }}
+          >
+            Clear Rubric
+          </button>
+        </div>
       </main>
     </div>
   );
