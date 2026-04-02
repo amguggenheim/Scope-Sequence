@@ -313,10 +313,8 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
                 });
               }
             }}
-            className="text-xs px-4 py-1.5 rounded-md border transition-colors"
-            style={{ color: '#A0715F', borderColor: '#DFC5BC', backgroundColor: 'transparent' }}
-            onMouseEnter={e => { e.target.style.backgroundColor = '#F7F0EE'; }}
-            onMouseLeave={e => { e.target.style.backgroundColor = 'transparent'; }}
+            className="text-xs px-4 py-1.5 rounded-lg text-white transition-opacity hover:opacity-90"
+            style={{ backgroundColor: '#A0715F' }}
           >
             Clear Rubric
           </button>
