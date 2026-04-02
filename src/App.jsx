@@ -423,7 +423,7 @@ export default function App() {
             <button
               onClick={() => setShowAbout(true)}
               className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-150 flex-shrink-0"
-              style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#C8B89A' }}
+              style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#C8B89A', border: '1.5px solid rgba(200,184,154,0.4)' }}
               title="About this resource"
             >
               i
@@ -476,7 +476,7 @@ export default function App() {
                     className="text-sm underline hover:no-underline"
                     style={{ color: HEADER_COLOR }}
                   >
-                    Download Grade {selectedGrade} Scope & Sequence (.xlsx)
+                    Download {selectedGrade}th Grade Scope & Sequence (.xlsx)
                   </a>
                 </div>
               </div>

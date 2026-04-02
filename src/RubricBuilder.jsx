@@ -162,7 +162,7 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="md:hidden w-full px-4 py-3 bg-stone-100 border-b border-stone-200 text-sm font-medium text-slate-700 flex items-center justify-between"
       >
-        <span>Rubric Settings — Grade {rubricGrade}, Unit {rubricUnit}</span>
+        <span>Rubric Settings — {rubricGrade}th Grade, Unit {rubricUnit}</span>
         <ChevronDown size={16} className={`transition-transform ${sidebarOpen ? 'rotate-180' : ''}`} />
       </button>
       {/* Sidebar */}
@@ -215,7 +215,7 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
           <div>
             <h2 className="text-xl font-semibold text-slate-800" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-              Grade {rubricGrade}, Unit {rubricUnit} — Proficiency Rubric
+              {rubricGrade}th Grade, Unit {rubricUnit} — Proficiency Rubric
             </h2>
             <p className="text-slate-500 text-sm mt-1">
               Fill in criteria for each proficiency level, then copy to Google Docs

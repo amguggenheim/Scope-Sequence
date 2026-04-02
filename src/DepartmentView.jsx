@@ -11,6 +11,7 @@ import {
 // ─── Color System ─────────────────────────────────────────────────────────────
 
 const HEADER_COLOR = '#3D5A73';
+const ordinal = (g) => `${g}th`;
 
 const UNIT_COLORS = {
   1: { main: '#5B7B9B', light: '#EEF2F7', border: '#C5D4E4' },
@@ -176,7 +177,7 @@ function ComparisonPanel({ gradeUnits, standardsRef, grade, unitIdx, onGradeChan
               style={{ minWidth: '90px' }}
             >
               {grades.map((g) => (
-                <option key={g} value={g}>Grade {g}</option>
+                <option key={g} value={g}>{ordinal(g)} Grade</option>
               ))}
             </select>
             <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400" />
@@ -537,7 +538,7 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
                 Vertical Alignment Overview
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                Grades 9-12 side-by-side &mdash; hover a standard to trace across grades
+                9th&ndash;12th Grade side-by-side &mdash; hover a standard to trace across grades
               </p>
             </div>
           </div>
@@ -552,7 +553,7 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
                 >
                   {g}
                 </div>
-                <span className="text-xs text-slate-500 font-medium">Grade {g}</span>
+                <span className="text-xs text-slate-500 font-medium">{ordinal(g)} Grade</span>
               </div>
             ))}
           </div>
