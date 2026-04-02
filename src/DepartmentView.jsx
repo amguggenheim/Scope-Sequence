@@ -303,10 +303,10 @@ function ComparisonPanel({ gradeUnits, standardsRef, grade, unitIdx, onGradeChan
   );
 }
 
-// ─── Grade Unit Card (for Overview tab) ───────────────────────────────────────
+// ─── Grade Unit Accordion (for Overview tab) ─────────────────────────────────
 
-function GradeUnitCard({ grade, unit, unitColor, hoveredStandard, onStandardHover, onStandardLeave }) {
-  const [descOpen, setDescOpen] = useState(false);
+function GradeUnitAccordion({ grade, unit, unitColor, hoveredStandard, onStandardHover, onStandardLeave }) {
+  const [open, setOpen] = useState(false);
   const gradeColor = GRADE_COLORS[grade];
   const isHighlighted = hoveredStandard && (() => {
     const norms = collectNormalizedStandards(unit);
@@ -315,7 +315,7 @@ function GradeUnitCard({ grade, unit, unitColor, hoveredStandard, onStandardHove
 
   return (
     <div
-      className="bg-white rounded-lg transition-all duration-200"
+      className="bg-white rounded-lg transition-all duration-200 overflow-hidden"
       style={{
         border: isHighlighted
           ? `2px solid ${gradeColor}`
@@ -325,75 +325,73 @@ function GradeUnitCard({ grade, unit, unitColor, hoveredStandard, onStandardHove
           : '0 1px 3px rgba(0,0,0,0.04)',
       }}
     >
-      {/* Card Header */}
-      <div className="flex items-center gap-2 px-3 py-2.5" style={{ borderBottom: '1px solid #f1f5f9' }}>
-        <div
-          className="w-6 h-6 rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0"
-          style={{ backgroundColor: gradeColor, fontSize: '11px' }}
-        >
-          {grade}
-        </div>
-        <h4
-          className="text-xs font-medium text-slate-700 leading-snug line-clamp-2"
-          style={{ fontFamily: "'Fraunces', Georgia, serif" }}
-        >
-          {extractSkillFocus(unit.title)}
-        </h4>
-      </div>
-
-      {/* Skill Description (collapsible) */}
-      <div className="px-3">
-        <button
-          onClick={() => setDescOpen(!descOpen)}
-          className="w-full flex items-center justify-between py-2 text-left"
-        >
-          <div className="flex items-center gap-1.5">
-            <BookOpen size={11} style={{ color: unitColor.main }} className="flex-shrink-0" />
-            <span className="text-xs font-medium" style={{ color: unitColor.main }}>Skill Description</span>
+      {/* Accordion Header */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-3 py-2.5 text-left hover:bg-slate-50 transition-colors"
+      >
+        <div className="flex items-center gap-2 min-w-0">
+          <div
+            className="w-6 h-6 rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0"
+            style={{ backgroundColor: gradeColor, fontSize: '11px' }}
+          >
+            {grade}
           </div>
-          <ChevronDown
-            size={12}
-            className={`transition-transform duration-200 flex-shrink-0 ${descOpen ? 'rotate-180' : ''}`}
-            style={{ color: descOpen ? unitColor.main : '#94a3b8' }}
-          />
-        </button>
-        {descOpen && (
-          <p className="text-xs text-slate-500 leading-relaxed pb-3 animate-fadeIn">
+          <div className="min-w-0">
+            <span className="text-xs font-medium text-slate-500">Unit {unit.id}</span>
+            <h4
+              className="text-xs font-medium text-slate-700 leading-snug line-clamp-1"
+              style={{ fontFamily: "'Fraunces', Georgia, serif" }}
+            >
+              {extractSkillFocus(unit.title)}
+            </h4>
+          </div>
+        </div>
+        <ChevronDown
+          size={14}
+          className={`transition-transform duration-200 flex-shrink-0 ml-2 ${open ? 'rotate-180' : ''}`}
+          style={{ color: open ? unitColor.main : '#94a3b8' }}
+        />
+      </button>
+
+      {/* Expanded Content */}
+      {open && (
+        <div className="px-3 pb-3 animate-fadeIn" style={{ borderTop: '1px solid #f1f5f9' }}>
+          {/* Skill Description */}
+          <p className="text-xs text-slate-500 leading-relaxed py-2">
             {unit.skillDescription}
           </p>
-        )}
-      </div>
 
-      {/* Students Will Be Able To */}
-      <div className="px-3 pb-3" style={{ borderTop: '1px solid #f1f5f9' }}>
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mt-2 mb-1.5" style={{ fontSize: '10px' }}>
-          Students Will Be Able To
-        </p>
-        <ul className="space-y-1.5">
-          {(unit.essentialSkills || []).map((skill, i) => (
-            <li key={i} className="flex items-start gap-1.5">
-              <span className="text-slate-300 mt-px flex-shrink-0" style={{ fontSize: '8px', lineHeight: '16px' }}>&#9679;</span>
-              <div className="min-w-0">
-                <span className="text-xs text-slate-600 leading-relaxed">{skill.text}</span>
-                {skill.standards && skill.standards.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mt-0.5">
-                    {skill.standards.map((code, j) => (
-                      <StandardBadge
-                        key={j}
-                        code={code}
-                        color={gradeColor}
-                        hoveredStandard={hoveredStandard}
-                        onHover={onStandardHover}
-                        onLeave={onStandardLeave}
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+          {/* Students Will Be Able To */}
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mt-1 mb-1.5" style={{ fontSize: '10px' }}>
+            Students Will Be Able To
+          </p>
+          <ul className="space-y-1.5">
+            {(unit.essentialSkills || []).map((skill, i) => (
+              <li key={i} className="flex items-start gap-1.5">
+                <span className="text-slate-300 mt-px flex-shrink-0" style={{ fontSize: '8px', lineHeight: '16px' }}>&#9679;</span>
+                <div className="min-w-0">
+                  <span className="text-xs text-slate-600 leading-relaxed">{skill.text}</span>
+                  {skill.standards && skill.standards.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-0.5">
+                      {skill.standards.map((code, j) => (
+                        <StandardBadge
+                          key={j}
+                          code={code}
+                          color={gradeColor}
+                          hoveredStandard={hoveredStandard}
+                          onHover={onStandardHover}
+                          onLeave={onStandardLeave}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -594,9 +592,9 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
                     if (quarterUnits.length === 0) return null;
 
                     return (
-                      <div key={grade} className="space-y-4">
+                      <div key={grade} className="space-y-2">
                         {quarterUnits.map((unit, i) => (
-                          <GradeUnitCard
+                          <GradeUnitAccordion
                             key={`${grade}-${i}`}
                             grade={grade}
                             unit={unit}
