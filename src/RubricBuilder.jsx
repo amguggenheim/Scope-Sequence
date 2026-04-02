@@ -36,11 +36,18 @@ const RubricBuilder = ({ standardsReference = {}, units: unitsProp = [], grade =
   const rubricGrade = grade;
   const [rubricUnit, setRubricUnit] = useState('1');
   const [copied, setCopied] = useState(false);
-  const [rubricData, setRubricData] = useState({});
+  const [rubricData, setRubricData] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('rubricData') || '{}'); } catch { return {}; }
+  });
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const tableRef = useRef(null);
 
   const units = unitsProp;
+
+  // Persist rubric data to localStorage
+  useEffect(() => {
+    localStorage.setItem('rubricData', JSON.stringify(rubricData));
+  }, [rubricData]);
 
   // Reset unit selection when grade changes and current unit exceeds available units
   useEffect(() => {
