@@ -405,15 +405,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* View Toggle + About */}
-          <div className="flex items-center gap-3 sm:gap-4">
-            <button
-              onClick={() => setShowAbout(true)}
-              className="px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-150"
-              style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#C8B89A' }}
-            >
-              ℹ About
-            </button>
+          {/* View Toggle */}
+          <div className="flex items-center gap-4 sm:gap-6">
             <div className="flex rounded-lg p-1 gap-1 text-xs sm:text-sm backdrop-blur-sm" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
               {[['overview', 'Curriculum Overview'], ['rubric', 'Create a Rubric'], ['department', 'Department View']].map(([view, label]) => (
                 <button
@@ -485,6 +478,17 @@ export default function App() {
         {activeView === 'rubric' && <RubricBuilder standardsReference={gradeStandardsReference[selectedGrade] || {}} units={GRADE_UNITS[selectedGrade] || []} grade={selectedGrade} />}
         {activeView === 'department' && <DepartmentView gradeUnits={GRADE_UNITS} standardsRef={gradeStandardsReference} />}
       </main>
+
+      {/* Footer */}
+      <footer className="max-w-5xl mx-auto px-4 sm:px-8 py-6 flex items-center justify-between border-t border-stone-200 mt-4">
+        <p className="text-xs text-slate-400">Cherry Creek School District</p>
+        <button
+          onClick={() => setShowAbout(true)}
+          className="text-xs text-slate-400 hover:text-slate-600 underline transition-colors"
+        >
+          About this resource
+        </button>
+      </footer>
 
       {/* About Modal */}
       {showAbout && (
