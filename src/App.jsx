@@ -480,11 +480,10 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="max-w-5xl mx-auto px-4 sm:px-8 py-6 flex items-center justify-between border-t border-stone-200 mt-4">
-        <p className="text-xs text-slate-400">Cherry Creek School District</p>
+      <footer className="max-w-5xl mx-auto px-4 sm:px-8 py-6 flex justify-center border-t border-stone-200 mt-4">
         <button
           onClick={() => setShowAbout(true)}
-          className="text-xs text-slate-400 hover:text-slate-600 underline transition-colors"
+          className="text-sm text-slate-500 hover:text-slate-700 underline transition-colors"
         >
           About this resource
         </button>
