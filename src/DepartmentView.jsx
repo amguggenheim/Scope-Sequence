@@ -444,6 +444,15 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
   const grades = ['9', '10', '11', '12'];
   const maxUnits = Math.max(...grades.map((g) => (gradeUnits[g] || []).length));
 
+  // Quarter-to-unit mapping per grade (0-indexed unit indices)
+  const QUARTER_MAP = {
+    '9':  { 1: [0], 2: [1], 3: [2, 3], 4: [4] },
+    '10': { 1: [0], 2: [1], 3: [2], 4: [3] },
+    '11': { 1: [0, 1], 2: [2, 3], 3: [4, 5], 4: [6, 7] },
+    '12': { 1: [0, 1], 2: [2, 3], 3: [4, 5], 4: [6, 7] },
+  };
+  const quarters = [1, 2, 3, 4];
+
   return (
     <div className="space-y-6">
       {/* Sub-tab Toggle */}
@@ -550,14 +559,13 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
             ))}
           </div>
 
-          {/* Unit Rows */}
-          {Array.from({ length: maxUnits }, (_, unitIdx) => {
-            const unitNum = unitIdx + 1;
-            const color = UNIT_COLORS[unitNum] || UNIT_COLORS[1];
+          {/* Quarter Rows */}
+          {quarters.map((q) => {
+            const color = UNIT_COLORS[q] || UNIT_COLORS[1];
 
             return (
-              <section key={unitIdx}>
-                {/* Unit Header Bar */}
+              <section key={q}>
+                {/* Quarter Header Bar */}
                 <div
                   className="rounded-t-lg px-4 py-2.5 flex items-center gap-2"
                   style={{
@@ -565,17 +573,11 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
                     color: 'white',
                   }}
                 >
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center font-semibold flex-shrink-0"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.25)', fontSize: '11px' }}
-                  >
-                    {unitNum}
-                  </div>
                   <span
                     className="text-sm font-semibold"
                     style={{ fontFamily: "'Fraunces', Georgia, serif" }}
                   >
-                    Unit {unitNum}
+                    Quarter {q}
                   </span>
                 </div>
 
@@ -586,19 +588,25 @@ export default function DepartmentView({ gradeUnits, standardsRef }) {
                 >
                   {grades.map((grade) => {
                     const units = gradeUnits[grade] || [];
-                    const unit = units[unitIdx];
-                    return unit ? (
-                      <GradeUnitCard
-                        key={grade}
-                        grade={grade}
-                        unit={unit}
-                        unitColor={color}
-                        hoveredStandard={hoveredStandard}
-                        onStandardHover={handleStandardHover}
-                        onStandardLeave={handleStandardLeave}
-                      />
-                    ) : (
-                      <EmptyCard key={grade} grade={grade} />
+                    const unitIndices = QUARTER_MAP[grade]?.[q] || [];
+                    const quarterUnits = unitIndices.map(i => units[i]).filter(Boolean);
+
+                    if (quarterUnits.length === 0) return null;
+
+                    return (
+                      <div key={grade} className="space-y-4">
+                        {quarterUnits.map((unit, i) => (
+                          <GradeUnitCard
+                            key={`${grade}-${i}`}
+                            grade={grade}
+                            unit={unit}
+                            unitColor={color}
+                            hoveredStandard={hoveredStandard}
+                            onStandardHover={handleStandardHover}
+                            onStandardLeave={handleStandardLeave}
+                          />
+                        ))}
+                      </div>
                     );
                   })}
                 </div>
